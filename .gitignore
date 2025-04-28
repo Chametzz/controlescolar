@@ -1,0 +1,47 @@
+# .NET Core
+bin/
+obj/
+
+# Archivos de configuración de Visual Studio
+.vs/
+.vscode/
+.idea/
+
+# Archivos de usuario
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de Visual Studio Code
+.vscode/*
+
+# Archivos temporales de compilación
+.DS_Store
+Thumbs.db
+
+# Archivos específicos de la plataforma
+*.exe
+*.dll
+*.pdb
+*.dbmdl
+
+# Archivos de dependencias de NuGet
+packages/
+
+# Logs y carpetas de errores
+logs/
+**/logs/
+
+# Archivos de configuración de nuget
+.nuget/
+# Configuración específica de sistemas operativos
+*.swp
+
+# Archivos de copia de seguridad y temporales
+*~
+*.bak
+*.tmp
+
+# Archivos generados por el usuario y Visual Studio
+# Son solo para configuración local y no deben compartirse en un repositorio
