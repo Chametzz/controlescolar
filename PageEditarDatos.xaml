@@ -6,9 +6,122 @@
       xmlns:local="clr-namespace:controlescolar"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageEditarDatos">
+      Title="PageEditarDatos"
+      Background="White">
 
-    <Grid>
-        
-    </Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <Border BorderBrush="#DDD" BorderThickness="1" Padding="20" CornerRadius="10" Margin="0 0 0 20">
+                <StackPanel>
+                    <TextBlock Text="Editar Domicilio" FontSize="18" FontWeight="Bold" Margin="0 0 0 10"/>
+
+                    <WrapPanel Margin="0 10" ItemHeight="60">
+                        <StackPanel Margin="5">
+                            <Label Content="Nombre"/>
+                            <TextBox Width="250" Text="......."/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Estado"/>
+                            <ComboBox Width="250" SelectedIndex="0">
+                                <ComboBoxItem Content="........."/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Municipio"/>
+                            <ComboBox Width="250" SelectedIndex="0">
+                                <ComboBoxItem Content="........."/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Ciudad"/>
+                            <ComboBox Width="250" SelectedIndex="0">
+                                <ComboBoxItem Content="......."/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Código postal"/>
+                            <TextBox Width="250" Text="........"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Colonia"/>
+                            <ComboBox Width="250" SelectedIndex="0">
+                                <ComboBoxItem Content="......."/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Calle"/>
+                            <TextBox Width="250" Text="......."/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Número exterior"/>
+                            <TextBox Width="250" Text="......."/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Número interior"/>
+                            <TextBox Width="250"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Teléfono casa"/>
+                            <TextBox Width="250"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Teléfono celular"/>
+                            <TextBox Width="250" Text="......."/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <Button Content="ENVIAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
+                </StackPanel>
+            </Border>
+
+            <Border BorderBrush="#DDD" BorderThickness="1" Padding="20" CornerRadius="10">
+                <StackPanel>
+                    <DockPanel Margin="0 0 0 10">
+                        <TextBlock Text="Editar Contactos" FontSize="18" FontWeight="Bold" DockPanel.Dock="Left"/>
+                        <Button Content="AGREGAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
+                    </DockPanel>
+
+                    <DataGrid AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Height="200" Margin="0 10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Apellido paterno" Binding="{Binding ApellidoPaterno}" Width="*"/>
+                            <DataGridTextColumn Header="Apellido materno" Binding="{Binding ApellidoMaterno}" Width="*"/>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
+                            <DataGridTextColumn Header="Teléfono casa" Binding="{Binding TelCasa}" Width="*"/>
+                            <DataGridTextColumn Header="Teléfono celular" Binding="{Binding TelCel}" Width="*"/>
+                            <DataGridTextColumn Header="Relación" Binding="{Binding Relacion}" Width="*"/>
+                            <DataGridTemplateColumn Header="Editar">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="" Width="25" Margin="2"/>
+                                            <Button Content="" Width="25" Margin="2"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="Elementos por página:" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                        <ComboBox Width="50" SelectedIndex="0">
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="20"/>
+                        </ComboBox>
+                        <TextBlock Text=" 1-2 de 2" VerticalAlignment="Center" Margin="10 0"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
 </Page>

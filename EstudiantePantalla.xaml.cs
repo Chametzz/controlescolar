@@ -31,8 +31,12 @@ namespace controlescolar
 
         private void BtnEditarDatos_Click(object sender, RoutedEventArgs e)
         {
-
+            AlumnoFrame.Navigate(new PageEditarDatos());
         }
 
+        private void AlumnoFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
     }
 }

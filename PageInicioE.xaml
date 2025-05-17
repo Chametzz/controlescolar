@@ -6,7 +6,9 @@
       xmlns:local="clr-namespace:controlescolar"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="InicioE">
+      Title="InicioE"
+      Background="White">
+
 
     <Grid>
         <Grid.RowDefinitions>

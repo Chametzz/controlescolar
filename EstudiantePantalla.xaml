@@ -37,6 +37,6 @@
             </StackPanel>
 
         </Grid>
-        <Frame x:Name="AlumnoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="126,30,0,-10"/>
+        <Frame x:Name="AlumnoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="126,60,0,-40" Navigated="AlumnoFrame_Navigated"/>
     </Grid>
 </Window>
