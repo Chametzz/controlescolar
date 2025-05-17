@@ -18,65 +18,65 @@
                     <WrapPanel Margin="0 10" ItemHeight="60">
                         <StackPanel Margin="5">
                             <Label Content="Nombre"/>
-                            <TextBox Width="250" Text="......."/>
+                            <TextBox x:Name="nombre" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Estado"/>
-                            <ComboBox Width="250" SelectedIndex="0">
+                            <ComboBox x:Name="estado" Width="250" SelectedIndex="0">
                                 <ComboBoxItem Content="........."/>
                             </ComboBox>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Municipio"/>
-                            <ComboBox Width="250" SelectedIndex="0">
+                            <ComboBox x:Name="Municipio" Width="250" SelectedIndex="0">
                                 <ComboBoxItem Content="........."/>
                             </ComboBox>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Ciudad"/>
-                            <ComboBox Width="250" SelectedIndex="0">
+                            <ComboBox x:Name="Ciudad" Width="250" SelectedIndex="0">
                                 <ComboBoxItem Content="......."/>
                             </ComboBox>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Código postal"/>
-                            <TextBox Width="250" Text="........"/>
+                            <TextBox x:Name="codigoPostal" Width="250" Text="........"/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Colonia"/>
-                            <ComboBox Width="250" SelectedIndex="0">
+                            <ComboBox x:Name="colonia" Width="250" SelectedIndex="0">
                                 <ComboBoxItem Content="......."/>
                             </ComboBox>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Calle"/>
-                            <TextBox Width="250" Text="......."/>
+                            <TextBox x:Name="calle" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Número exterior"/>
-                            <TextBox Width="250" Text="......."/>
+                            <TextBox x:Name="numExterior" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Número interior"/>
-                            <TextBox Width="250"/>
+                            <TextBox x:Name="numInterior" Width="250"/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Teléfono casa"/>
-                            <TextBox Width="250"/>
+                            <TextBox x:Name="telefCasa" Width="250"/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Teléfono celular"/>
-                            <TextBox Width="250" Text="......."/>
+                            <TextBox x:Name="telefCelular" Width="250" Text="......."/>
                         </StackPanel>
                     </WrapPanel>
                     <Button Content="ENVIAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>

@@ -24,7 +24,7 @@
                                 <ComboBoxItem Content="......"/>
                             </ComboBox>
                         </StackPanel>
-                        <Button Content="DESCARGAR BOLETA" Margin="20 25 0 0" Padding="10 5"
+                        <Button x:Name="descargarBoleta" Content="DESCARGAR BOLETA" Margin="20 25 0 0" Padding="10 5"
                             HorizontalAlignment="Left" Background="#216b4a" Foreground="White"/>
                     </StackPanel>
                 </StackPanel>

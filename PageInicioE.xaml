@@ -28,7 +28,7 @@
                                      HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                         <StackPanel Grid.Column="1" Margin="10,0">
-                            <TextBlock Text="Datos del alumno de la carrera" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="datosAlumno" Text="Datos del alumno de la carrera" FontWeight="Bold" FontSize="14"/>
                         </StackPanel>
                     </Grid>
                 </GroupBox>
