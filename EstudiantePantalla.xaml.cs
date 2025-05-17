@@ -34,9 +34,17 @@ namespace controlescolar
             AlumnoFrame.Navigate(new PageEditarDatos());
         }
 
-        private void AlumnoFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        private void BtnHorario_Click(object sender, RoutedEventArgs e)
         {
+            AlumnoFrame.Navigate(new PageHorario());
 
         }
+        private void BtnCalificaciones_Click(object sender, RoutedEventArgs e)
+        {
+            AlumnoFrame.Navigate(new PageCalificaciones());
+
+        }
+
+        
     }
 }

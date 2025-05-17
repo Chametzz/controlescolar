@@ -27,8 +27,8 @@
             <StackPanel Grid.Column="0" Background="#F2F2F2">
                 <Button x:Name="BtnInicio" Content="Inicio" Margin="10" Padding="5" Click="BtnInicio_Click"/>
                 <Button x:Name="BtnEditarDatos" Content="Editar datos" Margin="10" Padding="5" Click="BtnEditarDatos_Click"/>
-                <Button x:Name="BtnHorario" Content="Horario" Margin="10" Padding="5"/>
-                <Button x:Name="BtnCalificaciones" Content="Calificaciones" Margin="10" Padding="5"/>
+                <Button x:Name="BtnHorario" Content="Horario" Margin="10" Padding="5" Click="BtnHorario_Click"/>
+                <Button x:Name="BtnCalificaciones" Content="Calificaciones" Margin="10" Padding="5" Click="BtnCalificaciones_Click"/>
                 <Button x:Name="BtnKardex" Content="Kardex" Margin="10" Padding="5"/>
                 <Button x:Name="BtnHistoricos" Content="Histórico de actividades" Margin="10" Padding="5"/>
                 <Button x:Name="BtnRecibos" Content="Recibos" Margin="10" Padding="5"/>
@@ -37,6 +37,6 @@
             </StackPanel>
 
         </Grid>
-        <Frame x:Name="AlumnoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="126,60,0,-40" Navigated="AlumnoFrame_Navigated"/>
+        <Frame x:Name="AlumnoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="126,60,0,-40"/>
     </Grid>
 </Window>
