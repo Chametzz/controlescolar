@@ -20,4 +20,11 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        EstudiantePantalla ventanaPEstudiante = new EstudiantePantalla();
+        ventanaPEstudiante.Show();
+        this.Close();
+    }
 }

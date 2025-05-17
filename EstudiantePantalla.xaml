@@ -1,0 +1,43 @@
+﻿<Window x:Class="controlescolar.EstudiantePantalla"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:controlescolar"
+        mc:Ignorable="d"
+        Title="EstudiantePantalla" Height="450" Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="607*"/>
+            <ColumnDefinition Width="126*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Background="#216b4a" Height="60" VerticalAlignment="Top" Grid.ColumnSpan="3">
+            <TextBlock Text="Nombre de la institucion"
+                       Foreground="White" FontSize="16"
+                       Margin="10,0" VerticalAlignment="Center"
+                       FontWeight="Bold"/>
+        </DockPanel>
+        <Grid Margin="0,60,0,0" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Background="#F2F2F2">
+                <Button x:Name="BtnInicio" Content="Inicio" Margin="10" Padding="5" Click="BtnInicio_Click"/>
+                <Button x:Name="BtnEditarDatos" Content="Editar datos" Margin="10" Padding="5" Click="BtnEditarDatos_Click"/>
+                <Button x:Name="BtnHorario" Content="Horario" Margin="10" Padding="5"/>
+                <Button x:Name="BtnCalificaciones" Content="Calificaciones" Margin="10" Padding="5"/>
+                <Button x:Name="BtnKardex" Content="Kardex" Margin="10" Padding="5"/>
+                <Button x:Name="BtnHistoricos" Content="Histórico de actividades" Margin="10" Padding="5"/>
+                <Button x:Name="BtnRecibos" Content="Recibos" Margin="10" Padding="5"/>
+                <Button x:Name="BtnCargaMateria" Content="Carga de Materias" Margin="10" Padding="5"/>
+                <Button x:Name="BtnTickets" Content="Tickets" Margin="10" Padding="5"/>
+                <Button x:Name="BtnEavluacionDocente" Content="Evaluación docente" Margin="10" Padding="5"/>
+            </StackPanel>
+
+        </Grid>
+        <Frame x:Name="AlumnoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="126,30,0,-10"/>
+    </Grid>
+</Window>
