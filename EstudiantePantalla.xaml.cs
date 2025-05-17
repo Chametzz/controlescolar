@@ -45,6 +45,29 @@ namespace controlescolar
 
         }
 
-        
+        private void BtnKardex_Click(object sender, RoutedEventArgs e)
+        {
+            AlumnoFrame.Navigate(new PageKardex());
+        }
+
+        private void BtnHistoricos_Click(object sender, RoutedEventArgs e)
+        {
+            AlumnoFrame.Navigate(new PageHistoricos());
+        }
+
+        private void BtnRecibos_Click(object sender, RoutedEventArgs e)
+        {
+            AlumnoFrame.Navigate(new PageRecibos());
+        }
+
+        private void BtnCargaMateria_Click(object sender, RoutedEventArgs e)
+        {
+            AlumnoFrame.Navigate(new PageCargaMateria());
+        }
+        private void BtnTickets_Click(object sender, RoutedEventArgs e)
+        {
+            AlumnoFrame.Navigate(new PageTickets());
+        }
+
     }
 }

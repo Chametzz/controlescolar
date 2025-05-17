@@ -29,11 +29,11 @@
                 <Button x:Name="BtnEditarDatos" Content="Editar datos" Margin="10" Padding="5" Click="BtnEditarDatos_Click"/>
                 <Button x:Name="BtnHorario" Content="Horario" Margin="10" Padding="5" Click="BtnHorario_Click"/>
                 <Button x:Name="BtnCalificaciones" Content="Calificaciones" Margin="10" Padding="5" Click="BtnCalificaciones_Click"/>
-                <Button x:Name="BtnKardex" Content="Kardex" Margin="10" Padding="5"/>
-                <Button x:Name="BtnHistoricos" Content="Histórico de actividades" Margin="10" Padding="5"/>
-                <Button x:Name="BtnRecibos" Content="Recibos" Margin="10" Padding="5"/>
-                <Button x:Name="BtnCargaMateria" Content="Carga de Materias" Margin="10" Padding="5"/>
-                <Button x:Name="BtnTickets" Content="Tickets" Margin="10" Padding="5"/>
+                <Button x:Name="BtnKardex" Content="Kardex" Margin="10" Padding="5" Click="BtnKardex_Click"/>
+                <Button x:Name="BtnHistoricos" Content="Histórico de actividades" Margin="10" Padding="5" Click="BtnHistoricos_Click"/>
+                <Button x:Name="BtnRecibos" Content="Recibos" Margin="10" Padding="5" Click="BtnRecibos_Click"/>
+                <Button x:Name="BtnCargaMateria" Content="Carga de Materias" Margin="10" Padding="5" Click="BtnCargaMateria_Click"/>
+                <Button x:Name="BtnTickets" Content="Tickets" Margin="10" Padding="5" Click="BtnTickets_Click" />
             </StackPanel>
 
         </Grid>
