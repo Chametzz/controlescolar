@@ -22,6 +22,7 @@ namespace controlescolar
         public EstudiantePantalla()
         {
             InitializeComponent();
+            AlumnoFrame.Navigate(new InicioE());
         }
 
         private void BtnInicio_Click(object sender, RoutedEventArgs e)
