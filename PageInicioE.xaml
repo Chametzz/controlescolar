@@ -24,7 +24,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Ellipse Width="80" Height="80" Fill="#0D2D62" Grid.Column="0"
+                        <Ellipse x:Name="fotoAlumno" Width="80" Height="80" Fill="#0D2D62" Grid.Column="0"
                                      HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                         <StackPanel Grid.Column="1" Margin="10,0">
@@ -35,7 +35,7 @@
 
                 <Expander Header="Datos personales" IsExpanded="False" Margin="0,10">
 
-                    <TextBlock Text="Aqui aparezcan los datos generales del alumno? mas personales" Margin="10"/>
+                    <TextBlock x:Name="datosPersonales" Text="Aqui aparezcan los datos generales del alumno? mas personales" Margin="10"/>
                 </Expander>
 
                 <Expander Header="Información de carga académica" IsExpanded="False" Margin="0,10">

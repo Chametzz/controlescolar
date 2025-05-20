@@ -23,8 +23,8 @@ public partial class MainWindow : Window
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        EstudiantePantalla ventanaPEstudiante = new EstudiantePantalla();
-        ventanaPEstudiante.Show();
+        Login ventanaLogin = new Login();
+        ventanaLogin.Show();
         this.Close();
     }
 }
