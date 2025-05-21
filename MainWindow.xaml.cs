@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace controlescolar;
 
@@ -18,13 +19,22 @@ public partial class MainWindow : Window
 {
     public MainWindow()
     {
-        InitializeComponent();
+        Console.WriteLine("¿Quieres abrir el entorno de pruebas [Y/N]?");
+        string option = Console.ReadLine();
+        if (option == "Y")
+        {
+            this.Close();
+        }
+        else
+        {
+            InitializeComponent();
+        }
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        EstudiantePantalla ventanaPEstudiante = new EstudiantePantalla();
-        ventanaPEstudiante.Show();
+        Login ventanaLogin = new Login();
+        ventanaLogin.Show();
         this.Close();
     }
 }
