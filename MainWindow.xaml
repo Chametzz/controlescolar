@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:controlescolar"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ResizeMode="CanMinimize"
+        Title="LoginAlumno" Height="450" Width="800">
+    <Grid VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" Width="250">
+            <TextBlock Text="La pantalla rpincipal p" Margin="0,10,0,0" FontSize="14" />
+            <Button Content="LOGIN" Background="#216b4a" Foreground="White" Margin="0,20,0,0" Height="40" Click="Button_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

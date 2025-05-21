@@ -1,0 +1,126 @@
+﻿<Page x:Class="controlescolar.PageEditarDatos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:controlescolar"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="PageEditarDatos"
+      Background="White" Height="898">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <Border BorderBrush="#DDD" BorderThickness="1" Padding="20" CornerRadius="10" Margin="0 0 0 20">
+                <StackPanel>
+                    <TextBlock Text="Editar Domicilio" FontSize="18" FontWeight="Bold" Margin="0 0 0 10"/>
+
+                    <WrapPanel Margin="0 10" ItemHeight="60">
+                        <StackPanel Margin="5">
+                            <Label Content="Nombre"/>
+                            <TextBox x:Name="nombre" Width="250" Text="......."/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Estado"/>
+                            <ComboBox x:Name="editEstado" Width="250" SelectedIndex="0">
+                                <ComboBoxItem Content="........."/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Municipio"/>
+                            <ComboBox x:Name="editMunicipio" Width="250" SelectedIndex="0">
+                                <ComboBoxItem Content="........."/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Ciudad"/>
+                            <ComboBox x:Name="editCiudad" Width="250" SelectedIndex="0">
+                                <ComboBoxItem Content="......."/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Código postal"/>
+                            <TextBox x:Name="editCP" Width="250" Text="........"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Colonia"/>
+                            <ComboBox x:Name="editColonia" Width="250" SelectedIndex="0">
+                                <ComboBoxItem Content="......."/>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Calle"/>
+                            <TextBox x:Name="editCalle" Width="250" Text="......."/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Número exterior"/>
+                            <TextBox x:Name="editNumE" Width="250" Text="......."/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Número interior"/>
+                            <TextBox x:Name="editNumI" Width="250"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Teléfono casa"/>
+                            <TextBox x:Name="editTelCasa" Width="250"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="5">
+                            <Label Content="Teléfono celular"/>
+                            <TextBox x:Name="editTelCelular" Width="250" Text="......."/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <Button x:Name="btnEnvEdit" Content="ENVIAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
+                </StackPanel>
+            </Border>
+
+            <Border BorderBrush="#DDD" BorderThickness="1" Padding="20" CornerRadius="10">
+                <StackPanel>
+                    <DockPanel Margin="0 0 0 10">
+                        <TextBlock Text="Editar Contactos" FontSize="18" FontWeight="Bold" DockPanel.Dock="Left"/>
+                        <Button x:Name="btnContactosEdit" Content="AGREGAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
+                    </DockPanel>
+
+                    <DataGrid x:Name="contactos" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Height="200" Margin="0 10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Apellido paterno" Binding="{Binding ApellidoPaterno}" Width="*"/>
+                            <DataGridTextColumn Header="Apellido materno" Binding="{Binding ApellidoMaterno}" Width="*"/>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*"/>
+                            <DataGridTextColumn Header="Teléfono casa" Binding="{Binding TelCasa}" Width="*"/>
+                            <DataGridTextColumn Header="Teléfono celular" Binding="{Binding TelCel}" Width="*"/>
+                            <DataGridTextColumn Header="Relación" Binding="{Binding Relacion}" Width="*"/>
+                            <DataGridTemplateColumn Header="Editar">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="" Width="25" Margin="2"/>
+                                            <Button Content="" Width="25" Margin="2"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="Elementos por página:" VerticalAlignment="Center" Margin="0 0 5 0"/>
+                        <ComboBox Width="50" SelectedIndex="0">
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="20"/>
+                        </ComboBox>
+                        <TextBlock Text=" 1-2 de 2" VerticalAlignment="Center" Margin="10 0"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
