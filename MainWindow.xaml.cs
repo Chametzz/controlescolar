@@ -20,10 +20,19 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         Console.WriteLine("¿Quieres abrir el entorno de pruebas [Y/N]?");
-        string option = Console.ReadLine();
+        string? option = Console.ReadLine();
+        Type? t = Type.GetType("Test");
         if (option == "Y")
         {
             this.Close();
+            if (t != null)
+            {
+                Activator.CreateInstance(t);
+            }
+            else
+            {
+                Console.WriteLine("No se encontró la clase \"Test\"");
+            }
         }
         else
         {

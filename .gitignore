@@ -45,3 +45,6 @@ logs/
 
 # Archivos generados por el usuario y Visual Studio
 # Son solo para configuración local y no deben compartirse en un repositorio
+
+Test.cs
+test.cs
