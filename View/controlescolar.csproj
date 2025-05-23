@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+	 <AssemblyName>controlescolar</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="View\IconPanelEmpleado\calendario.png" />
+    <None Remove="View\IconPanelEmpleado\calificaciones.png" />
+    <None Remove="View\IconPanelEmpleado\libros.png" />
+    <None Remove="View\IconPanelEmpleado\marca-x.png" />
+    <None Remove="View\IconPanelEmpleado\menu-hamburguesa.png" />
+    <None Remove="View\IconPanelEmpleado\menu.png" />
+    <None Remove="View\IconPanelEmpleado\reporte.png" />
+    <None Remove="View\IconPanelEmpleado\usuario.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="5.2.2-ci998" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\IconPanelEmpleado\calendario.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\IconPanelEmpleado\calificaciones.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\IconPanelEmpleado\libros.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\IconPanelEmpleado\marca-x.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\IconPanelEmpleado\menu-hamburguesa.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\IconPanelEmpleado\menu.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\IconPanelEmpleado\reporte.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\IconPanelEmpleado\usuario.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

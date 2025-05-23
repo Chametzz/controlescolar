@@ -1,0 +1,390 @@
+﻿<Page x:Class="controlescolar.View.UpdateDataPersonal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:local="clr-namespace:controlescolar.View"
+      xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+      xmlns:l="clr-namespace:controlescolar.View"
+      xmlns:controls="clr-namespace:controlescolar.View"
+      xmlns:cc="clr-namespace:controlescolar.View"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:sysc="clr-namespace:System.Collections;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UpdateDataPersonal">
+
+    <Grid xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf">
+        <Grid.Resources>
+            <local:ScrollLimitConverter x:Key="scrollLimitConverter"></local:ScrollLimitConverter>
+            <Style x:Key="CustomTealTextBox" TargetType="TextBox" BasedOn="{StaticResource  MaterialDesignFloatingHintTextBox}">
+                <Setter Property="wpf:TextFieldAssist.UnderlineBrush" Value="#023859" />
+                <Setter Property="wpf:HintAssist.Foreground" Value="#023859"/>
+
+            </Style>
+            <Style x:Key="CustomTealPasswordBox" TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+                <Setter Property="wpf:TextFieldAssist.UnderlineBrush" Value="Green" />
+                <Setter Property="wpf:HintAssist.Foreground" Value="Green" />
+            </Style>
+            <Style x:Key="SolidColorBtn" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                <Setter Property="Background" Value="#0026CA"/>
+                <Setter Property="Foreground" Value="#FFFF"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="btnBorder" CornerRadius="5" Background="{TemplateBinding Background}" Width="{TemplateBinding Width}"
+                     BorderThickness="{TemplateBinding BorderThickness}"
+                     SnapsToDevicePixels="True">
+                                <ContentPresenter x:Name="ContenPresenten" Focusable="False" 
+                                   HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                   VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                   Margin="{TemplateBinding Padding}"
+                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                   RecognizesAccessKey="True"/>
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth=".5" Direction="0" Opacity="0.5"/>
+                                </Border.Effect>
+
+                                <Border.Triggers>
+                                    <EventTrigger RoutedEvent="MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Effect.Opacity"
+  To="2" BeginTime="0:0:0" Duration="0:0:0.3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+
+                                    <EventTrigger RoutedEvent="MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Storyboard.TargetProperty="Effect.Opacity"
+  To="0.5" BeginTime="0:0:0" Duration="0:0:0.3" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Border.Triggers>
+
+                            </Border>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="btnBorder" Property="Background" Value="#304FFE"/>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter TargetName="btnBorder" Property="Background" Value="#0026CA"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+            </Style>
+            <Style TargetType="ScrollBar">
+
+                <Setter Property="SnapsToDevicePixels"
+                    Value="True"/>
+                <Setter Property="OverridesDefaultStyle"
+                    Value="True"/>
+
+                <!--// Style Trigger //-->
+
+                <Style.Triggers>
+                    <Trigger Property="Orientation"
+                         Value="Vertical">
+                        <Setter Property="Width"
+                            Value="50"/>
+                        <Setter Property="Margin" Value="0,0,0,0" />
+                        <!--// Create a style template for the scrollbar //-->
+                        <Setter Property="Template"
+                            Value="{DynamicResource VerticalScrollBar}"/>
+                    </Trigger>
+
+                </Style.Triggers>
+
+            </Style>
+            <ControlTemplate x:Key="VerticalScrollBar" TargetType="{x:Type ScrollBar}">
+                <Grid>
+                    <!-- DEFINIR FILAS -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <!-- Arriba -->
+                        <RowDefinition Height="*" />
+                        <!-- Track -->
+                        <RowDefinition Height="Auto" />
+                        <!-- Abajo -->
+                    </Grid.RowDefinitions>
+
+                    <!-- Fondo del Scrollbar -->
+                    <Border Grid.RowSpan="3"
+                CornerRadius="1"
+                Margin="10"
+                Background="#316C90"/>
+
+                    <!-- Botón arriba -->
+                    <Rectangle Grid.Row="0" Height="0" Visibility="Collapsed"/>
+
+                    <!-- Track en el centro -->
+                    <Track Name="PART_Track"
+               Grid.Row="1"
+               IsDirectionReversed="True"
+               Margin="0">
+                        <Track.DecreaseRepeatButton>
+                            <RepeatButton Visibility="Collapsed" Width="0" Height="0" IsEnabled="False"/>
+                        </Track.DecreaseRepeatButton>
+                        <Track.Thumb>
+                            <Thumb Style="{StaticResource ScrollBar_Thumb}" />
+                        </Track.Thumb>
+                        <Track.IncreaseRepeatButton>
+                            <RepeatButton Visibility="Collapsed" Width="0" Height="0" IsEnabled="False"/>
+                        </Track.IncreaseRepeatButton>
+                    </Track>
+
+                    <!-- Botón abajo -->
+                    <Rectangle Grid.Row="2" Height="0" Visibility="Collapsed"/>
+                </Grid>
+
+                <!-- Triggers para deshabilitar botones -->
+            </ControlTemplate>
+            <Style TargetType="{x:Type l:RippleEffectDecorator}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type l:RippleEffectDecorator}">
+                            <Grid x:Name="PART_grid" ClipToBounds="True" Background="{TemplateBinding Background}"
+                Width="{Binding ElementName=PART_contentpresenter, Path=ActualWidth}"
+                Height="{Binding ElementName=PART_contentpresenter, Path=ActualHeight}">
+                                <Ellipse x:Name="PART_ellipse"
+                            Fill="{Binding Path=HighlightBackground, RelativeSource={RelativeSource TemplatedParent}}" 
+                            Width="0" Height="{Binding Path=Width, RelativeSource={RelativeSource Self}}" 
+                            HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                                <ContentPresenter x:Name="PART_contentpresenter"/>
+
+                                <Grid.Resources>
+                                    <Storyboard x:Key="PART_animation" Storyboard.TargetName="PART_ellipse">
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" From="0" />
+                                        <ThicknessAnimation Storyboard.TargetProperty="Margin" />
+                                        <DoubleAnimation BeginTime="0:0:1" Duration="0:0:0.25" Storyboard.TargetProperty="Opacity"
+                    From="1" To="0" />
+                                        <DoubleAnimation Storyboard.TargetProperty="Width" To="0" BeginTime="0:0:1.25" Duration="0:0:0" />
+                                        <DoubleAnimation BeginTime="0:0:1.25" Duration="0:0:0" Storyboard.TargetProperty="Opacity" To="1" />
+                                    </Storyboard>
+                                </Grid.Resources>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+        <ListView x:Name="DataUsuario" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  ScrollViewer.CanContentScroll="False"
+          ScrollViewer.VerticalScrollBarVisibility="Auto"
+          ScrollViewer.PanningMode="Both">
+            <ListView.Resources>
+                <Style TargetType="ScrollBar"  BasedOn="{StaticResource MaterialDesignScrollBar}"/>
+            </ListView.Resources>
+            
+            <ListViewItem Height="200" Background="White" Margin="0,0,0,12">
+                <Grid Height="200" Width="800">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Datos Personales" Foreground="#023859" FontSize="13" FontWeight="Bold" Margin="50,10,0,0" VerticalAlignment="Top" />
+
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                            <TextBox x:Name="NombreTtxBx" Text="" Margin="12,0,12,0" HorizontalAlignment="Left" Width="200" Height="35" Style="{StaticResource CustomTealTextBox}" 
+                             materialDesign:HintAssist.Hint="Nombre" Grid.Row="0"/>
+                            <TextBox x:Name="ApellidoPtnTxtBx" Width="200" Height="35" Style="{StaticResource CustomTealTextBox}" 
+                                 materialDesign:HintAssist.Hint="Apellido Paterno" Margin="12,0,12,0"/>
+                            <TextBox  x:Name="ApellidoMttxt" Width="200" Height="35" Style="{StaticResource CustomTealTextBox}" 
+                                 materialDesign:HintAssist.Hint="Apellido Materno"/>
+                        </StackPanel>
+
+                        <TextBlock Text="Fecha de Nacimiento" Style="{StaticResource MaterialDesignOverlineTextBlock}" Foreground="#023859"
+                                   Background="Transparent" FontSize="13" Margin="64,49,0,15" Width="120" HorizontalAlignment="Left" Grid.RowSpan="2"/>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1">
+
+                            <TextBox  x:Name="DiaTxt" Width="60" Height="35" Style="{StaticResource CustomTealTextBox}" wpf:HintAssist.Hint="Dia" Margin="12,0,12,0"
+                                     TextAlignment="Left" HorizontalContentAlignment="Left"/>
+                            <ComboBox Width="100" x:Name="MesesCmbx"
+          Height="35"
+          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+          materialDesign:TextFieldAssist.UnderlineBrush="#023859"
+          materialDesign:HintAssist.Hint="Mes"
+          materialDesign:HintAssist.IsFloating="True" materialDesign:HintAssist.Foreground="#023859">
+                                <ComboBox.Resources>
+                                    <Style TargetType="ScrollBar" BasedOn="{StaticResource MaterialDesignScrollBar}" />
+                                </ComboBox.Resources>
+                                <ComboBoxItem Content="Enero"/>
+                                <ComboBoxItem Content="Febrero"/>
+                                <ComboBoxItem Content="Marzo"/>
+                                <ComboBoxItem Content="Abril"/>
+                                <ComboBoxItem Content="Mayo"/>
+                                <ComboBoxItem Content="Junio"/>
+                                <ComboBoxItem Content="Julio"/>
+                                <ComboBoxItem Content="Agosto"/>
+                                <ComboBoxItem Content="Septiembre"/>
+                                <ComboBoxItem Content="Octubre"/>
+                                <ComboBoxItem Content="Noviembre"/>
+                                <ComboBoxItem Content="Diciembre"/>
+                            </ComboBox>
+                            <TextBox x:Name="añoTbx" Width="60" Height="35" Style="{StaticResource CustomTealTextBox}" wpf:HintAssist.Hint="Año" Margin="12,0,12,0"
+                             TextAlignment="Left" HorizontalContentAlignment="Left"/>
+                            <TextBox x:Name="CurpTbx" Width="350" Height="35" Style="{StaticResource CustomTealTextBox}" wpf:HintAssist.Hint="CURP" Margin="12,0,12,0"
+                             TextAlignment="Left" HorizontalContentAlignment="Left"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="2">
+                            <TextBox x:Name="Telefono_PersonalTbx" Text="" Width="150" Height="35" Style="{StaticResource CustomTealTextBox}" wpf:HintAssist.Hint="Telefono Personal" Margin="12,0,12,0"
+                             TextAlignment="left" HorizontalContentAlignment="Left"/>
+                            <TextBox  x:Name="Telefono_ContactTbx" Text="" Width="150" Height="35" Style="{StaticResource CustomTealTextBox}" wpf:HintAssist.Hint="Telefono de Contacto" Margin="12,0,12,0"
+                             TextAlignment="Left" HorizontalContentAlignment="Left" />
+                            <TextBox  x:Name="CorreoPersonal_TextBox" Text="" Width="250" Height="35" Style="{StaticResource CustomTealTextBox}" wpf:HintAssist.Hint="Correo Electronico Personal" Margin="12,0,12,0"
+                             TextAlignment="Left" HorizontalContentAlignment="Left"/>
+                            <!-- Sustituye RippleEffectDecorator por un efecto visual compatible usando MaterialDesignThemes.Wpf:Ripple -->
+                            <Button Style="{StaticResource  SolidColorBtn}" Width="80" Height="30" Margin="12,6,12,0" Click="Button_Click"
+                                    materialDesign:RippleAssist.Feedback="White" Content="Enviar" materialDesign:TransitionAssist.DisableTransitions="True"
+                                    HorizontalContentAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </ListViewItem>
+            
+            
+            <ListViewItem Height="200" Background="White">
+                <Grid Height="200" Width="800">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+
+                    <TextBlock Foreground="#023859" FontSize="13" FontWeight="Bold" Margin="50,10,0,0" ><Run Text="Datos"/><Run Language="es-mx" Text=" Domiciliarios"/><LineBreak/><Run Language="es-mx"/></TextBlock>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <ComboBox Width="180" x:Name="EstadoCmbx"
+          Height="35" Margin="12,0,12,0"
+          Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+          materialDesign:TextFieldAssist.UnderlineBrush="#023859"
+          materialDesign:HintAssist.Hint="Estado"
+          materialDesign:HintAssist.IsFloating="True" materialDesign:HintAssist.Foreground="#023859">
+                            <ComboBox.Resources>
+                                <Style TargetType="ScrollBar" BasedOn="{StaticResource MaterialDesignScrollBar}" />
+                            </ComboBox.Resources>
+                        </ComboBox>
+                        <TextBox  x:Name="MunicipioTbx" Margin="12,0,12,0" HorizontalAlignment="Left" Width="200" Height="35"  Foreground="#023859" Style="{StaticResource CustomTealTextBox}" 
+                             materialDesign:HintAssist.Hint="Municipio"/>
+                        <TextBox x:Name="CiudadTxtbx" Text="" Margin="12,0,12,0" HorizontalAlignment="Left" Width="200" Height="35"  Foreground="#023859" Style="{StaticResource CustomTealTextBox}" 
+                             materialDesign:HintAssist.Hint="Ciudad"/>
+                        <TextBox x:Name="CdPTbx" Text="" Margin="12,0,12,0" HorizontalAlignment="Left" Width="120" Height="35"  Foreground="#023859" Style="{StaticResource CustomTealTextBox}" 
+                             materialDesign:HintAssist.Hint="Codigo Postal"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal">
+                        <TextBox x:Name="ColoniaTbx" Text="" Margin="12,0,12,0" HorizontalAlignment="Left" Width="300" Height="35"  Foreground="#023859" Style="{StaticResource CustomTealTextBox}" 
+                             materialDesign:HintAssist.Hint="Colonia"/>
+
+                        <TextBox x:Name="CalleTbx" Text="" Margin="12,0,12,0" HorizontalAlignment="Left" Width="300" Height="35"  Foreground="#023859" Style="{StaticResource CustomTealTextBox}" 
+                             materialDesign:HintAssist.Hint="Calle"/>
+
+                        <TextBox x:Name="NumeroExterioTbx" Text="" Margin="12,0,12,0" HorizontalAlignment="Left" Width="126" Height="35"  Foreground="#023859" Style="{StaticResource CustomTealTextBox}" 
+                             materialDesign:HintAssist.Hint="Numero Exterior"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Orientation="Horizontal">
+                        <TextBox x:Name="NumeroInteriorTxBx" Text="" Margin="12,0,12,0" HorizontalAlignment="Center" Width="300" Height="35"  Foreground="#023859" Style="{StaticResource CustomTealTextBox}" 
+                             materialDesign:HintAssist.Hint="Numero Interior"/>
+
+                        <TextBox x:Name="Telf_CasaTbx" Text="" Margin="12,0,12,0" HorizontalAlignment="Center" Width="300" Height="35"  Foreground="#023859" Style="{StaticResource CustomTealTextBox}" 
+                             materialDesign:HintAssist.Hint="Telefono Casa"/>
+
+                        <Button Style="{StaticResource  SolidColorBtn}" Width="80" Height="30" Margin="12,6,12,0" Click="Button_Click"
+                                    materialDesign:RippleAssist.Feedback="White" Content="Enviar" materialDesign:TransitionAssist.DisableTransitions="True"
+                                    HorizontalContentAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </ListViewItem>
+
+
+
+
+            <!-- Styles item List-->
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="12,12,12,12"
+                         BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                                    <Border.Effect>
+                                        <DropShadowEffect  x:Name="Shadow" BlurRadius="6" ShadowDepth="1" Color="#FF000000" Opacity="0.5"/>
+                                    </Border.Effect>
+                                    <Border.Triggers>
+                                        <EventTrigger RoutedEvent="MouseEnter">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Effect.Opacity"
+                                     To="2" BeginTime="0:0:0" Duration="0:0:0.3" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+
+                                        <EventTrigger RoutedEvent="MouseLeave">
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <DoubleAnimation Storyboard.TargetProperty="Effect.Opacity"
+                                     To="0.5" BeginTime="0:0:0" Duration="0:0:0.3" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </EventTrigger>
+                                    </Border.Triggers>
+
+                                </Border>
+
+                                <ControlTemplate.Triggers>
+                                    <MultiTrigger>
+                                        <MultiTrigger.Conditions>
+                                            <Condition Property="IsMouseOver" Value="True"/>
+                                        </MultiTrigger.Conditions>
+                                        <Setter Property="Background"
+                     TargetName="Bd"
+                     Value="White"/>
+                                        <Setter Property="BorderBrush"
+                     TargetName="Bd"
+                     Value="Transparent"/>
+                                    </MultiTrigger>
+
+
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        
+        
+    </Grid>
+
+
+</Page>
+
+
