@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 public class DB {
-    protected static string connectionString = "";
+    protected static string connectionString = ;
     protected SqlConnection connection;
     protected string table = "";
 
@@ -12,8 +12,8 @@ public class DB {
         connection = new SqlConnection(connectionString);
     }
 
-    public static void SetConnectionString(string server, string database, string user, string password) {
-        connectionString = $"Server={server};Database={database};User Id={user};Password={password};TrustServerCertificate=True;";
+    public static string SetConnectionString(string server, string database, string user, string password) {
+        return $"Server={server};Database={database};User Id={user};Password={password};TrustServerCertificate=True;";
     }
 
     public bool Create(string columns, string values) {
