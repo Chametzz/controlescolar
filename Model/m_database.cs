@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 public class DB {
-    protected static string connectionString = ;
+    protected static string connectionString = SetConnectionString("localhost", "controlescolar_db", "root", "123");
     protected SqlConnection connection;
     protected string table = "";
 
