@@ -40,8 +40,21 @@ public class DB {
         }
         return result;
     }
+    public Dictionary<string, object?>? ReadFirst(string condition = "1=1")
+    {
+        var data = Read(condition);
+        if (data.Count > 0)
+        {
+            return data[0];
+        }
+        else
+        {
+            return null;
+        }
+    }
 
-    public bool Update(string setColumns, string condition) {
+    public bool Update(string setColumns, string condition)
+    {
         string query = $"UPDATE {table} SET {setColumns} WHERE {condition}";
         return ExecuteQuery(query);
     }
