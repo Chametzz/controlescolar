@@ -30,5 +30,15 @@ namespace controlescolar
             AdmonFrame.Navigate(new AgEmpleado());
 
         }
+
+        private void BtnSalario_Click(object sender, RoutedEventArgs e)
+        {
+            AdmonFrame.Navigate(new PageSalario());
+        }
+
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

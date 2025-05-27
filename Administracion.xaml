@@ -12,16 +12,16 @@
         ShowInTaskbar="True">
     <Grid Background="#F5F5F5" RenderTransformOrigin="0.504,0.494">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="225"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Background="#216b4a" Grid.Column="0">
             <TextBlock Text="Bievenido a Administracion" Foreground="White" FontSize="16" Margin="10"/>
             <Button Content="Agregar Empleado" Margin="10" Height="40" Click="BtnAgEmpleado_Click"/>
-            <Button Content="Salario" Margin="10" Height="40"/>
-            <Button Content="Salir" Margin="10" Height="40"/>
+            <Button Content="Salario" Margin="10" Height="40" Click="BtnSalario_Click"/>
+            <Button Content="Salir" Margin="10" Height="40" Click="BtnSalir_Click"/>
         </StackPanel>
-        <Frame x:Name="AdmonFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="21,9,10,10"/>
+        <Frame x:Name="AdmonFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Margin="10,9,10,10"/>
 
     </Grid>
 </Window>

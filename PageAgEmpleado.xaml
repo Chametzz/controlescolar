@@ -13,7 +13,7 @@
         <DataGrid x:Name="DatosEmpleado" AutoGenerateColumns="False" Height="200" Margin="10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="40"/>
-                <DataGridTextColumn Header="Usuario" Binding="{Binding Empleado}" Width="100"/>
+                <DataGridTextColumn Header="EmpleadoID" Binding="{Binding Empleado}" Width="100"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="150"/>
                 <DataGridTextColumn Header="Genero" Binding="{Binding Genero}" Width="80"/>
                 <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" Width="100"/>
