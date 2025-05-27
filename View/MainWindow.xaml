@@ -38,8 +38,7 @@
 
             <UniformGrid Columns="3" HorizontalAlignment="Center">
 
-                <Button x:Name="btnAlumno" 
-                        Style="{StaticResource MenuButtonStyle}">
+                <Button x:Name="BtnAlumno" Tag="BtnPantAlumno" Style="{StaticResource MenuButtonStyle}" Click="BtnAlumno_Click">
                     <StackPanel>
                         <Image Source="/Recursos/student-icon.png" Width="80" Height="80"/>
                         <TextBlock Text="ALUMNO" 
@@ -51,8 +50,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button x:Name="btnDocente" 
-                        Style="{StaticResource MenuButtonStyle}">
+                <Button x:Name="BtnDocente" Tag="BtnPantDocente" Style="{StaticResource MenuButtonStyle}" Click="BtnDocente_Click">
                     <StackPanel>
                         <Image Source="/Recursos/teacher-icon.png" Width="80" Height="80"/>
                         <TextBlock Text="DOCENTE" 
@@ -64,7 +62,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button x:Name="btnAdministracion" Style="{StaticResource MenuButtonStyle}">
+                <Button x:Name="BtnAdministracion" Tag="BtnPantAdmon" Style="{StaticResource MenuButtonStyle}" Click="BtnAdmon_Click">
                     <StackPanel>
                         <Image Source="/Recursos/admin-icon.png" Width="80" Height="80"/>
                         <TextBlock Text="ADMINISTRACIÓN" 
