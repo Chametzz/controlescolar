@@ -10,25 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace controlescolar
 {
     /// <summary>
-    /// Lógica de interacción para Administracion.xaml
+    /// Lógica de interacción para AgEmpleado.xaml
     /// </summary>
-    public partial class Administracion : Window
+    public partial class AgEmpleado : Page
     {
-        public Administracion()
+        public AgEmpleado()
         {
             InitializeComponent();
-            AdmonFrame.Navigate(new AgEmpleado());
-        }
-
-        private void BtnAgEmpleado_Click(object sender, RoutedEventArgs e)
-        {
-            AdmonFrame.Navigate(new AgEmpleado());
-
         }
     }
 }
