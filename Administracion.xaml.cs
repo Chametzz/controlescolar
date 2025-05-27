@@ -22,18 +22,18 @@ namespace controlescolar
         public Administracion()
         {
             InitializeComponent();
-            AdmonFrame.Navigate(new AgEmpleado());
+            AdmonFrame.Navigate(new PageAgEmpleado());
         }
 
         private void BtnAgEmpleado_Click(object sender, RoutedEventArgs e)
         {
-            AdmonFrame.Navigate(new AgEmpleado());
+            AdmonFrame.Navigate(new PageAgEmpleado());
 
         }
 
         private void BtnSalario_Click(object sender, RoutedEventArgs e)
         {
-            AdmonFrame.Navigate(new PageSalario());
+            AdmonFrame.Navigate(new PageEmpleados());
         }
 
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
