@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace controlescolar
 {
     /// <summary>
-    /// Lógica de interacción para PageSalario.xaml
+    /// Lógica de interacción para PageEmpleados.xaml
     /// </summary>
-    public partial class PageSalario : Page
+    public partial class PageEmpleados : Page
     {
-        public PageSalario()
+        public PageEmpleados()
         {
             InitializeComponent();
         }
