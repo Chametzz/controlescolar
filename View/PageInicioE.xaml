@@ -28,14 +28,14 @@
                                      HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
                         <StackPanel Grid.Column="1" Margin="10,0">
-                            <TextBlock x:Name="datosAlumno" Text="Datos del alumno de la carrera" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="datosAlumno" Tag="TxtDatoAlCarrera" Text="Datos del alumno de la carrera" FontWeight="Bold" FontSize="14"/>
                         </StackPanel>
                     </Grid>
                 </GroupBox>
 
                 <Expander Header="Datos personales" IsExpanded="False" Margin="0,10">
 
-                    <TextBlock x:Name="datosPersonales" Text="Aqui aparezcan los datos generales del alumno? mas personales" Margin="10"/>
+                    <TextBlock x:Name="datosPersonales" Tag="TxtDatosAlPe" Text="Aqui aparezcan los datos generales del alumno? mas personales" Margin="10"/>
                 </Expander>
 
                 <Expander Header="Información de carga académica" IsExpanded="False" Margin="0,10">

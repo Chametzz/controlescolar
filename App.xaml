@@ -4,6 +4,43 @@
              xmlns:local="clr-namespace:controlescolar"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="MenuButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FF2E7D32"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="180"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FFE8F5E9"/>
+                                <Setter Property="BorderBrush" Value="#FF1B5E20"/>
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#FFC8E6C9"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 </Application>
