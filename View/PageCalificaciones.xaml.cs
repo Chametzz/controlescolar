@@ -24,5 +24,19 @@ namespace controlescolar
         {
             InitializeComponent();
         }
-    }
+        private void DescargarBoleta_Click(object sender, RoutedEventArgs e)
+        {
+        string periodo = ((ComboBoxItem)PeriodoCombo.SelectedItem)?.Content.ToString();
+
+        if (periodo == "Seleccione periodo")
+        {
+        MessageBox.Show("Por favor, selecciona un período válido.", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Warning);
+        return;
+        }
+
+        // Aqui voy a poner para el pdf, que dios me ayude 
+        MessageBox.Show($"Descargando boleta para el período: {periodo}", "Descarga", MessageBoxButton.OK, MessageBoxImage.Information);
+}
+
+        }
 }

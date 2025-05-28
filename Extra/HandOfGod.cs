@@ -1,4 +1,3 @@
-
 using controlescolar;
 using System.Text;
 using System.Windows;
