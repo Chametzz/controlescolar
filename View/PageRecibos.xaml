@@ -41,7 +41,7 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="Tarjeta De Estudiante" VerticalAlignment="Center" Margin="10,0"/>
                             <TextBlock Text="$100.00" Grid.Column="1" Margin="20,0" VerticalAlignment="Center"/>
-                            <Button Content="SOLICITAR" Grid.Column="2" Background="#74ae59" Foreground="#FFFFFF" Margin="10,0" Padding="5,2"/>
+                            <Button Content="SOLICITAR" Grid.Column="2" Background="#74ae59" Foreground="#FFFFFF" Margin="10,0" Padding="5,2" Tag="tarjetas"/>
                         </Grid>
 
                         <Grid Margin="1" Background="#74ae59" Height="40" VerticalAlignment="Center">
@@ -52,7 +52,7 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="Constancia De Estudio" VerticalAlignment="Center" Margin="10,0"/>
                             <TextBlock Text="$50.00" Grid.Column="1" Margin="20,0" VerticalAlignment="Center"/>
-                            <Button Content="SOLICITAR" Grid.Column="2" Background="#94c081" Foreground="#FFFFFF" Margin="10,0" Padding="5,2"/>
+                            <Button Content="SOLICITAR" Grid.Column="2" Background="#94c081" Foreground="#FFFFFF" Margin="10,0" Padding="5,2" Tag="constacia"/>
                         </Grid>
 
                         <Grid Margin="1" Background="#94c081" Height="40" VerticalAlignment="Center">
@@ -63,7 +63,7 @@
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="Certificado De Estudios Egreso" VerticalAlignment="Center" Margin="10,0"/>
                             <TextBlock Text="$200.00" Grid.Column="1" Margin="20,0" VerticalAlignment="Center"/>
-                            <Button Content="SOLICITAR" Grid.Column="2" Background="#74ae59" Foreground="#FFFFFF" Margin="10,0" Padding="5,2"/>
+                            <Button Content="SOLICITAR" Grid.Column="2" Background="#74ae59" Foreground="#FFFFFF" Margin="10,0" Padding="5,2" Tag="certificado"/>
                         </Grid>
                     </StackPanel>
                 </Grid>

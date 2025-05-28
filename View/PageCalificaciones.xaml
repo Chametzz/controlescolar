@@ -25,7 +25,7 @@
                             </ComboBox>
                         </StackPanel>
                         <Button x:Name="descargarBoleta" Content="DESCARGAR BOLETA" Margin="20 25 0 0" Padding="10 5"
-                            HorizontalAlignment="Left" Background="#216b4a" Foreground="White"/>
+                            HorizontalAlignment="Left" Background="#216b4a" Foreground="White" Tag="boleta"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
