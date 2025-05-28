@@ -24,7 +24,7 @@ public partial class MainWindow : Window
         Type? t = Type.GetType("Test");
         if (option == "Y")
         {
-            this.Close();
+            //this.Close();
             if (t != null)
             {
                 Activator.CreateInstance(t);
