@@ -9,16 +9,64 @@
       Title="PageTickets"
       Background="White">
 
-    <Grid VerticalAlignment="Center">
-        <StackPanel HorizontalAlignment="Center" Width="250">
-            <Ellipse Width="60" Height="60" Fill="#216b4a" HorizontalAlignment="Center"/>
-            <TextBlock Text="Usuario" Margin="0,10,0,0" FontSize="14" />
-            <TextBox Width="200" Margin="0,0,0,10" Padding="5"/>
-            <TextBlock Text="Contrasena" />
-            <PasswordBox Width="200" Margin="0,0,0,10" Padding="5"/>
-            <CheckBox Content="Recordarme" Margin="0,10,0,0"/>
-            <TextBlock Text="Olvide mi cotrasena" Foreground="#2196F3" HorizontalAlignment="Right" FontSize="12"/>
-            <Button Content="LOGIN" Background="#216b4a" Foreground="White" Margin="0,20,0,0" Height="40"/>
+     <StackPanel Margin="30">
+            <TextBlock Text="Trámites escolares" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+            <Border BorderThickness="1" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Border Background="#226b4a" Margin="0">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Descripción" FontWeight="Bold" Foreground="#FFFFFF"/>
+                            <TextBlock Text="Importe" FontWeight="Bold" Grid.Column="1" Margin="98,0" Foreground="#FFFFFF"/>
+                        </Grid>
+                    </Border>
+
+                    <StackPanel Grid.Row="1">
+
+                        <Grid Margin="1" Background="#94c081" Height="40" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Tarjeta De Estudiante" VerticalAlignment="Center" Margin="10,0"/>
+                            <TextBlock Text="$100.00" Grid.Column="1" Margin="20,0" VerticalAlignment="Center"/>
+                            <Button Content="SOLICITAR" Grid.Column="2" Background="#74ae59" Foreground="#FFFFFF" Margin="10,0" Padding="5,2"/>
+                        </Grid>
+
+                        <Grid Margin="1" Background="#74ae59" Height="40" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Constancia De Estudio" VerticalAlignment="Center" Margin="10,0"/>
+                            <TextBlock Text="$50.00" Grid.Column="1" Margin="20,0" VerticalAlignment="Center"/>
+                            <Button Content="SOLICITAR" Grid.Column="2" Background="#94c081" Foreground="#FFFFFF" Margin="10,0" Padding="5,2"/>
+                        </Grid>
+
+                        <Grid Margin="1" Background="#94c081" Height="40" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Certificado De Estudios Egreso" VerticalAlignment="Center" Margin="10,0"/>
+                            <TextBlock Text="$200.00" Grid.Column="1" Margin="20,0" VerticalAlignment="Center"/>
+                            <Button Content="SOLICITAR" Grid.Column="2" Background="#74ae59" Foreground="#FFFFFF" Margin="10,0" Padding="5,2"/>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </Border>
         </StackPanel>
-    </Grid>
 </Page>
