@@ -16,11 +16,10 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                         <StackPanel Width="300">
                             <TextBlock Text="Período" FontWeight="SemiBold"/>
-                            <ComboBox x:Name="CbPeriodo" Tag="CbPeriodo" Margin="0 5 0 0">
+                            <ComboBox x:Name="PeriodoCombo" Tag="periodo" Margin="0 5 0 0">
                                 <ComboBoxItem IsSelected="True" IsEnabled="False" Content="Seleccione periodo"/>
                                 <ComboBoxItem Content="Febrero-Junio/2024"/>
-                                <ComboBoxItem Content="......"/>
-                                <ComboBoxItem Content="......"/>
+                                <ComboBoxItem Content="Agosto-Diciembre/2024"/>
                             </ComboBox>
                         </StackPanel>
                         <Button x:Name="descargarBoleta" Content="DESCARGAR BOLETA" Margin="20 25 0 0" Padding="10 5"
