@@ -24,7 +24,7 @@ public partial class MainWindow : Window
         Type? t = Type.GetType("Test");
         if (option == "Y")
         {
-            this.Close();
+            //this.Close();
             if (t != null)
             {
                 Activator.CreateInstance(t);
@@ -40,10 +40,18 @@ public partial class MainWindow : Window
         }
     }
 
-    private void Button_Click(object sender, RoutedEventArgs e)
+    private void Login_Click(object sender, RoutedEventArgs e)
     {
         Login ventanaLogin = new Login();
         ventanaLogin.Show();
         this.Close();
+    }
+
+    private void Administracion_Click(object sender, RoutedEventArgs e)
+    {
+        Administracion ventanaAdmon = new Administracion();
+        ventanaAdmon.Show();
+        this.Close();
+
     }
 }
