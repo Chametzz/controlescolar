@@ -29,6 +29,7 @@ namespace controlescolar
             ventanaEstudiante.Show();
             this.Close();
         }
+        
 
     }
 }
