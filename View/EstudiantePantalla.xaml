@@ -38,6 +38,7 @@
                 <Button x:Name="BtnRecibos" Tag="BtnRecibos" Content="Recibos" Margin="10" Padding="5" Click="BtnRecibos_Click"/>
                 <Button x:Name="BtnCargaMateria" Tag="BtnCargarMateria" Content="Carga de Materias" Margin="10" Padding="5" Click="BtnCargaMateria_Click"/>
                 <Button x:Name="BtnTickets" Tag="BtnTickets" Content="Tickets" Margin="10" Padding="5" Click="BtnTickets_Click" />
+                <Button x:Name="BtnSalir" Tag="BtnSalir" Content="Salir" Margin="10" Padding="5" Click="BtnSalir_Click" />
             </StackPanel>
 
         </Grid>
