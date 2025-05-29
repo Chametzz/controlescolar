@@ -1,0 +1,69 @@
+<Page x:Class="controlescolar.PageAgAlumnos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:controlescolar"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAgAlumnos">
+
+          <StackPanel Grid.Column="1" Margin="10" Background="#F9FAFB">
+        <TextBlock Text="Datos Empleado" FontWeight="Bold" FontSize="16" Margin="10"/>
+        <DataGrid x:Name="DatosEmpleado" AutoGenerateColumns="False" Height="200" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="40"/>
+                <DataGridTextColumn Header="EmpleadoID" Binding="{Binding Empleado}" Width="100"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="150"/>
+                <DataGridTextColumn Header="Genero" Binding="{Binding Genero}" Width="80"/>
+                <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" Width="100"/>
+                <DataGridTextColumn Header="Posicion" Binding="{Binding Posicion}" Width="150"/>
+                <DataGridTextColumn Header="Salario" Binding="{Binding Salario}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <WrapPanel Margin="10">
+            <StackPanel Margin="5">
+                <TextBlock Text="Empleado ID"/>
+                <TextBox x:Name="txtEmpleadoId" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Nombre Completo"/>
+                <TextBox x:Name="txtNombre" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Telefono"/>
+                <TextBox x:Name="txtTelefono" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Posicion"/>
+                <ComboBox x:Name="cbPosiscion" Width="150">
+                    <ComboBoxItem Content="Docente Algebra"/>
+                    <ComboBoxItem Content="Docente Cha"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Genero"/>
+                <ComboBox x:Name="cbGenero" Width="150">
+                    <ComboBoxItem Content="Hombre"/>
+                    <ComboBoxItem Content="Mujer"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Salario"/>
+                <TextBox x:Name="txtSalario" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Imagen"/>
+                <Button Content="Importar" />
+            </StackPanel>
+        </WrapPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button Content="Anadir" Width="100" Margin="5" />
+            <Button Content="Actualizar" Width="100" Margin="5"/>
+            <Button Content="Eliminar" Width="100" Margin="5"/>
+            <Button Content="Limpiar" Width="100" Margin="5"/>
+        </StackPanel>
+    </StackPanel>
+</Page>

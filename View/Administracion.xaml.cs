@@ -30,6 +30,12 @@ namespace controlescolar
             AdmonFrame.Navigate(new PageAgEmpleado());
 
         }
+        private void BtnAgAlumno_Click(object sender, RoutedEventArgs e)
+        {
+            AdmonFrame.Navigate(new PageAgAlumnos());
+
+        }
+
 
         private void BtnSalario_Click(object sender, RoutedEventArgs e)
         {

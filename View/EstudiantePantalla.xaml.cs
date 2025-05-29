@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace controlescolar
 {
     /// <summary>
@@ -69,6 +70,9 @@ namespace controlescolar
         {
             AlumnoFrame.Navigate(new PageTickets());
         }
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }
