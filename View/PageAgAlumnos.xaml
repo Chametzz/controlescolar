@@ -53,10 +53,6 @@
                 <TextBlock Text="Salario"/>
                 <TextBox x:Name="txtSalario" Width="150"/>
             </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Imagen"/>
-                <Button Content="Importar" />
-            </StackPanel>
         </WrapPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">

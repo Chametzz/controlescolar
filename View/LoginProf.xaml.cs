@@ -25,7 +25,7 @@ namespace controlescolar
         }
         private void ButtonLogprof_Click(object sender, RoutedEventArgs e)
         {
-            PageEmpleados ventanaEmpleados = new PageEmpleados();
+            Administracion ventanaEmpleados = new Administracion();
             ventanaEmpleados.Show(); 
             this.Close(); 
         }
