@@ -3,12 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-<<<<<<< HEAD
       xmlns:local="clr-namespace:controlescolar" 
-=======
-      xmlns:local="clr-namespace:controlescolar"
-      
->>>>>>> bec86d8100eb80190f1bea3b1d36c4382aed3a2a
+
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageTickets"
