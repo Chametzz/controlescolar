@@ -4,9 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:controlescolar"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageCalificaciones">
+      mc:Ignorable="d"
+      Title="PageCalificaciones" Height="942" Width="1250">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="30" Background="#F9FAFB">
 
@@ -17,11 +16,10 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
                         <StackPanel Width="300">
                             <TextBlock Text="Período" FontWeight="SemiBold"/>
-                            <ComboBox Margin="0 5 0 0">
+                            <ComboBox x:Name="PeriodoCombo" Tag="periodo" Margin="0 5 0 0">
                                 <ComboBoxItem IsSelected="True" IsEnabled="False" Content="Seleccione periodo"/>
                                 <ComboBoxItem Content="Febrero-Junio/2024"/>
-                                <ComboBoxItem Content="......"/>
-                                <ComboBoxItem Content="......"/>
+                                <ComboBoxItem Content="Agosto-Diciembre/2024"/>
                             </ComboBox>
                         </StackPanel>
                         <Button x:Name="descargarBoleta" Content="DESCARGAR BOLETA" Margin="20 25 0 0" Padding="10 5"
