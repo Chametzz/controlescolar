@@ -17,28 +17,22 @@
                     <WrapPanel Margin="0 10" ItemHeight="60">
                         <StackPanel Margin="5">
                             <Label Content="Nombre"/>
-                            <TextBox x:Name="nombre" Tag="TxtNomAlumno" Width="250" Text="......."/>
+                            <TextBox x:Name="Nombre" Tag="TxtNombreAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Estado"/>
-                            <ComboBox x:Name="editEstado" Tag="CbEstadoAl" Width="250" SelectedIndex="0">
-                                <ComboBoxItem Content="........."/>
-                            </ComboBox>
+                            <TextBox x:Name="Estado" Tag="TxtEstadoAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Municipio"/>
-                            <ComboBox x:Name="editMunicipio" Tag="CbMunicipioAl" Width="250" SelectedIndex="0">
-                                <ComboBoxItem Content="........."/>
-                            </ComboBox>
+                            <TextBox x:Name="Municipio" Tag="TxtMunicipioAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Ciudad"/>
-                            <ComboBox x:Name="editCiudad" Tag="CbCiudadAl" Width="250" SelectedIndex="0">
-                                <ComboBoxItem Content="......."/>
-                            </ComboBox>
+                            <TextBox x:Name="nombre" Tag="TxtCiudadAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
@@ -48,9 +42,7 @@
 
                         <StackPanel Margin="5">
                             <Label Content="Colonia"/>
-                            <ComboBox x:Name="editColonia" Tag="CbColoniaAl" Width="250" SelectedIndex="0">
-                                <ComboBoxItem Content="......."/>
-                            </ComboBox>
+                            <TextBox x:Name="Colina" Tag="TxtColoniaAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">

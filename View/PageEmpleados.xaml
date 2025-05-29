@@ -15,21 +15,11 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Margin="10" Grid.Column="0">
-            <TextBlock Text="EmpleadoID:"/>
+            <TextBlock Text="Empleado Cedula:"/>
             <TextBox x:Name="txtEmpleadoId" Margin="0,5"/>
 
-            <TextBlock Text="Nombre:"/>
-            <TextBox x:Name="txtNombre" Margin="0,5"/>
-
-            <TextBlock Text="Posicion:"/>
-            <TextBox x:Name="txtPosicion" Margin="0,5"/>
-
-            <TextBlock Text="Salario:"/>
-            <TextBox x:Name="txtSalario" Margin="0,5"/>
-
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
-                <Button Content="Actualizar" Width="100" Margin="5"/>
-                <Button Content="Limpiar" Width="100" Margin="5"/>
+                <Button Content="Buscar" Width="100" Margin="5"/>
             </StackPanel>
         </StackPanel>
 
