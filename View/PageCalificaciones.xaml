@@ -23,7 +23,18 @@
                             </ComboBox>
                         </StackPanel>
                         <Button x:Name="descargarBoleta" Content="DESCARGAR BOLETA" Margin="20 25 0 0" Padding="10 5"
-                            HorizontalAlignment="Left" Background="#216b4a" Foreground="White"/>
+                            HorizontalAlignment="Left" Background="#216b4a" Foreground="White" Tag="boleta"/>
+                         <TextBlock Text="Período" FontWeight="SemiBold"/>
+                        <ComboBox x:Name="PeriodoCombo" Tag="periodo" Margin="0 5 0 0">
+                          <ComboBoxItem IsSelected="True" IsEnabled="False" Content="Seleccione periodo"/>
+                            <ComboBoxItem Content="Febrero-Junio/2024"/>
+                            <ComboBoxItem Content="Agosto-Diciembre/2024"/>
+                            <ComboBoxItem Content="Enero-Junio/2025"/>
+                          </ComboBox>
+                        </StackPanel>
+                        <Button x:Name="descargarBoleta" Content="DESCARGAR BOLETA" Margin="20 25 0 0" Padding="10 5"
+                            HorizontalAlignment="Left" Background="#216b4a" Foreground="White"
+                            Click="DescargarBoleta_Click"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
