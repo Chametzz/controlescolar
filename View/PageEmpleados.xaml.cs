@@ -18,7 +18,7 @@ namespace controlescolar
     /// <summary>
     /// Lógica de interacción para PageEmpleados.xaml
     /// </summary>
-    public partial class PageEmpleados : Page
+    public partial class PageEmpleados : Window
     {
         public PageEmpleados()
         {

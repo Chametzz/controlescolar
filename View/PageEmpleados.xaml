@@ -1,4 +1,4 @@
-﻿<Page x:Class="controlescolar.PageEmpleados"
+﻿<Window x:Class="controlescolar.PageEmpleados"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -43,4 +43,4 @@
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
-</Page>
+</Window>

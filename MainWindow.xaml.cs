@@ -44,20 +44,20 @@ public partial class MainWindow : Window
     {
         Login ventanaLogin = new Login();
         ventanaLogin.Show();
-        this.Close();
+        this.Hide();
     }
 
     private void BtnAdmon_Click(object sender, RoutedEventArgs e)
     {
-        Administracion ventanaAdmon = new Administracion();
-        ventanaAdmon.Show();
+        LoginAdmon ventanaLoginAdmon = new LoginAdmon();
+        ventanaLoginAdmon.Show();
         this.Hide();
 
     }
     private void BtnDocente_Click(object sender, RoutedEventArgs e)
     {
-        Administracion ventanaAdmon = new Administracion();
-        ventanaAdmon.Show();
+        LoginProf ventanaLoginProf = new LoginProf();
+        ventanaLoginProf.Show();
         this.Hide();
 
     }

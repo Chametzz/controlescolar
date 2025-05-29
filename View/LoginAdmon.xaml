@@ -1,0 +1,24 @@
+<Window x:Class="controlescolar.LoginAdmon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:controlescolar"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        ResizeMode="CanMinimize"
+        Title="LoginAdministracion" Height="450" Width="800">
+    <Grid VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" Width="250">
+            <Ellipse x:Name="LogoLog" Width="60" Height="60" Fill="#216b4a" HorizontalAlignment="Center"/>
+            <TextBlock Text="Usuario" Tag="Usuario" Margin="0,10,0,0" FontSize="14" />
+            <TextBox x:Name="NombreLog" Tag="TxtNombreLog" Width="200" Margin="0,0,0,10" Padding="5"/>
+            <TextBlock Text="Contraseñita"/>
+            <PasswordBox x:Name="ContrasenaLog" Tag="TxtContrasena" Width="200" Margin="0,0,0,10" Padding="5"/>
+            <CheckBox x:Name="RecordarLog" Tag="CbRecordar" Content="Recordarme" Margin="0,10,0,0"/>
+            <TextBlock Text="Olvide mi cotrasena" Foreground="#2196F3" HorizontalAlignment="Right" FontSize="12"/>
+            <Button x:Name="BtnLog" Tag="BtnLogin" Content="LOGIN" Background="#216b4a" Foreground="White" Margin="0,20,0,0" Height="40" Click="ButtonLogAdmon_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
