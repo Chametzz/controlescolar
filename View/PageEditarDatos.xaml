@@ -17,68 +17,68 @@
                     <WrapPanel Margin="0 10" ItemHeight="60">
                         <StackPanel Margin="5">
                             <Label Content="Nombre"/>
-                            <TextBox x:Name="nombre" Width="250" Text="......."/>
+                            <TextBox x:Name="nombre" Tag="TxtNomAlumno" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Estado"/>
-                            <ComboBox x:Name="editEstado" Width="250" SelectedIndex="0">
+                            <ComboBox x:Name="editEstado" Tag="CbEstadoAl" Width="250" SelectedIndex="0">
                                 <ComboBoxItem Content="........."/>
                             </ComboBox>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Municipio"/>
-                            <ComboBox x:Name="editMunicipio" Width="250" SelectedIndex="0">
+                            <ComboBox x:Name="editMunicipio" Tag="CbMunicipioAl" Width="250" SelectedIndex="0">
                                 <ComboBoxItem Content="........."/>
                             </ComboBox>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Ciudad"/>
-                            <ComboBox x:Name="editCiudad" Width="250" SelectedIndex="0">
+                            <ComboBox x:Name="editCiudad" Tag="CbCiudadAl" Width="250" SelectedIndex="0">
                                 <ComboBoxItem Content="......."/>
                             </ComboBox>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Código postal"/>
-                            <TextBox x:Name="editCP" Width="250" Text="........"/>
+                            <TextBox x:Name="editCP" Tag="TxtCPAl"  Width="250" Text="........"/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Colonia"/>
-                            <ComboBox x:Name="editColonia" Width="250" SelectedIndex="0">
+                            <ComboBox x:Name="editColonia" Tag="CbColoniaAl" Width="250" SelectedIndex="0">
                                 <ComboBoxItem Content="......."/>
                             </ComboBox>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Calle"/>
-                            <TextBox x:Name="editCalle" Width="250" Text="......."/>
+                            <TextBox x:Name="editCalle" Tag="TxtCalleAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Número exterior"/>
-                            <TextBox x:Name="editNumE" Width="250" Text="......."/>
+                            <TextBox x:Name="editNumE" Tag="TxtNumExAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Número interior"/>
-                            <TextBox x:Name="editNumI" Width="250"/>
+                            <TextBox x:Name="editNumI" Tag="TxtNumIntAl" Width="250"/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Teléfono casa"/>
-                            <TextBox x:Name="editTelCasa" Width="250"/>
+                            <TextBox x:Name="editTelCasa" Tag="TxtTelCasaAl" Width="250"/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Teléfono celular"/>
-                            <TextBox x:Name="editTelCelular" Width="250" Text="......."/>
+                            <TextBox x:Name="editTelCelular" Tag="TxtTeleAl" Width="250" Text="......."/>
                         </StackPanel>
                     </WrapPanel>
-                    <Button x:Name="btnEnvEdit" Content="ENVIAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
+                    <Button x:Name="btnEnvEdit" Tag="BtnEnviarAl" Content="ENVIAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
                 </StackPanel>
             </Border>
 
@@ -86,7 +86,7 @@
                 <StackPanel>
                     <DockPanel Margin="0 0 0 10">
                         <TextBlock Text="Editar Contactos" FontSize="18" FontWeight="Bold" DockPanel.Dock="Left"/>
-                        <Button x:Name="btnContactosEdit" Content="AGREGAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
+                        <Button x:Name="btnContactosEdit" Tag="BtnAggContacto" Content="AGREGAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
                     </DockPanel>
 
                     <DataGrid x:Name="contactos" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Height="200" Margin="0 10">
