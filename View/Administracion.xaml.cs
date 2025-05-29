@@ -38,7 +38,8 @@ namespace controlescolar
 
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.MainWindow.Show();
+            this.Close(); 
         }
     }
 }
