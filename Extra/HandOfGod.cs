@@ -23,11 +23,7 @@ public static class HandOfGod
                 form = GetParent(fe);
             }
             return GetEntries(form);
-<<<<<<< HEAD
         }
-=======
-        } 
->>>>>>> origin/viewA
         else
         {
             return new Dictionary<string, object>();
@@ -40,11 +36,7 @@ public static class HandOfGod
     public static DependencyObject[] GetChilds(DependencyObject ob)
     {
         if (ob == null) return new DependencyObject[0];
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> origin/viewA
         int count = VisualTreeHelper.GetChildrenCount(ob);
         if (count == 0) return new DependencyObject[0];
 
@@ -58,11 +50,7 @@ public static class HandOfGod
     public static List<DependencyObject> GetTagsWidgets(DependencyObject ob)
     {
         List<DependencyObject> result = new List<DependencyObject>();
-<<<<<<< HEAD
         if (ob is FrameworkElement fe && fe.Tag != null)
-=======
-        if (ob is FrameworkElement fe && fe.Tag!= null)
->>>>>>> origin/viewA
         {
             result.Add(ob);
         }
