@@ -14,6 +14,7 @@
     <None Remove="Recursos\teacher-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="itext" Version="9.2.0" />
     <PackageReference Include="MaterialDesignColors" Version="5.2.1" />
     <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
