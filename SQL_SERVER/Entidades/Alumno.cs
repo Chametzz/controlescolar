@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Control_Escolar_Consola.Entidades
 {
@@ -93,6 +94,21 @@ namespace Control_Escolar_Consola.Entidades
                     CorreroAlumno(Obj);
                 }
             }
+        }
+
+        public static void ReadTable()
+        {
+
+        }
+
+        public static void UpdateDate(Alumno Obj)
+        {
+
+        }
+
+        public static void DeleteDate(Alumno Obj)
+        {
+
         }
 
 
