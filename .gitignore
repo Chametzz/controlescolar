@@ -40,7 +40,6 @@ logs/
 
 # Archivos de copia de seguridad y temporales
 *~
-*.bak
 *.tmp
 
 # Archivos generados por el usuario y Visual Studio

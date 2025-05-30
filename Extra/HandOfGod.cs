@@ -46,12 +46,12 @@ public static class HandOfGod
         }
         return children;
     }
-    public static List<DependencyObject> GetTagsWidgets(DependencyObject ob)
+    public static List<FrameworkElement> GetTagsWidgets(DependencyObject ob)
     {
-        List<DependencyObject> result = new List<DependencyObject>();
+        List<FrameworkElement> result = new List<FrameworkElement>();
         if (ob is FrameworkElement fe && fe.Tag != null)
         {
-            result.Add(ob);
+            result.Add(fe);
         }
 
         foreach (var child in GetChilds(ob))
@@ -61,9 +61,29 @@ public static class HandOfGod
         return result;
     }
 
+    public static void SetTags(DependencyObject ob, Dictionary<string, object?> dict)
+    {
+        var data = GetTagsWidgets(ob);
+        for (int i = 0; i < data.Count; i++)
+        {
+            if (dict.ContainsKey($"{data[i].Tag}"))
+            {
+                string set = $"{dict[$"{data[i].Tag}"]}";
+                if (data[i] is TextBlock tblock)
+                {
+                    tblock.Text = set;
+                }
+                else if (data[i] is TextBox tbox)
+                {
+                    tbox.Text = set;
+                }
+            }
+        }
+    }
+
     public static Dictionary<string, object> GetEntries(DependencyObject ob)
     {
-        List<DependencyObject> sample = GetTagsWidgets(ob);
+        List<FrameworkElement> sample = GetTagsWidgets(ob);
         Dictionary<string, object> data = new Dictionary<string, object>();
         foreach (var entry in sample)
         {
@@ -72,7 +92,14 @@ public static class HandOfGod
             else if (entry is PasswordBox pb)
                 data.Add($"{pb.Tag}", pb.Password);
             else if (entry is ComboBox cb)
-                data.Add($"{cb.Tag}", cb.SelectedItem);
+                if (cb.SelectedItem is ComboBoxItem cbi)
+                {
+                    data.Add($"{cb.Tag}", cbi.Content);
+                }
+                else
+                {
+                    data.Add($"{cb.Tag}", "");
+                }
             else if (entry is CheckBox chk)
                 data.Add($"{chk.Tag}", chk.IsChecked);
             else if (entry is RadioButton rb)

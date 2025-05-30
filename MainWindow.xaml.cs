@@ -59,6 +59,5 @@ public partial class MainWindow : Window
         Administracion ventanaAdmon = new Administracion();
         ventanaAdmon.Show();
         this.Hide();
-
     }
 }

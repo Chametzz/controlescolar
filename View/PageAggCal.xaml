@@ -1,0 +1,45 @@
+﻿<Page x:Class="Docentes_pantalla.PageAggCal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Docentes_pantalla"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAggCal" Background="#F9FAFB ">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <ComboBox x:Name="cbGrupos" Width="200" Margin="0,0,10,0"
+                      DisplayMemberPath="NombreCompleto"
+                      SelectedValuePath="Id"/>
+            <Button Content="Cargar Alumnos" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="0,20,0,20">
+            <TextBlock Text="Seleccione el semestre a evaluar:" Margin="0,0,0,5"/>
+            <ComboBox x:Name="cbEvaluaciones" Width="200">
+                <ComboBoxItem Content="Primer Parcial"/>
+                <ComboBoxItem Content="Segundo Parcial"/>
+                <ComboBoxItem Content="Tercer Parcial"/>
+            </ComboBox>
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" x:Name="dgAlumnos" AutoGenerateColumns="False"
+                  CanUserAddRows="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Numero de control" Binding="{Binding Matricula}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding NombreCompleto}" IsReadOnly="True" Width="*"/>
+                <DataGridTextColumn Header="Calificación" Binding="{Binding Calificacion}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="3" Content="Guardar Calificaciones" 
+                HorizontalAlignment="Right" Margin="0,20,0,0" />
+    </Grid>
+</Page>

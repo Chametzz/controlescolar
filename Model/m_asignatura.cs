@@ -1,7 +1,7 @@
-public class ModelAsignaturas : DB
+public class ModelAsignatura : DB
 {
-    public ModelAsignaturas() : base()
+    public ModelAsignatura() : base()
     {
-        table = "Asignaturas";
+        table = "Asignatura";
     }
 }
