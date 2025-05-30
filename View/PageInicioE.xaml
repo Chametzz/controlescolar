@@ -23,7 +23,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="/Recursos/logo-controlescolar.jpg" Width="80" Height="80"/>
+                        <Image Source="/Recursos/logo-controlescolar.jpeg" Width="80" Height="80"/>
 
                         <StackPanel Grid.Column="1" Margin="10,0">
                             <TextBox x:Name="datosAlumno" Tag="TxtDatoAlCarrera" Text="Datos del alumno de la carrera" FontWeight="Bold" FontSize="14"/>

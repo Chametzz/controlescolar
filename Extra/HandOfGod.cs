@@ -77,6 +77,17 @@ public static class HandOfGod
                 {
                     tbox.Text = set;
                 }
+                else if (data[i] is ComboBox cb)
+                {
+                    foreach (var item in cb.Items)
+                    {
+                        if (item is ComboBoxItem cbi && cbi.Content?.ToString() == set)
+                        {
+                            cb.SelectedItem = cbi;
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

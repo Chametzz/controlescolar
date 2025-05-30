@@ -45,13 +45,12 @@
                                 HorizontalAlignment="Left"
                                 Background="#216b4a"
                                 Foreground="White"
-                                Click="DescargarBoleta_Click"/>
+                                />
 
                     </StackPanel>
                 </StackPanel>
             </Border>
 
-            <!-- Calificaciones -->
             <Border BorderBrush="#E0E0E0"
                     BorderThickness="1"
                     CornerRadius="5"
@@ -102,7 +101,7 @@
                                 <StackPanel>
                                     <TextBlock Text="U01" HorizontalAlignment="Center"/>
                                     <Border Background="#659597" CornerRadius="15" Padding="5" Margin="5">
-                                        <TextBlock Text="100 - REG" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="10 - REG" HorizontalAlignment="Center"/>
                                     </Border>
                                 </StackPanel>
                                 <StackPanel>
@@ -114,19 +113,7 @@
                                 <StackPanel>
                                     <TextBlock Text="U03" HorizontalAlignment="Center"/>
                                     <Border Background="#659597" CornerRadius="15" Padding="5" Margin="5">
-                                        <TextBlock Text="100 - REG" HorizontalAlignment="Center"/>
-                                    </Border>
-                                </StackPanel>
-                                <StackPanel>
-                                    <TextBlock Text="U04" HorizontalAlignment="Center"/>
-                                    <Border Background="#DDD" CornerRadius="15" Padding="5" Margin="5">
-                                        <TextBlock Text="0 - NC" HorizontalAlignment="Center"/>
-                                    </Border>
-                                </StackPanel>
-                                <StackPanel>
-                                    <TextBlock Text="U05" HorizontalAlignment="Center"/>
-                                    <Border Background="#DDD" CornerRadius="15" Padding="5" Margin="5">
-                                        <TextBlock Text="0 - NC" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="10 - REG" HorizontalAlignment="Center"/>
                                     </Border>
                                 </StackPanel>
                                 <StackPanel>
@@ -139,7 +126,6 @@
                         </StackPanel>
                     </Expander>
 
-                    <!-- Otros Expanders vacíos (puedes completarlos o eliminarlos) -->
                     <Expander Header="Asignatura 2"/>
                     <Expander Header="Asignatura 3"/>
                     <Expander Header="Asignatura 4"/>
@@ -147,7 +133,6 @@
                 </StackPanel>
             </Border>
 
-            <!-- Actividades complementarias -->
             <Border BorderBrush="#E0E0E0"
                     BorderThickness="1"
                     CornerRadius="5"
@@ -158,7 +143,7 @@
                                FontSize="16"
                                FontWeight="Bold"
                                Margin="0 0 0 10"/>
-                    <Expander Header="ROBLOX"/>
+                    <Expander Header="HACER EL CRUD"/>
                 </StackPanel>
             </Border>
 

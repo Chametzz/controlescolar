@@ -27,7 +27,7 @@
             <StackPanel Grid.Column="0" Background="#F2F2F2">
                 <Button x:Name="BtnInicioDo" Tag="BtnInicioDo" Content="Inicio" Margin="10" Padding="5" Click="BtnInicio_Click"/>
                 <Button x:Name="BtnSubirCal" Tag="BtnSubirCal"  Content="Editar datos" Margin="10" Padding="5" Click="BtnAggCal_Click"/>
-                <Button x:Name="BtnSalirDo" Tag="BtnSalirDo" Content="Salir" Margin="10" Padding="5"  />
+                <Button x:Name="BtnSalirDo" Tag="BtnSalirDo" Content="Salir" Margin="10" Padding="5" Click="BtnSalirDo_Click"  />
             </StackPanel>
 
         </Grid>
