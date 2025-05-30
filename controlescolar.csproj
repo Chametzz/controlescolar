@@ -7,11 +7,22 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Recursos\admin-icon.png" />
+    <None Remove="Recursos\student-icon.png" />
+    <None Remove="Recursos\teacher-icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="5.2.1" />
     <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Recursos\admin-icon.png" />
+    <Resource Include="Recursos\student-icon.png" />
+    <Resource Include="Recursos\teacher-icon.png" />
   </ItemGroup>
 
 </Project>

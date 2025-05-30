@@ -13,7 +13,7 @@
         <DataGrid x:Name="DatosEmpleado" AutoGenerateColumns="False" Height="200" Margin="10">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="40"/>
-                <DataGridTextColumn Header="EmpleadoID" Binding="{Binding Empleado}" Width="100"/>
+                <DataGridTextColumn Header="Empleado Cedula" Binding="{Binding Empleado}" Width="100"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="150"/>
                 <DataGridTextColumn Header="Genero" Binding="{Binding Genero}" Width="80"/>
                 <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" Width="100"/>
@@ -24,8 +24,8 @@
 
         <WrapPanel Margin="10">
             <StackPanel Margin="5">
-                <TextBlock Text="Empleado ID"/>
-                <TextBox x:Name="txtEmpleadoId" Width="150"/>
+                <TextBlock Text="Empleado Cedula"/>
+                <TextBox x:Name="txtEmpleadoCedula" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Nombre Completo"/>
@@ -56,7 +56,7 @@
         </WrapPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Anadir" Width="100" Margin="5" />
+            <Button Content="Añadir" Width="100" Margin="5" />
             <Button Content="Actualizar" Width="100" Margin="5"/>
             <Button Content="Eliminar" Width="100" Margin="5"/>
             <Button Content="Limpiar" Width="100" Margin="5"/>
