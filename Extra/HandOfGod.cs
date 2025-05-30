@@ -1,4 +1,3 @@
-
 using controlescolar;
 using System.Text;
 using System.Windows;
@@ -23,7 +22,7 @@ public static class HandOfGod
                 form = GetParent(fe);
             }
             return GetEntries(form);
-        } 
+        }
         else
         {
             return new Dictionary<string, object>();
@@ -36,7 +35,7 @@ public static class HandOfGod
     public static DependencyObject[] GetChilds(DependencyObject ob)
     {
         if (ob == null) return new DependencyObject[0];
-        
+
         int count = VisualTreeHelper.GetChildrenCount(ob);
         if (count == 0) return new DependencyObject[0];
 
@@ -47,12 +46,12 @@ public static class HandOfGod
         }
         return children;
     }
-    public static List<DependencyObject> GetTagsWidgets(DependencyObject ob)
+    public static List<FrameworkElement> GetTagsWidgets(DependencyObject ob)
     {
-        List<DependencyObject> result = new List<DependencyObject>();
-        if (ob is FrameworkElement fe && fe.Tag!= null)
+        List<FrameworkElement> result = new List<FrameworkElement>();
+        if (ob is FrameworkElement fe && fe.Tag != null)
         {
-            result.Add(ob);
+            result.Add(fe);
         }
 
         foreach (var child in GetChilds(ob))
@@ -62,9 +61,29 @@ public static class HandOfGod
         return result;
     }
 
+    public static void SetTags(DependencyObject ob, Dictionary<string, object?> dict)
+    {
+        var data = GetTagsWidgets(ob);
+        for (int i = 0; i < data.Count; i++)
+        {
+            if (dict.ContainsKey($"{data[i].Tag}"))
+            {
+                string set = $"{dict[$"{data[i].Tag}"]}";
+                if (data[i] is TextBlock tblock)
+                {
+                    tblock.Text = set;
+                }
+                else if (data[i] is TextBox tbox)
+                {
+                    tbox.Text = set;
+                }
+            }
+        }
+    }
+
     public static Dictionary<string, object> GetEntries(DependencyObject ob)
     {
-        List<DependencyObject> sample = GetTagsWidgets(ob);
+        List<FrameworkElement> sample = GetTagsWidgets(ob);
         Dictionary<string, object> data = new Dictionary<string, object>();
         foreach (var entry in sample)
         {
