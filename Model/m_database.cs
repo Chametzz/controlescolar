@@ -7,6 +7,17 @@ public class DB
     protected static string connStr = "Data Source=localhost;Initial Catalog=ControlEscolar;Integrated Security=True;";
     protected SqlConnection connection;
     protected string table = "";
+    public static ModelAlumno modelAlumno = new ModelAlumno();
+    public static ModelAsignatura modelAsignatura = new ModelAsignatura();
+    public static ModelDepartamento modelDepartamento = new ModelDepartamento();
+    public static ModelDocentes modelDocentes = new ModelDocentes();
+    public static ModelEmpleado modelEmpleado = new ModelEmpleado();
+    public static ModelGrupo modelGrupo = new ModelGrupo();
+    public static ModelHorarioGrupo ModelHorarioGrupo = new ModelHorarioGrupo();
+    public static ModelInscripcionGrupo modelInscripcionGrupo = new ModelInscripcionGrupo();
+    public static ModelJefe_de_Departamento modelJDD = new ModelJefe_de_Departamento();
+    public static ModelPersonaLimpieza modelPersonaLimpieza = new ModelPersonaLimpieza();
+    public static ModelPersonalMantenimiento modelPersonalMantenimiento = new ModelPersonalMantenimiento();
 
     public DB()
     {

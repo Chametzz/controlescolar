@@ -1,6 +1,6 @@
-public class ModelPersonaLImpieza : DB
+public class ModelPersonaLimpieza : DB
 {
-    public ModelPersonaLImpieza() : base()
+    public ModelPersonaLimpieza() : base()
     {
         table = "PersonaLimpieza";
     }
