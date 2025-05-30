@@ -11,10 +11,9 @@
         Title="LoginAdministracion" Height="450" Width="800">
 
     <Grid>
-        <!-- Capa 1: Barra verde -->
+
         <Border Background="#2E7D32" Height="80" VerticalAlignment="Top" />
 
-        <!-- Capa 2: Botón regresar (debajo de la barra verde) -->
         <Button Content="Regresar"
                 Width="100" Height="30"
                 HorizontalAlignment="Right"
