@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Docentes_pantalla;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,29 +11,31 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace controlescolar
 {
     /// <summary>
-    /// Lógica de interacción para PageEditarDatos.xaml
+    /// Lógica de interacción para PantallaDocentes.xaml
     /// </summary>
-    public partial class PageEditarDatos : Page
+    public partial class PantallaDocentes : Window
     {
-        public PageEditarDatos()
+        public PantallaDocentes()
         {
             InitializeComponent();
+            DocenteFrame.Navigate(new PageInicioDo());
         }
 
-        private void BtnEnvDatosAl_Click(object sender, RoutedEventArgs e)
+        private void BtnInicio_Click(object sender, RoutedEventArgs e)
         {
-            
+            DocenteFrame.Navigate(new PageInicioDo());
+
         }
 
-        private void BtnAgContactos_Click(object sender, RoutedEventArgs e)
+        private void BtnAggCal_Click(object sender, RoutedEventArgs e)
         {
-            
+            DocenteFrame.Navigate(new PageAggCal());
+
         }
     }
 }
