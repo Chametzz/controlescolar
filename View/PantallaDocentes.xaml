@@ -1,0 +1,36 @@
+﻿<Window x:Class="controlescolar.PantallaDocentes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:controlescolar"
+        mc:Ignorable="d"
+        Title="PantallaDocentes" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="81*"/>
+            <ColumnDefinition Width="635*"/>
+            <ColumnDefinition Width="98*"/>
+            <ColumnDefinition Width="152*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Background="#216b4a" Height="60" VerticalAlignment="Top" Grid.ColumnSpan="4">
+            <TextBlock Text="Nombre de la institucion"
+                       Foreground="White" FontSize="16"
+                       Margin="10,0" VerticalAlignment="Center"
+                       FontWeight="Bold"/>
+        </DockPanel>
+        <Grid Margin="0,60,0,0" Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Background="#F2F2F2">
+                <Button x:Name="BtnInicioDo" Tag="BtnInicioDo" Content="Inicio" Margin="10" Padding="5" Click="BtnInicio_Click"/>
+                <Button x:Name="BtnSubirCal" Tag="BtnSubirCal"  Content="Editar datos" Margin="10" Padding="5" Click="BtnAggCal_Click"/>
+                <Button x:Name="BtnSalirDo" Tag="BtnSalirDo" Content="Salir" Margin="10" Padding="5"  />
+            </StackPanel>
+
+        </Grid>
+        <Frame x:Name="DocenteFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Margin="126,60,0,-40"/>
+    </Grid>
+</Window>
