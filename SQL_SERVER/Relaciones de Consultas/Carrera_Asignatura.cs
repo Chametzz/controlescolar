@@ -1,4 +1,5 @@
 ﻿using Control_Escolar_Consola.Entidades;
+using controlescolar;
 using System;
 using System.Collections.Generic;
 using System.Data;
