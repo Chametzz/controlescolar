@@ -1,6 +1,6 @@
-public class ModelDepartamentos : DB
+public class ModelDepartamento : DB
 {
-    public ModelDepartamentos() : base()
+    public ModelDepartamento() : base()
     {
         table = "Departamento";
     }
