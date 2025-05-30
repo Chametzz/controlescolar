@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Net.Http.Headers;
 //using System.Runtime.Remoting.Messaging;
@@ -333,13 +334,39 @@ namespace Control_Escolar_Consola.Crud
                 }
             }
         }
-        public static void ReadData()
+        public static Dictionary<int, Docentes> ReadData()
         {
+            using (SqlConnection connection = new SqlConnection(conexion))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(Read, connection))
+                {
+                    using (SqlDataReader read = command.ExecuteReader())
+                    {
+                        TableEmpleoye.Empleados = TableEmpleoye.ReadTable();
+                        while(read.Read())
+                        {
+                            Empleado data = TableEmpleoye.Empleados[read.GetInt32(0)];
 
+                            Docentes docente = new Docentes()
+                            {
+                                Docente = data,
+                                Tipo_COntrato = read.GetString(1),
+                            };
+                            DataRead.Add(docente.Docente.Id, docente);
+                        }
+                        return DataRead;
+                    }
+                }
+            }
         }
 
         static string InsertCommand = "INSERT INTO Docentes VALUES (@Id_Empleado, @Tipo_Contrato)";
+        static string Read = "SELECT * FROM Docentes";
         static string conexion = "Data Source=DESKTOP-A26ATF7\\LABASE;Initial Catalog=ControlEscolar;Integrated Security=True;";
+
+
+        public static Dictionary<int, Docentes> DataRead = new Dictionary<int, Docentes>();
     }
 
     class TablePersonalLimpieza
