@@ -29,5 +29,10 @@ namespace controlescolar
             ventanaEstudiante.Show();
             this.Close();
         }
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Show();
+            this.Close();
+        }
     }
 }

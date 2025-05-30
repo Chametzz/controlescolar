@@ -8,29 +8,42 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         ResizeMode="CanMinimize"
-        Title="LoginAlumno" Height="450" Width="800">
-    <Grid>
-        
-        <Border Background="#FF2E7D32" Height="80" VerticalAlignment="Top">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Image Width="40" Height="40" Margin="0,0,10,0"/>
-                <TextBlock Text="BIENVENIDO ALUMNO" 
-                           Foreground="White" 
-                           FontSize="28" 
-                           FontWeight="Bold"
-                           FontFamily="Arial"/>
-            </StackPanel>
-        </Border>
+        Title="LoginAlumno">
 
+    <Grid>
+        <!-- Capa 1: Barra verde -->
+        <Border Background="#2E7D32" Height="80" VerticalAlignment="Top" />
+
+        <!-- Capa 2: Botón regresar (debajo de la barra verde) -->
+        <Button Content="Regresar"
+                Width="100" Height="30"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,90,10,0"
+                Click="BtnSalir_Click"
+                Background="#C62828"
+                Foreground="White"
+                FontWeight="Bold"/>
+
+        <!-- Capa 3: Login centrado -->
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
-            <Ellipse x:Name="LogoLog" Width="60" Height="60" Fill="#216b4a" HorizontalAlignment="Center"/>
-            <TextBlock Text="Usuario" Tag="Usuario" Margin="0,10,0,0" FontSize="14" />
-            <TextBox x:Name="NombreLog" Tag="TxtNombreLog" Width="200" Margin="0,0,0,10" Padding="5"/>
-            <TextBlock Text="Contrasena" />
-            <PasswordBox x:Name="ContrasenaLog" Tag="TxtContrasena" Width="200" Margin="0,0,0,10" Padding="5"/>
-            <CheckBox x:Name="RecordarLog" Tag="CbRecordar" Content="Recordarme" Margin="0,10,0,0"/>
+            <Ellipse Width="60" Height="60" Fill="#216b4a" HorizontalAlignment="Center"/>
+            <TextBlock Text="Usuario" Margin="0,10,0,0" FontSize="14"/>
+            <TextBox x:Name="NombreLog" Width="200" Margin="0,0,0,10" Padding="5"/>
+            <TextBlock Text="Contrasena"/>
+            <PasswordBox x:Name="ContrasenaLog" Width="200" Margin="0,0,0,10" Padding="5"/>
+            <CheckBox x:Name="RecordarLog" Content="Recordarme" Margin="0,10,0,0"/>
             <TextBlock Text="Olvide mi cotrasena" Foreground="#2196F3" HorizontalAlignment="Right" FontSize="12"/>
-            <Button x:Name="BtnLog" Tag="BtnLogin" Content="LOGIN" Background="#216b4a" Foreground="White" Margin="0,20,0,0" Height="40" Click="ButtonLog_Click"/>
+            <Button x:Name="BtnLog" Content="LOGIN" Background="#216b4a" Foreground="White" Margin="0,20,0,0" Height="40" Click="ButtonLog_Click"/>
+        </StackPanel>
+                        <!-- Capa 4: Texto centrado en barra -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+            <Image Width="40" Height="40" Margin="0,0,10,0"/>
+            <TextBlock Text="BIENVENIDO ALUMNO" 
+                       Foreground="White" 
+                       FontSize="28" 
+                       FontWeight="Bold"
+                       FontFamily="Arial"/>
         </StackPanel>
     </Grid>
 </Window>

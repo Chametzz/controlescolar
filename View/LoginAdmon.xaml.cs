@@ -26,8 +26,13 @@ namespace controlescolar
         private void ButtonLogAdmon_Click(object sender, RoutedEventArgs e)
         {
             Administracion ventanaAdministracion = new Administracion();
-            ventanaAdministracion.Show(); 
-            this.Close(); 
+            ventanaAdministracion.Show();
+            this.Close();
+        }
+                private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Show();
+            this.Close();
         }
     }
 }
