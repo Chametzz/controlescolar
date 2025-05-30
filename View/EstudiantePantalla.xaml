@@ -38,7 +38,6 @@
                 <Button x:Name="BtnCargaMateria" Tag="BtnCargarMateria" Content="Carga de Materias" Margin="10" Padding="5" Click="BtnCargaMateria_Click"/>
                 <Button x:Name="BtnSalir" Tag="BtnSalir" Content="Salir" Margin="10" Padding="5" Click="BtnSalir_Click" />
             </StackPanel>
-
         </Grid>
         <Frame x:Name="AlumnoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Margin="126,60,0,-40"/>
     </Grid>

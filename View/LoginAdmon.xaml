@@ -9,8 +9,20 @@
         WindowState="Maximized"
         ResizeMode="CanMinimize"
         Title="LoginAdministracion" Height="450" Width="800">
-    <Grid VerticalAlignment="Center">
-        <StackPanel HorizontalAlignment="Center" Width="250">
+    <Grid>
+
+                <Border Background="#FF2E7D32" Height="80" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Width="40" Height="40" Margin="0,0,10,0"/>
+                <TextBlock Text="BIENVENIDO ADMINISTRADOCION" 
+                           Foreground="White" 
+                           FontSize="28" 
+                           FontWeight="Bold"
+                           FontFamily="Arial"/>
+            </StackPanel>
+        </Border>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
             <Ellipse x:Name="LogoLog" Width="60" Height="60" Fill="#216b4a" HorizontalAlignment="Center"/>
             <TextBlock Text="Usuario" Tag="Usuario" Margin="0,10,0,0" FontSize="14" />
             <TextBox x:Name="NombreLog" Tag="TxtNombreLog" Width="200" Margin="0,0,0,10" Padding="5"/>
