@@ -1,11 +1,14 @@
-﻿using Control_Escolar_Consola.ControlEscolarDataSetTableAdapters;
-using Control_Escolar_Consola.Crud;
+﻿using Control_Escolar_Consola.Crud;
+using controlescolar;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+<<<<<<< HEAD
 //using System.Runtime.Remoting.Messaging;
+=======
+>>>>>>> origin/modelA
 using System.Text;
 using System.Threading.Tasks;
 using static System.Collections.Specialized.BitVector32;
