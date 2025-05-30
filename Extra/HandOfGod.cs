@@ -92,7 +92,14 @@ public static class HandOfGod
             else if (entry is PasswordBox pb)
                 data.Add($"{pb.Tag}", pb.Password);
             else if (entry is ComboBox cb)
-                data.Add($"{cb.Tag}", cb.SelectedItem);
+                if (cb.SelectedItem is ComboBoxItem cbi)
+                {
+                    data.Add($"{cb.Tag}", cbi.Content);
+                }
+                else
+                {
+                    data.Add($"{cb.Tag}", "");
+                }
             else if (entry is CheckBox chk)
                 data.Add($"{chk.Tag}", chk.IsChecked);
             else if (entry is RadioButton rb)
