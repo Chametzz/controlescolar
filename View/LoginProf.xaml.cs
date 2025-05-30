@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,19 +17,19 @@ namespace controlescolar
     /// <summary>
     /// Lógica de interacción para Login.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class LoginProf : Window
     {
-        public Login()
+        public LoginProf()
         {
             InitializeComponent();
         }
-        private void ButtonLog_Click(object sender, RoutedEventArgs e)
+        private void ButtonLogprof_Click(object sender, RoutedEventArgs e)
         {
-            EstudiantePantalla ventanaEstudiante = new EstudiantePantalla();
-            ventanaEstudiante.Show();
+            Administracion ventanaEmpleados = new Administracion();
+            ventanaEmpleados.Show();
             this.Close();
         }
-        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+                private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Show();
             this.Close();
