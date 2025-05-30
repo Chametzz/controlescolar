@@ -45,13 +45,12 @@
                                 HorizontalAlignment="Left"
                                 Background="#216b4a"
                                 Foreground="White"
-                                Click="DescargarBoleta_Click"/>
+                                />
 
                     </StackPanel>
                 </StackPanel>
             </Border>
 
-            <!-- Calificaciones -->
             <Border BorderBrush="#E0E0E0"
                     BorderThickness="1"
                     CornerRadius="5"
@@ -127,7 +126,6 @@
                         </StackPanel>
                     </Expander>
 
-                    <!-- Otros Expanders vacíos (puedes completarlos o eliminarlos) -->
                     <Expander Header="Asignatura 2"/>
                     <Expander Header="Asignatura 3"/>
                     <Expander Header="Asignatura 4"/>
@@ -135,7 +133,6 @@
                 </StackPanel>
             </Border>
 
-            <!-- Actividades complementarias -->
             <Border BorderBrush="#E0E0E0"
                     BorderThickness="1"
                     CornerRadius="5"
