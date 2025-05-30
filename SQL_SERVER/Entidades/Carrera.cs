@@ -45,6 +45,7 @@ namespace Control_Escolar_Consola.Entidades
 
         public static Dictionary<int, Carrera> ReadTable()
         {
+            ReadDate.Clear();
             using (SqlConnection connection = new SqlConnection(conexion))
             {
                 connection.Open();
