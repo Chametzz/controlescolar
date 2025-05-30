@@ -25,7 +25,7 @@ namespace controlescolar
         }
         private void ButtonLogprof_Click(object sender, RoutedEventArgs e)
         {
-            Administracion ventanaEmpleados = new Administracion();
+            PantallaDocentes ventanaEmpleados = new PantallaDocentes();
             ventanaEmpleados.Show();
             this.Close();
         }

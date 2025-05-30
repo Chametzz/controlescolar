@@ -37,5 +37,10 @@ namespace controlescolar
             DocenteFrame.Navigate(new PageAggCal());
 
         }
+                private void BtnSalirDo_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Show();
+            this.Close(); 
+        }
     }
 }
