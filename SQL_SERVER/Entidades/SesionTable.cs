@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Control_Escolar_Consola.ControlEscolarDataSetTableAdapters;
+using Control_Escolar_Consola.Crud;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -6,35 +8,50 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Control_Escolar_Consola.Entidades
 {
-    class SesionTable
+    class Sesion
     {
-        private static SesionTable sesion;
+        private int _IdSesion;
         private int _IdUsario;
         private string _Usuario;
         private string _Contraseña;
         private string _TipoUsuario;
         private static bool Resultado = false;
 
+        public  int IdSeison { get => this._IdSesion; set => this._IdSesion = value; }
         public int IdUsario { get => this._IdUsario; set => this._IdUsario = value; }
         public string Usuario { get => this._Usuario; set => this._Usuario = value; }
         public string Contraseña { get => this._Contraseña; set => this._Contraseña = value; }
         public string TipoUsuario { get => this._TipoUsuario; set => this._TipoUsuario = value; }
 
-        public static void SesionLogin(string usuario, string contraseña)
+        private static string ReadTable = "SELECT * FROM Sesiones WHERE Usuario = @usuario AND Contraseña = @contraseña;";
+        private static string conexion = "Data Source=DESKTOP-A26ATF7\\LABASE;Initial Catalog=ControlEscolar;Integrated Security=True;";
+    }
+
+    class TableSesion:connection
+    {
+        public static void Login(string User, string Password)
         {
-            Resultado = ValidacionUser(usuario, contraseña);
-            if (Resultado)
+            Resultado = ValidacionUser(User, Password);
+            if(Resultado)
             {
-                Console.Clear();
+                TableEmpleoye.Empleados = TableEmpleoye.ReadTable();
+                //Me falta la Tabla Alumno perame.
+                if (sesion.TipoUsuario == "Empleado")
+                {
+                    UsuarioSeison = TableEmpleoye.Empleados[sesion.IdUsario];
+                }
+                else if(sesion.TipoUsuario == "Alumno")
+                {
+                    //Aca va la lectura de Alumno.
+                }
             }
             else
             {
-                Console.SetCursorPosition(0, 10);
-                Console.WriteLine("Login Fallido");
-                Console.WriteLine("Usuario o contraseña incorrectos");
+                //Aca le ponen por si paso un error o algo asi
             }
         }
 
@@ -43,18 +60,23 @@ namespace Control_Escolar_Consola.Entidades
             using (SqlConnection connection = new SqlConnection(conexion))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand(ReadTable, connection))
+                using (SqlCommand command = new SqlCommand(Read, connection))
                 {
                     command.Parameters.AddWithValue("@usuario", usuario ?? "");
                     command.Parameters.AddWithValue("@contraseña", contraseña ?? "");
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
+
                         if (reader.Read())
                         {
-                            sesion = new SesionTable();
-                            sesion.IdUsario = reader.GetInt32(0);
-                            sesion.TipoUsuario = reader.GetString(3);
-                            Resultado = true;
+                             sesion = new Sesion()
+                            {
+                                IdSeison = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                                Usuario = reader.IsDBNull(1) ? "S/A" : reader.GetString(1),
+                                Contraseña = reader.IsDBNull(2) ? "S/A" : reader.GetString(2),
+                                TipoUsuario = reader.IsDBNull(3) ? "S/A" : reader.GetString(3),
+                                IdUsario = reader.IsDBNull(4) ? 0 : reader.GetInt32(4)
+                            };
                             RegistroSesion.InsertRegistroSesion(usuario, Resultado, sesion.TipoUsuario, sesion.IdUsario);
                         }
                         else
@@ -67,9 +89,11 @@ namespace Control_Escolar_Consola.Entidades
             }
             return Resultado;
         }
+        public static Object UsuarioSeison;
 
-        private static string ReadTable = "SELECT * FROM Sesiones WHERE Usuario = @usuario AND Contraseña = @contraseña;";
-        private static string conexion = "Data Source=DESKTOP-A26ATF7\\LABASE;Initial Catalog=ControlEscolar;Integrated Security=True;";
+        private static bool Resultado = true;
+        private static Sesion sesion; 
+        private static string Read = "SELECT * FROM Sesiones WHERE Usuario = @usuario AND Contraseña = @contraseña;";
     }
 
     class RegistroSesion

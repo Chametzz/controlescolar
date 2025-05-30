@@ -43,7 +43,7 @@ namespace Control_Escolar_Consola.Entidades
             }
         }
 
-        public static Dictionary<string, Carrera> ReadTable()
+        public static Dictionary<int, Carrera> ReadTable()
         {
             using (SqlConnection connection = new SqlConnection(conexion))
             {
@@ -104,7 +104,7 @@ namespace Control_Escolar_Consola.Entidades
                                 Semestres = read.GetInt32(4),
                                 TotalCreditos = read.GetInt32(5)
                             };
-                            ReadDate.Add(data.Clave, data);
+                            ReadDate.Add(data.IdCarrera, data);
                         }
                         return ReadDate;
                     }
@@ -129,6 +129,9 @@ namespace Control_Escolar_Consola.Entidades
                 }
             }
         }
+
+
+        //Falta el delete:
 
         public static void DeleteData()
         {
@@ -185,7 +188,7 @@ namespace Control_Escolar_Consola.Entidades
 
         }
 
-        public static Dictionary<string, Carrera> ReadDate = new Dictionary<string, Carrera>();
+        public static Dictionary<int, Carrera> ReadDate = new Dictionary<int, Carrera>();
 
         #endregion
 
