@@ -5,10 +5,6 @@ using System.CodeDom;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-<<<<<<< HEAD
-//using System.Runtime.Remoting.Messaging;
-=======
->>>>>>> origin/modelA
 using System.Text;
 using System.Threading.Tasks;
 using static System.Collections.Specialized.BitVector32;
