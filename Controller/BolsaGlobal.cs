@@ -13,7 +13,7 @@ using System.Collections;
 
 public static class BolsaGlobal
 {
-    private static readonly Dictionary<string, object?> _bolsaGlobal = new Dictionary<string, object?>(); //Diccionario para almacenar datos globales (key-value pairs)
+    public static Dictionary<string, object?> _bolsaGlobal = new Dictionary<string, object?>(); //Diccionario para almacenar datos globales (key-value pairs)
     public static void Set(string key, object? value) //Método para guardar un valor
     {
         if (_bolsaGlobal.ContainsKey(key))
