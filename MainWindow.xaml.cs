@@ -59,6 +59,5 @@ public partial class MainWindow : Window
         LoginProf ventanaLoginProf = new LoginProf();
         ventanaLoginProf.Show();
         this.Hide();
-
     }
 }
