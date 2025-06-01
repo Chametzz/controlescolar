@@ -11,6 +11,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
 using System.Reflection;
+using System.Text.RegularExpressions;
 public static class HandOfGod
 {
     public static Dictionary<string, object> ExecuteSubmit(object sender)
@@ -62,20 +63,39 @@ public static class HandOfGod
         return result;
     }
 
-    public static void SetTags(DependencyObject ob, Dictionary<string, object?> dict)
+    public static void SetTags(DependencyObject ob, Dictionary<string, object?> dict, string nuller = "")
     {
         var data = GetTagsWidgets(ob);
         foreach (var element in data)
         {
             string? tag = element.Tag?.ToString();
-            if (tag != null && dict.TryGetValue(tag, out var value))
+            if (element is TextBlock tb && tag != null)
             {
-                FillElement(element, value);
+                string newText = tag;
+                foreach (var k in HandOfGod.GetStringKeys(tag))
+                {
+                    if (dict.ContainsKey(k))
+                    {
+                        Console.WriteLine(dict[k]);
+                        string set = dict[k]?.ToString() ?? nuller;
+                        newText = newText.Replace("{" + k + "}", set);
+                    }
+                    else
+                    {
+                        newText = newText.Replace("{" + k + "}", nuller);
+                    }
+                }
+                Console.WriteLine(newText);
+                tb.Text = newText;
+            }
+            else if (tag != null && dict.TryGetValue(tag, out var value))
+            {
+                FillElement(element, value, nuller);
             }
         }
     }
 
-    public static void SetTags(DependencyObject ob, object item)
+    public static void SetTags(DependencyObject ob, object item, string nuller = "")
     {
         var dict = new Dictionary<string, object?>();
         if (item == null) return;
@@ -87,12 +107,12 @@ public static class HandOfGod
                 dict[prop.Name] = prop.GetValue(item);
             }
         }
-        SetTags(ob, dict);
+        SetTags(ob, dict, nuller);
     }
 
-    public static void FillElement(DependencyObject ob, object? filler)
+    public static void FillElement(DependencyObject ob, object? filler, string nuller = "")
     {
-        string set = filler?.ToString() ?? "";
+        string set = filler?.ToString() ?? nuller;
         if (ob is TextBlock tblock)
         {
             tblock.Text = set;
@@ -140,31 +160,15 @@ public static class HandOfGod
         }
         return data;
     }
-}
 
-public static class DynamicText
-{
-    public static readonly DependencyProperty TemplateProperty =
-        DependencyProperty.RegisterAttached(
-            "Template",           // nombre lógico
-            typeof(string),       // tipo de la propiedad
-            typeof(DynamicText),  // clase propietaria
-            new PropertyMetadata(null, OnTemplateChanged));
-    public static void SetTemplate(DependencyObject obj, string value)
+    public static List<string> GetStringKeys(string text)
     {
-        obj.SetValue(TemplateProperty, value);
-    }
-
-    public static string GetTemplate(DependencyObject obj)
-    {
-        return (string)obj.GetValue(TemplateProperty);
-    }
-
-    private static void OnTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        if (d is TextBlock tb)
+        var keys = new List<string>();
+        var matches = Regex.Matches(text, @"\{(.*?)\}");
+        foreach (Match match in matches)
         {
-            tb.Text = $"Procesado: {e.NewValue}";
+            keys.Add(match.Groups[1].Value);
         }
+        return keys;
     }
 }
