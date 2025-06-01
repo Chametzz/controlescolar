@@ -24,5 +24,15 @@ namespace controlescolar
         {
             InitializeComponent();
         }
+
+        private void BtnEnvDatosAl_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void BtnAgContactos_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

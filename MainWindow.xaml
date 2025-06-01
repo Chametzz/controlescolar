@@ -40,7 +40,7 @@
 
                 <Button x:Name="BtnAlumno" Tag="BtnPantAlumno" Style="{StaticResource MenuButtonStyle}" Click="BtnAlumno_Click">
                     <StackPanel>
-                        <Image Source="/Recursos/student-icon.png" Width="80" Height="80"/>
+                        <Image Source="pack://application:,,,/Recursos/student-icon.png" Width="80" Height="80"/>
                         <TextBlock Text="ALUMNO" 
                                    FontSize="18" 
                                    FontWeight="Bold"
@@ -52,7 +52,7 @@
 
                 <Button x:Name="BtnDocente" Tag="BtnPantDocente" Style="{StaticResource MenuButtonStyle}" Click="BtnDocente_Click">
                     <StackPanel>
-                        <Image Source="/Recursos/teacher-icon.png" Width="80" Height="80"/>
+                        <Image Source="pack://application:,,,/Recursos/teacher-icon.png" Width="80" Height="80"/>
                         <TextBlock Text="DOCENTE" 
                                    FontSize="18" 
                                    FontWeight="Bold"
@@ -64,7 +64,7 @@
 
                 <Button x:Name="BtnAdministracion" Tag="BtnPantAdmon" Style="{StaticResource MenuButtonStyle}" Click="BtnAdmon_Click">
                     <StackPanel>
-                        <Image Source="/Recursos/admin-icon.png" Width="80" Height="80"/>
+                        <Image Source="pack://application:,,,/Recursos/admin-icon.png" Width="80" Height="80"/>
                         <TextBlock Text="ADMINISTRACIÓN" 
                                    FontSize="18" 
                                    FontWeight="Bold"
