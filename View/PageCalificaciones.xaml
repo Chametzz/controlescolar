@@ -78,7 +78,7 @@
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" Text="Materia: ....."/>
                                 <TextBlock Grid.Column="1" Text="Docente: CHAT"/>
-                                <TextBlock Grid.Column="0" Text="Créditos: ?" Margin="0,20,0,0"/>
+                                <TextBlock Grid.Column="0" Text="Créditos:" Margin="0,20,0,0"/>
                                 <TextBlock Grid.Column="1" Text="Grupo: .... | Clave: ....." Margin="0,20,0,0"/>
                             </Grid>
 
