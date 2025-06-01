@@ -8,16 +8,16 @@ using System.Text.RegularExpressions;
 public static class DB{
     public static string path = Path.Combine(Directory.GetCurrentDirectory(), "database.db");
     public static string dsn = $"Data Source={path};Version=3";
-    //public static SQLiteConnection connection = SETDATABASE(path);
+    public static bool active = SETDATABASE(path);
 
-    public static SQLiteConnection SETDATABASE(string path)
+    public static bool SETDATABASE(string path)
     {
         if (!File.Exists(path))
         {
             SQLiteConnection.CreateFile(path);
         }
         CreateTables();
-        return new SQLiteConnection(dsn);
+        return true;
     }
 
     public static void CreateTables()
