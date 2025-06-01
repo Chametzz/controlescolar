@@ -234,7 +234,7 @@ public static class DB{
 
     public static T? ReadFirst<T>(Func<T, bool> condition) where T : new()
     {
-        var list = Read<T>();
+        var list = Read<T>(condition);
         return list.Where(condition).FirstOrDefault();
     }
     public static bool Update<T>(string condition, string setColumns = "1=1", params (string name, object? value)[] parameters) where T : class
