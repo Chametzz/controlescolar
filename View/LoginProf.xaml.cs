@@ -25,7 +25,7 @@ namespace controlescolar
         }
         private void ButtonLogprof_Click(object sender, RoutedEventArgs e)
         {
-            var data = HandOfGod.ExecuteSubmit(sender);
+            /*var data = HandOfGod.ExecuteSubmit(sender);
             if (!int.TryParse($"{data["user"]}", out int user)) return;
             var docente = DB.modelDocentes.ReadFirst($"Id_Empleado = {user}");
             if (docente == null) return;
@@ -36,7 +36,7 @@ namespace controlescolar
                 PantallaDocentes ventanaEmpleados = new PantallaDocentes();
                 ventanaEmpleados.Show();
                 this.Close();
-            }
+            }*/
         }
                 private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {

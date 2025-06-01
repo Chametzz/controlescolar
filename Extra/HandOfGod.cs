@@ -10,6 +10,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections;
+using System.Reflection;
+using System.Text.RegularExpressions;
 public static class HandOfGod
 {
     public static Dictionary<string, object> ExecuteSubmit(object sender)
@@ -61,32 +63,72 @@ public static class HandOfGod
         return result;
     }
 
-    public static void SetTags(DependencyObject ob, Dictionary<string, object?> dict)
+    public static void SetTags(DependencyObject ob, Dictionary<string, object?> dict, string nuller = "")
     {
         var data = GetTagsWidgets(ob);
-        for (int i = 0; i < data.Count; i++)
+        foreach (var element in data)
         {
-            if (dict.ContainsKey($"{data[i].Tag}"))
+            string? tag = element.Tag?.ToString();
+            if (element is TextBlock tb && tag != null)
             {
-                string set = $"{dict[$"{data[i].Tag}"]}";
-                if (data[i] is TextBlock tblock)
+                string newText = tag;
+                foreach (var k in HandOfGod.GetStringKeys(tag))
                 {
-                    tblock.Text = set;
-                }
-                else if (data[i] is TextBox tbox)
-                {
-                    tbox.Text = set;
-                }
-                else if (data[i] is ComboBox cb)
-                {
-                    foreach (var item in cb.Items)
+                    if (dict.ContainsKey(k))
                     {
-                        if (item is ComboBoxItem cbi && cbi.Content?.ToString() == set)
-                        {
-                            cb.SelectedItem = cbi;
-                            break;
-                        }
+                        Console.WriteLine(dict[k]);
+                        string set = dict[k]?.ToString() ?? nuller;
+                        newText = newText.Replace("{" + k + "}", set);
                     }
+                    else
+                    {
+                        newText = newText.Replace("{" + k + "}", nuller);
+                    }
+                }
+                Console.WriteLine(newText);
+                tb.Text = newText;
+            }
+            else if (tag != null && dict.TryGetValue(tag, out var value))
+            {
+                FillElement(element, value, nuller);
+            }
+        }
+    }
+
+    public static void SetTags(DependencyObject ob, object item, string nuller = "")
+    {
+        var dict = new Dictionary<string, object?>();
+        if (item == null) return;
+        PropertyInfo[] props = item.GetType().GetProperties();
+        foreach (var prop in props)
+        {
+            if (prop.CanRead)
+            {
+                dict[prop.Name] = prop.GetValue(item);
+            }
+        }
+        SetTags(ob, dict, nuller);
+    }
+
+    public static void FillElement(DependencyObject ob, object? filler, string nuller = "")
+    {
+        string set = filler?.ToString() ?? nuller;
+        if (ob is TextBlock tblock)
+        {
+            tblock.Text = set;
+        }
+        else if (ob is TextBox tbox)
+        {
+            tbox.Text = set;
+        }
+        else if (ob is ComboBox cb)
+        {
+            foreach (var item in cb.Items)
+            {
+                if (item is ComboBoxItem cbi && cbi.Content?.ToString() == set)
+                {
+                    cb.SelectedItem = cbi;
+                    break;
                 }
             }
         }
@@ -111,11 +153,22 @@ public static class HandOfGod
                 {
                     data.Add($"{cb.Tag}", "");
                 }
-            else if (entry is CheckBox chk)
+            /*else if (entry is CheckBox chk)
                 data.Add($"{chk.Tag}", chk.IsChecked);
             else if (entry is RadioButton rb)
-                data.Add($"{rb.Tag}", rb.IsChecked);
+                data.Add($"{rb.Tag}", rb.IsChecked);*/
         }
         return data;
+    }
+
+    public static List<string> GetStringKeys(string text)
+    {
+        var keys = new List<string>();
+        var matches = Regex.Matches(text, @"\{(.*?)\}");
+        foreach (Match match in matches)
+        {
+            keys.Add(match.Groups[1].Value);
+        }
+        return keys;
     }
 }
