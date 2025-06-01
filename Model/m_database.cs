@@ -74,56 +74,8 @@ public static class DB{
         }
     }
 
-    /*public static bool Create<T>(string columns, string values) {
-        string query = $"INSERT INTO {typeof(T).Name} ({columns}) VALUES ({values})";
-        return ExecuteQuery(query);
-    }*/
-
     public static T? Create<T>(T item)
     {
-        /*try
-        {
-            PropertyInfo[] properties = typeof(T).GetProperties()
-                .Where(p => p.Name.ToLower() != "id")
-                .ToArray();
-
-            var columnNames = string.Join(", ", properties.Select(p => p.Name));
-            var paramNames = string.Join(", ", properties.Select(p => "@" + p.Name));
-
-            string query = $"INSERT INTO {typeof(T).Name} ({columnNames}) VALUES ({paramNames});";
-
-            using (var connection = new SQLiteConnection(dsn))
-            {
-                connection.Open();
-                using (var command = new SQLiteCommand(query, connection))
-                {
-                    foreach (var prop in properties)
-                    {
-                        object? value = prop.GetValue(item);
-                        command.Parameters.AddWithValue("@" + prop.Name, value ?? DBNull.Value);
-                    }
-
-                    command.ExecuteNonQuery();
-
-                    // Obtener el último ID insertado
-                    command.CommandText = "SELECT last_insert_rowid();";
-                    long lastId = (long)command.ExecuteScalar()!;
-
-                    // Asignar el ID si existe la propiedad "Id"
-                    var idProp = typeof(T).GetProperty("Id");
-                    if (idProp != null && idProp.CanWrite)
-                    {
-                        idProp.SetValue(item, Convert.ChangeType(lastId, idProp.PropertyType));
-                    }
-                }
-            }
-            return item;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine($"ERROR Create<{typeof(T).Name}>: {e.Message}");
-            return default;
-        }*/
         try
         {
             Type type = typeof(T);
@@ -131,9 +83,6 @@ public static class DB{
             Type[] types = (parent != null && parent != typeof(object))
                 ? [parent, type]
                 : [type];
-
-            //List<string> cNames = [];
-            //List<string> cParentNames = [];
             int lastId = -1;
             using (var connection = new SQLiteConnection(dsn))
             {
@@ -163,7 +112,6 @@ public static class DB{
                             }
                         }
                         q_cols = string.Join(", ", cols);
-                        Console.WriteLine(q_cols);
                         q_params = string.Join(", ", cols.Select(c => "@" + c));
                         foreach (var c in cols)
                         {
@@ -176,7 +124,6 @@ public static class DB{
                         }
                     }
                     string query = $"INSERT INTO {t.Name} ({q_cols}) VALUES ({q_params})";
-                    Console.WriteLine($"{query} | {string.Join(", ", values.Values)}");
                     using (var command = new SQLiteCommand(query, connection))
                     {
                         foreach (var (k, v) in values)
@@ -290,35 +237,76 @@ public static class DB{
         var list = Read<T>();
         return list.Where(condition).FirstOrDefault();
     }
-    public static bool Update<T>(string condition, string setColumns, params (string name, object? value)[] parameters) {
-        string query = $"UPDATE {typeof(T).Name} SET {setColumns} WHERE {condition}";
+    public static bool Update<T>(string condition, string setColumns = "1=1", params (string name, object? value)[] parameters) where T : class
+    {
+        Type type = typeof(T);
+        Type? parent = type.BaseType;
+        bool hasParent = parent != null && parent != typeof(object);
+        Type[] types = hasParent ? [parent!, type] : [type];
+
+        List<string> queries = [];
+        string[] sentences = setColumns.Split(",");
         try
         {
             using (var connection = new SQLiteConnection(dsn))
             {
                 connection.Open();
-                using (var command = new SQLiteCommand(query, connection))
+                ForeignKeysOn(connection);
+                foreach(var ty in types)
                 {
-                    foreach (var (name, value) in parameters)
-                    {
-                        command.Parameters.AddWithValue(name, value ?? DBNull.Value);
-                    }
+                    List<string> columns = GetColumnNames(ty, connection);
+                    List<string> clauses = sentences
+                        .Where(s => columns.Any(c => Regex.IsMatch(s, $@"\b{Regex.Escape(c)}\b")))
+                        .ToList();
 
-                    int affectedRows = command.ExecuteNonQuery();
-                    return affectedRows > 0;
+                    if (clauses.Count <= 0) continue;
+                    string setter = string.Join(",", clauses);
+
+                    if (!hasParent)
+                    {
+                        queries.Add($"UPDATE {type.Name} SET {setter} WHERE {condition}");
+                    }
+                    else
+                    {
+                        string newCondition = Regex.Replace(condition, @"\bId\b", $"{(parent != null ? parent.Name : type.Name)}.Id");
+                        queries.Add($@"
+                        UPDATE {ty.Name}
+                        SET {setter}
+                        WHERE Id IN (
+                            SELECT {parent!.Name}.Id
+                            FROM {parent.Name}
+                            INNER JOIN {type.Name} ON {parent.Name}.Id = {type.Name}.Id
+                            WHERE {newCondition}
+                        );");
+                    }
                 }
+                foreach (string query in queries)
+                {
+                    Console.WriteLine(query);
+                    using var cmd = new SQLiteCommand(query, connection);
+                    foreach (var (name, value) in parameters)
+                        cmd.Parameters.AddWithValue(name, value ?? DBNull.Value);
+                    cmd.ExecuteNonQuery();
+                }
+
+                return true;
             }
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            Console.WriteLine($"ERROR Update<{typeof(T).Name}>: {ex.Message}");
+            Console.WriteLine($"ERROR Update<{typeof(T).Name}>: {e.Message}");
             return false;
         }
     }
+    public static bool Update<T>(string setColumns, params (string name, object? value)[] parameters) where T : class
+    {
+        return Update<T>("1=1", setColumns, parameters);
+    }
 
-    public static bool Delete<T>(string condition, params (string name, object? value)[] parameters) {
+    public static bool Delete<T>(string condition, params (string name, object? value)[] parameters)
+    {
         Type type = typeof(T);
-        Type? parent = type.BaseType;    
+        Type? parent = type.BaseType;
         string query = $"DELETE FROM {typeof(T).Name} WHERE {condition}";
         if (parent != null && parent != typeof(object))
         {
@@ -336,7 +324,7 @@ public static class DB{
         {
             using var connection = new SQLiteConnection(dsn);
             connection.Open();
-
+            ForeignKeysOn(connection);
             using var command = new SQLiteCommand(query, connection);
             foreach (var (name, value) in parameters)
             {
@@ -350,6 +338,14 @@ public static class DB{
         {
             Console.WriteLine($"ERROR Delete<{typeof(T).Name}>: {e.Message}");
             return false;
+        }
+    }
+
+    public static void ForeignKeysOn(SQLiteConnection connection)
+    {
+        using (var pragmaCmd = new SQLiteCommand("PRAGMA foreign_keys = ON;", connection))
+        {
+            pragmaCmd.ExecuteNonQuery();
         }
     }
 
@@ -386,6 +382,28 @@ public static class DB{
         bool hasParent = type.BaseType != null && type.BaseType != typeof(object);
 
         string tableName = typeof(T).Name;
+        List<string> columnNames = new();
+
+        using (var command = new SQLiteCommand($"PRAGMA table_info({tableName})", connection))
+        using (var reader = command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                string columnName = reader["name"].ToString()!;
+                if (hasParent && string.Equals(columnName, "Id", StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+                columnNames.Add(columnName);
+            }
+        }
+        return columnNames;
+    }
+    public static List<string> GetColumnNames(Type type, SQLiteConnection connection)
+    {
+        bool hasParent = type.BaseType != null && type.BaseType != typeof(object);
+
+        string tableName = type.Name;
         List<string> columnNames = new();
 
         using (var command = new SQLiteCommand($"PRAGMA table_info({tableName})", connection))
