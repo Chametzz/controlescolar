@@ -1,224 +1,68 @@
-using System;
-using System.IO;
 using System.Data.SQLite;
 using System.Collections.Generic;
-public class DB
-{
-    protected static string dbPath = "";
-    protected static string dsn = "";
-    protected SQLiteConnection connection;
-    protected string table = "";
-    public DB()
-    {
-        Console.WriteLine(dbPath);
-        Console.WriteLine(dsn);
-        connection = new SQLiteConnection(dsn);
-    }
+using System.IO;
+using System.Reflection;
+using MaterialDesignThemes.Wpf;
+using System.Linq.Expressions;
+using System.Text.RegularExpressions;
+public static class DB{
+    public static string path = Path.Combine(Directory.GetCurrentDirectory(), "database.db");
+    public static string dsn = $"Data Source={path};Version=3";
+    public static SQLiteConnection connection = SETDATABASE(path);
 
-    public static void SETDATABASE(string path)
-    {//PONERLO ARRIBA DEL TODO
-        dbPath = path;
-        dsn = $"Data Source={dbPath};Version=3";
-        if (!File.Exists(dbPath))
+    public static SQLiteConnection SETDATABASE(string path)
+    {
+        if (!File.Exists(path))
         {
-            SQLiteConnection.CreateFile(dbPath);
+            SQLiteConnection.CreateFile(path);
         }
         CreateTables();
+        return new SQLiteConnection(dsn);
     }
 
-    private static void CreateTables()
+    public static void CreateTables()
     {
         using (var connection = new SQLiteConnection(dsn))
         {
             connection.Open();
 
-            // Crear las tablas
             string[] createTableCommands = new string[]
-        {
-            @"
-                CREATE TABLE IF NOT EXISTS EMPLEADO (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    NOMBRE TEXT NOT NULL,
-                    APELLIDO TEXT NOT NULL,
-                    FECHA_NACIMIENTO DATETIME,
-                    CURP TEXT,
-                    TELEFONO_PERSONAL TEXT,
-                    TELEFONO_CONTACTO TEXT,
-                    CORREO_PERSONAL TEXT,
-                    DIRRECION TEXT,
-                    CORREO_CORPORTATIVO TEXT,
-                    FECHA_INGRESO DATETIME,
-                    TIPO_EMPLEADO TEXT,
-                    ESTATUS TEXT
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS DEPARTAMENTO (
-                    ID_DEPARTAMENTO INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_JEFEDEPARTAMENTO INTEGER,
-                    NOMBRE TEXT,
-                    CLAVE TEXT,
-                    ACTIVO BIT,
-                    FOREIGN KEY (ID_JEFEDEPARTAMENTO) REFERENCES EMPLEADO(ID)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS JEFE_DE_DEPARTAMENTO (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_EMPLEADO INTEGER,
-                    ID_DEPARTAMENTO INTEGER,
-                    FECHA_INICIO DATETIME,
-                    FECHA_FIN DATETIME,
-                    ESTATUS BIT,
-                    FOREIGN KEY (ID_EMPLEADO) REFERENCES EMPLEADO(ID),
-                    FOREIGN KEY (ID_DEPARTAMENTO) REFERENCES DEPARTAMENTO(ID_DEPARTAMENTO)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS DOCENTES (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_EMPLEADO INTEGER,
-                    ID_ASIGNATURA INTEGER,
-                    TIPO_CONTRATO TEXT,
-                    FOREIGN KEY (ID_EMPLEADO) REFERENCES EMPLEADO(ID),
-                    FOREIGN KEY (ID_ASIGNATURA) REFERENCES ASIGNATURA(ID_ASIGNATURA)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS PERSONAL_ADMINISTRATIVO (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_EMPLEADO INTEGER,
-                    ID_DEPARTAMENTO INTEGER,
-                    PUESTO TEXT,
-                    NIVEL_ACCESO TEXT,
-                    TIPO_CONTRATO TEXT,
-                    FOREIGN KEY (ID_EMPLEADO) REFERENCES EMPLEADO(ID),
-                    FOREIGN KEY (ID_DEPARTAMENTO) REFERENCES DEPARTAMENTO(ID_DEPARTAMENTO)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS PERSONAL_MANTENIMIENTO (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_EMPLEADO INTEGER,
-                    ESPECIALIDAD TEXT,
-                    AREA_DE_MANTENIMIENTO TEXT,
-                    FOREIGN KEY (ID_EMPLEADO) REFERENCES EMPLEADO(ID)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS PERSONAL_LIMPIEZA (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_EMPLEADO INTEGER,
-                    TIPO_CONTRATO TEXT,
-                    ZONA_ASIGNADA TEXT,
-                    FOREIGN KEY (ID_EMPLEADO) REFERENCES EMPLEADO(ID)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS CARRERA (
-                    ID_CARRERA INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_DEPARTAMENTO INTEGER,
-                    NOMBRE TEXT,
-                    CLAVE TEXT,
-                    SEMESTRES INT,
-                    TOTALCREDITOS INT,
-                    FOREIGN KEY (ID_DEPARTAMENTO) REFERENCES DEPARTAMENTO(ID_DEPARTAMENTO)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS ASIGNATURA (
-                    ID_ASIGNATURA INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_CARRERA INTEGER,
-                    NOMBRE TEXT,
-                    CLAVEMATERIA TEXT,
-                    CREDITOS INT,
-                    SEMESTRE_SUGERIDO TEXT,
-                    TIPOMATERIA TEXT,
-                    FOREIGN KEY (ID_CARRERA) REFERENCES CARRERA(ID_CARRERA)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS GRUPO (
-                    ID_GRUPO INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_ASIGNATURA INTEGER,
-                    ID_CARRERA INTEGER,
-                    ID_DOCENTE INTEGER,
-                    ID_AULA INTEGER,
-                    CICLO_ESCOLAR TEXT,
-                    CAPACIDAD INT,
-                    FOREIGN KEY (ID_ASIGNATURA) REFERENCES ASIGNATURA(ID_ASIGNATURA),
-                    FOREIGN KEY (ID_CARRERA) REFERENCES CARRERA(ID_CARRERA),
-                    FOREIGN KEY (ID_DOCENTE) REFERENCES EMPLEADO(ID)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS HORARIO_GRUPO (
-                    ID_HORARIOGRUPO INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_GRUPO INTEGER,
-                    DIASEMANA TEXT,
-                    HORAINICIO TIME,
-                    HORAFIN TIME,
-                    FOREIGN KEY (ID_GRUPO) REFERENCES GRUPO(ID_GRUPO)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS ALUMNO (
-                    ID_ALUMNO INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_CARRERA INTEGER,
-                    NOMBRE TEXT,
-                    APELLIDO_PATERNO TEXT,
-                    APELLIDO_MATERNO TEXT,
-                    CURP TEXT,
-                    CORREO_PERSONAL TEXT,
-                    TELEFONO TEXT,
-                    DIRRECCION TEXT,
-                    FECHA_NACIMIENTO DATETIME,
-                    SEXO TEXT,
-                    TELEFONO_CONTAC TEXT,
-                    NOMBRE_PADRE TEXT,
-                    APELLIDO_PADRE TEXT,
-                    NOMBRE_MADRE TEXT,
-                    APELLIDO_MADRE TEXT,
-                    FECHA_INGRESO DATETIME,
-                    MATRICULA TEXT,
-                    SEMESTRE INT,
-                    ESTATUS TEXT,
-                    CORREO_INSTITUCIONAL TEXT,
-                    PROMEDIO_GENERAL DECIMAL(4, 2),
-                    FOREIGN KEY (ID_CARRERA) REFERENCES CARRERA(ID_CARRERA)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS INSCRIPCION_GRUPO (
-                    ID_INSCRIPCION INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ID_ALUMNO INTEGER,
-                    ID_GRUPO INTEGER,
-                    FECHA_INSCRIPCION DATETIME,
-                    ESTADO TEXT,
-                    CALIFICACION_FINAL DECIMAL(5, 2),
-                    FOREIGN KEY (ID_ALUMNO) REFERENCES ALUMNO(ID_ALUMNO),
-                    FOREIGN KEY (ID_GRUPO) REFERENCES GRUPO(ID_GRUPO)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS DOCENTE_SESION (
-                    USUARIO TEXT PRIMARY KEY,
-                    CONTRASEÑA TEXT,
-                    CODIGO_CONTROL TEXT,
-                    ID_DOCENTE INTEGER,
-                    FOREIGN KEY (ID_DOCENTE) REFERENCES EMPLEADO(ID)
-                );
-            ",
-            @"
-                CREATE TABLE IF NOT EXISTS ESTUDIANTES_SESION (
-                    USUARIO TEXT PRIMARY KEY,
-                    CONTRASEÑA TEXT,
-                    ID_ESTUDIANTE INTEGER,
-                    FOREIGN KEY (ID_ESTUDIANTE) REFERENCES ALUMNO(ID_ALUMNO)
-                );
-            "
-        };
+            {   
+                "PRAGMA foreign_keys = ON;",
+                @"CREATE TABLE IF NOT EXISTS Animal (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Nombre TEXT NOT NULL
+                );",
 
+                @"CREATE TABLE IF NOT EXISTS Perro (
+                    Id INTEGER PRIMARY KEY,
+                    Raza TEXT NOT NULL,
+                    FOREIGN KEY (Id) REFERENCES Animal(Id) ON DELETE CASCADE
+                );",
+
+                @"CREATE TABLE IF NOT EXISTS Gato (
+                    Id INTEGER PRIMARY KEY,
+                    EsCasero BOOLEAN NOT NULL,
+                    FOREIGN KEY (Id) REFERENCES Animal(Id) ON DELETE CASCADE
+                );",
+
+                @"CREATE TABLE IF NOT EXISTS Pajaro (
+                    Id INTEGER PRIMARY KEY,
+                    Envergadura REAL NOT NULL,
+                    FOREIGN KEY (Id) REFERENCES Animal(Id) ON DELETE CASCADE
+                );",
+                @"
+                    CREATE TABLE IF NOT EXISTS Objeto (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Nombre TEXT NOT NULL,
+                    Precio REAL,
+                    Activo INTEGER, -- SQLite no tiene tipo BOOL, se usa INTEGER (0 o 1)
+                    FechaCreacion TEXT, -- SQLite guarda fechas como TEXT (ISO 8601)
+                    Porcentaje REAL,
+                    Inicial TEXT,
+                    Codigo INTEGER
+                );"
+            };
 
             foreach (var commandText in createTableCommands)
             {
@@ -230,54 +74,336 @@ public class DB
         }
     }
 
-    public bool Create(string columns, string values)
-    {
-        string query = $"INSERT INTO {table} ({columns}) VALUES ({values})";
+    /*public static bool Create<T>(string columns, string values) {
+        string query = $"INSERT INTO {typeof(T).Name} ({columns}) VALUES ({values})";
         return ExecuteQuery(query);
+    }*/
+
+    public static T? Create<T>(T item)
+    {
+        /*try
+        {
+            PropertyInfo[] properties = typeof(T).GetProperties()
+                .Where(p => p.Name.ToLower() != "id")
+                .ToArray();
+
+            var columnNames = string.Join(", ", properties.Select(p => p.Name));
+            var paramNames = string.Join(", ", properties.Select(p => "@" + p.Name));
+
+            string query = $"INSERT INTO {typeof(T).Name} ({columnNames}) VALUES ({paramNames});";
+
+            using (var connection = new SQLiteConnection(dsn))
+            {
+                connection.Open();
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    foreach (var prop in properties)
+                    {
+                        object? value = prop.GetValue(item);
+                        command.Parameters.AddWithValue("@" + prop.Name, value ?? DBNull.Value);
+                    }
+
+                    command.ExecuteNonQuery();
+
+                    // Obtener el último ID insertado
+                    command.CommandText = "SELECT last_insert_rowid();";
+                    long lastId = (long)command.ExecuteScalar()!;
+
+                    // Asignar el ID si existe la propiedad "Id"
+                    var idProp = typeof(T).GetProperty("Id");
+                    if (idProp != null && idProp.CanWrite)
+                    {
+                        idProp.SetValue(item, Convert.ChangeType(lastId, idProp.PropertyType));
+                    }
+                }
+            }
+            return item;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"ERROR Create<{typeof(T).Name}>: {e.Message}");
+            return default;
+        }*/
+        try
+        {
+            Type type = typeof(T);
+            Type? parent = type.BaseType;
+            Type[] types = (parent != null && parent != typeof(object))
+                ? [parent, type]
+                : [type];
+
+            //List<string> cNames = [];
+            //List<string> cParentNames = [];
+            int lastId = -1;
+            using (var connection = new SQLiteConnection(dsn))
+            {
+                connection.Open();
+                for (int i = 0; i < types.Length; i++)
+                {
+                    Type t = types[i];
+                    List<string> cols = [];
+                    Dictionary<string, object?> values = [];
+                    string q_cols = "";
+                    string q_params = "";
+                    using (var command = new SQLiteCommand($"PRAGMA table_info({t.Name})", connection))
+                    {
+                        if (lastId >= 0)
+                        {
+                            cols.Add("Id");
+                            values.Add("@Id", lastId);
+                        }
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                if (!string.Equals(reader["name"].ToString()!, "id", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    cols.Add(reader["name"].ToString()!);
+                                }
+                            }
+                        }
+                        q_cols = string.Join(", ", cols);
+                        Console.WriteLine(q_cols);
+                        q_params = string.Join(", ", cols.Select(c => "@" + c));
+                        foreach (var c in cols)
+                        {
+                            if (c != "Id")
+                            {
+                                Console.WriteLine(c);
+                                var prop = type.GetProperty(c);
+                                values.Add("@" + c, prop?.GetValue(item));
+                            }
+                        }
+                    }
+                    string query = $"INSERT INTO {t.Name} ({q_cols}) VALUES ({q_params})";
+                    Console.WriteLine($"{query} | {string.Join(", ", values.Values)}");
+                    using (var command = new SQLiteCommand(query, connection))
+                    {
+                        foreach (var (k, v) in values)
+                        {
+                            command.Parameters.AddWithValue(k, v ?? DBNull.Value);
+                        }
+
+                        command.ExecuteNonQuery();
+                        if (lastId < 0)
+                        {
+                            command.CommandText = "SELECT last_insert_rowid();";
+                            lastId = Convert.ToInt32((long)command.ExecuteScalar()!);
+
+                            var idProp = type.GetProperty("Id");
+                            if (idProp != null && idProp.CanWrite)
+                            {
+                                idProp.SetValue(item, Convert.ChangeType(lastId, idProp.PropertyType));
+                            }
+                        }
+                    }
+                }
+            }
+            return item;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"ERRRORRORR: {e.Message} : {e.StackTrace}");
+            return default!;
+        }
     }
 
-    public List<Dictionary<string, object?>> Read(string condition = "1=1")
+    public static List<T> Read<T>(string condition = "1=1", params (string name, object? value)[] parameters) where T : new()
     {
-        string query = $"SELECT * FROM {table} WHERE {condition}";
-        var result = new List<Dictionary<string, object?>>();
+        Type type = typeof(T);
+        Type? parent = type.BaseType;
+        string query = $"SELECT * FROM {type.Name} WHERE {condition}";
+        if (parent != null && parent != typeof(object))
+        {
+            string newCondition = Regex.Replace(condition, @"\bId\b", $"{parent.Name}.Id");
+            query = $"SELECT {parent.Name}.*, {type.Name}.* FROM {type.Name} INNER JOIN {parent.Name} ON {parent.Name}.Id = {type.Name}.Id WHERE {newCondition}";
+        }
+        var result = new List<T>();
 
         using (var connection = new SQLiteConnection(dsn))
         {
             connection.Open();
             using (var command = new SQLiteCommand(query, connection))
-            using (var reader = command.ExecuteReader())
             {
-                while (reader.Read())
+
+                foreach (var (name, value) in parameters)
                 {
-                    var row = new Dictionary<string, object?>();
+                    command.Parameters.AddWithValue(name, value ?? DBNull.Value);
+                }
 
-                    for (int i = 0; i < reader.FieldCount; i++)
+                using (var reader = command.ExecuteReader())
+                {
+                    var properties = typeof(T).GetProperties();
+
+                    while (reader.Read())
                     {
-                        string columnName = reader.GetName(i);
-                        object? value = reader.IsDBNull(i) ? null : reader.GetValue(i);
-                        row[columnName] = value;
-                    }
+                        var data = new Dictionary<string, object?>();
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            string columnName = reader.GetName(i);
+                            object? value = reader.IsDBNull(i) ? null : reader.GetValue(i);
+                            data[columnName.ToLower()] = value; // evitar problemas con mayúsculas
+                        }
 
-                    result.Add(row);
+                        T instance = new T();
+
+                        foreach (var prop in properties)
+                        {
+                            if (!prop.CanWrite) continue;
+
+                            if (data.TryGetValue(prop.Name.ToLower(), out var valor) && valor != null)
+                            {
+                                try
+                                {
+                                    Type targetType = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+                                    object converted = Convert.ChangeType(valor, targetType);
+                                    prop.SetValue(instance, converted);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine($"No se pudo asignar '{prop.Name}': {ex.Message}");
+                                }
+                            }
+                        }
+
+                        result.Add(instance);
+                    }
                 }
             }
         }
         return result;
     }
-
-    public bool Update(string setColumns, string condition)
+    public static List<T> Read<T>(Func<T, bool> condition) where T : new()
     {
-        string query = $"UPDATE {table} SET {setColumns} WHERE {condition}";
-        return ExecuteQuery(query);
+        var list = Read<T>();
+        return list.Where(condition).ToList();
     }
 
-    public bool Delete(string condition)
+    public static T? ReadFirst<T>(string condition = "1=1", params (string name, object? value)[] parameters) where T : new()
     {
-        string query = $"DELETE FROM {table} WHERE {condition}";
-        return ExecuteQuery(query);
+        var list = Read<T>(condition, parameters);
+        return list.Count > 0 ? list[0] : default;
     }
 
-    protected bool ExecuteQuery(string query)
+    public static T? ReadFirst<T>(Func<T, bool> condition) where T : new()
+    {
+        var list = Read<T>();
+        return list.Where(condition).FirstOrDefault();
+    }
+    public static bool Update<T>(string condition, string setColumns, params (string name, object? value)[] parameters) {
+        string query = $"UPDATE {typeof(T).Name} SET {setColumns} WHERE {condition}";
+        try
+        {
+            using (var connection = new SQLiteConnection(dsn))
+            {
+                connection.Open();
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    foreach (var (name, value) in parameters)
+                    {
+                        command.Parameters.AddWithValue(name, value ?? DBNull.Value);
+                    }
+
+                    int affectedRows = command.ExecuteNonQuery();
+                    return affectedRows > 0;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"ERROR Update<{typeof(T).Name}>: {ex.Message}");
+            return false;
+        }
+    }
+
+    public static bool Delete<T>(string condition, params (string name, object? value)[] parameters) {
+        Type type = typeof(T);
+        Type? parent = type.BaseType;    
+        string query = $"DELETE FROM {typeof(T).Name} WHERE {condition}";
+        if (parent != null && parent != typeof(object))
+        {
+            string newCondition = Regex.Replace(condition, @"\bId\b", $"{parent.Name}.Id");
+            query = $@"
+            DELETE FROM {parent.Name}
+            WHERE Id IN (
+                SELECT {parent.Name}.Id
+                FROM {parent.Name}
+                INNER JOIN {type.Name} ON {parent.Name}.Id = {type.Name}.Id
+                WHERE {newCondition}
+            );";
+        }
+        try
+        {
+            using var connection = new SQLiteConnection(dsn);
+            connection.Open();
+
+            using var command = new SQLiteCommand(query, connection);
+            foreach (var (name, value) in parameters)
+            {
+                command.Parameters.AddWithValue(name, value ?? DBNull.Value);
+            }
+
+            int affectedRows = command.ExecuteNonQuery();
+            return affectedRows > 0;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"ERROR Delete<{typeof(T).Name}>: {e.Message}");
+            return false;
+        }
+    }
+
+    public static List<string> GetColumnNames<T>()
+    {
+        Type type = typeof(T);
+        bool hasParent = type.BaseType != null && type.BaseType != typeof(object);
+
+        string tableName = typeof(T).Name;
+        List<string> columnNames = new();
+
+        using (var connection = new SQLiteConnection(dsn)) // asegúrate de tener tu cadena de conexión en 'dsn'
+        {
+            connection.Open();
+            using (var command = new SQLiteCommand($"PRAGMA table_info({tableName})", connection))
+            using (var reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    string columnName = reader["name"].ToString()!;
+                    if (hasParent && string.Equals(columnName, "Id", StringComparison.OrdinalIgnoreCase))
+                    {
+                        continue;
+                    }
+                    columnNames.Add(columnName);
+                }
+            }
+        }
+        return columnNames;
+    }
+    public static List<string> GetColumnNames<T>(SQLiteConnection connection)
+    {
+        Type type = typeof(T);
+        bool hasParent = type.BaseType != null && type.BaseType != typeof(object);
+
+        string tableName = typeof(T).Name;
+        List<string> columnNames = new();
+
+        using (var command = new SQLiteCommand($"PRAGMA table_info({tableName})", connection))
+        using (var reader = command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                string columnName = reader["name"].ToString()!;
+                if (hasParent && string.Equals(columnName, "Id", StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+                columnNames.Add(columnName);
+            }
+        }
+        return columnNames;
+    }
+    public static bool ExecuteQuery(string query)
     {
         try
         {

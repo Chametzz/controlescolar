@@ -1,0 +1,1 @@
+SELECT * FROM Animal WHERE Id IN (SELECT Animal.Id FROM Animal INNER JOIN Gato ON Animal.Id = Gato.Id)
