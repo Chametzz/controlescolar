@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 public static class DB{
     public static string path = Path.Combine(Directory.GetCurrentDirectory(), "database.db");
     public static string dsn = $"Data Source={path};Version=3";
-    public static SQLiteConnection connection = SETDATABASE(path);
+    //public static SQLiteConnection connection = SETDATABASE(path);
 
     public static SQLiteConnection SETDATABASE(string path)
     {
@@ -118,7 +118,7 @@ public static class DB{
                             if (c != "Id")
                             {
                                 Console.WriteLine(c);
-                                var prop = type.GetProperty(c);
+                                var prop = t.GetProperty(c);
                                 values.Add("@" + c, prop?.GetValue(item));
                             }
                         }
@@ -340,6 +340,33 @@ public static class DB{
             return false;
         }
     }
+    //EN PROCESO
+    /*public static bool Delete<T>(Func<T, bool> condition) where T : new() 
+    {
+        try
+        {
+            List<T> list = Read<T>(condition);
+            foreach (var item in list)
+            {
+                var idProp = item?.GetType().GetProperty("Id");
+                if (idProp != null)
+                {
+                    var idValue = idProp.GetValue(item);
+                    Delete<T>($"Id = {idValue}");
+                }
+                else
+                {
+                    Console.WriteLine($"ERROR: {typeof(T).Name} no tiene propiedad 'Id'");
+                }
+            }
+            return false;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"ERROR Delete<{typeof(T).Name}>: {e.Message}");
+            return false;
+        }
+    }*/
 
     public static void ForeignKeysOn(SQLiteConnection connection)
     {
@@ -420,26 +447,5 @@ public static class DB{
             }
         }
         return columnNames;
-    }
-    public static bool ExecuteQuery(string query)
-    {
-        try
-        {
-            connection.Open();
-            using (var command = new SQLiteCommand(query, connection))
-            {
-                command.ExecuteNonQuery();
-                return true;
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error executing query: {ex.Message}");
-            return false;
-        }
-        finally
-        {
-            connection.Close();
-        }
     }
 }
