@@ -25,9 +25,18 @@ namespace controlescolar
         }
         private void ButtonLogprof_Click(object sender, RoutedEventArgs e)
         {
-            PantallaDocentes ventanaEmpleados = new PantallaDocentes();
-            ventanaEmpleados.Show();
-            this.Close();
+            /*var data = HandOfGod.ExecuteSubmit(sender);
+            if (!int.TryParse($"{data["user"]}", out int user)) return;
+            var docente = DB.modelDocentes.ReadFirst($"Id_Empleado = {user}");
+            if (docente == null) return;
+            var empleado = DB.modelEmpleado.ReadFirst($"Id = {user}");
+            Console.WriteLine($"{empleado?["CURP"]} == {data["pass"]} | {empleado?["CURP"] == data["pass"]}");
+            if (empleado != null && empleado["CURP"]?.ToString() == data["pass"]?.ToString())
+            {
+                PantallaDocentes ventanaEmpleados = new PantallaDocentes();
+                ventanaEmpleados.Show();
+                this.Close();
+            }*/
         }
                 private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
