@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Control_Escolar_Consola.Entidades;
 
 namespace controlescolar
 {
@@ -27,7 +26,7 @@ namespace controlescolar
         }
         private void ButtonLog_Click(object sender, RoutedEventArgs e)
         {
-            var data = HandOfGod.ExecuteSubmit(sender);
+            /*var data = HandOfGod.ExecuteSubmit(sender);
             if (!int.TryParse($"{data["user"]}", out int user)) return;
             var alumno = DB.modelAlumno.ReadFirst($"Id_Alumno = {user}");
             Console.WriteLine($"{alumno?["CURP"]} == {data["pass"]} | {alumno?["CURP"] == data["pass"]}");
@@ -37,7 +36,7 @@ namespace controlescolar
                 EstudiantePantalla ventanaEstudiante = new EstudiantePantalla();
                 ventanaEstudiante.Show();
                 this.Close();
-            }
+            }*/
         }
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
