@@ -1,40 +1,83 @@
-using controlescolar;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Collections;
+using System;
+using System.Collections.Generic;
 
 public static class BolsaGlobal
 {
-    public static Dictionary<string, object?> _bolsaGlobal = new Dictionary<string, object?>(); //Diccionario para almacenar datos globales (key-value pairs)
-    public static void Set(string key, object? value) //Método para guardar un valor
+    //Propiedades específicas para usuarios logueados
+    private static Alumno? _alumnoLogueado;
+    private static Empleado? _docenteLogueado;
+
+    private static readonly List<KeyValuePair<string, object?>> _datos = new();
+
+    //Propiedades públicas para acceso controlado
+    public static Alumno? AlumnoLogueado
     {
-        if (_bolsaGlobal.ContainsKey(key))
+        get => _alumnoLogueado;
+        set
         {
-            _bolsaGlobal[key] = value; //Actualizar si ya es existente.
+            _alumnoLogueado = value;
+            // Si se asigna un alumno, automáticamente se limpia el docente
+            if (value != null) _docenteLogueado = null;
         }
-        else
+    }
+
+    public static Empleado? DocenteLogueado
+    {
+        get => _docenteLogueado;
+        set
         {
-            _bolsaGlobal.Add(key, value); //Agrega un valor si es nuevo.
+            _docenteLogueado = value;
+            // Si se asigna un docente, automáticamente se limpia el alumno
+            if (value != null) _alumnoLogueado = null;
         }
     }
-    public static bool Contains(string key) //Método para verificar si una clase es existente.
+
+    //Métodos para el almacenamiento genérico
+    public static void Set(string key, object? value)
     {
-        return _bolsaGlobal.ContainsKey(key);
+        Remove(key); // Elimina si ya existe
+        _datos.Add(new KeyValuePair<string, object?>(key, value));
     }
-    public static void Remove(string key) //Método para eliminar un dato.
+    public static T? Get<T>(string key)
     {
-        _bolsaGlobal.Remove(key);
+        foreach (var item in _datos)
+        {
+            if (item.Key == key && item.Value is T typedValue)
+            {
+                return typedValue;
+            }
+        }
+        return default;
     }
+    public static bool Contains(string key)
+    {
+        foreach (var item in _datos)
+        {
+            if (item.Key == key) return true;
+        }
+        return false;
+    }
+    public static bool Remove(string key)
+    {
+        return _datos.RemoveAll(item => item.Key == key) > 0;
+    }
+    public static void CerrarSesion()
+    {
+        _alumnoLogueado = null;
+        _docenteLogueado = null;
+    }
+    public static bool HayUsuarioLogueado => _alumnoLogueado != null || _docenteLogueado != null;
     public static void Clear()
     {
-        _bolsaGlobal.Clear();
+        _datos.Clear();
+        CerrarSesion();
+    }
+    public static int Count() => _datos.Count;
+    public static IEnumerable<string> GetKeys()
+    {
+        foreach (var item in _datos)
+        {
+            yield return item.Key;
+        }
     }
 }
