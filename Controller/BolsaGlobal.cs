@@ -16,9 +16,16 @@ public static class BolsaGlobal
         get => _alumnoLogueado;
         set
         {
-            _alumnoLogueado = value;
-            // Si se asigna un alumno, automáticamente se limpia el docente
-            if (value != null) _docenteLogueado = null;
+            if (value != null)
+            {
+                _alumnoLogueado = value;
+                _docenteLogueado = null;
+                _adminLogueado = null;
+            }
+            else
+            {
+                _alumnoLogueado = null;
+            }
         }
     }
         public static Administrativo? AdminLogueado
@@ -44,9 +51,16 @@ public static class BolsaGlobal
         get => _docenteLogueado;
         set
         {
-            _docenteLogueado = value;
-            // Si se asigna un docente, automáticamente se limpia el alumno
-            if (value != null) _alumnoLogueado = null;
+            if (value != null)
+            {
+                _docenteLogueado = value;
+                _alumnoLogueado = null;
+                _adminLogueado = null;
+            }
+            else
+            {
+                _docenteLogueado = null;
+            }
         }
     }
 
