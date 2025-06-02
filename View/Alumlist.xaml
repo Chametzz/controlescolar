@@ -6,7 +6,9 @@
       xmlns:local="clr-namespace:controlescolar"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Alumno Lista">
+      Title="Alumno Lista"
+            Tag="PageAlumlist"
+>
 
     <Grid Grid.Column="1" Margin="10" Background="#F9FAFB">
         <Grid.ColumnDefinitions>

@@ -21,37 +21,81 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <WrapPanel Margin="10">
+        <WrapPanel Tag="Form" Name="FormAdd" Margin="10">
             <StackPanel Margin="5">
-                <TextBlock Text="Numero de Control"/>
-                <TextBox x:Name="txtControl" Width="150"/>
+                <TextBlock Text="Nombre"/>
+                <TextBox Tag="Nombre" x:Name="txtControl" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
-                <TextBlock Text="Nombre Completo"/>
-                <TextBox x:Name="txtNombre" Width="150"/>
+                <TextBlock Text="Apellido Paterno"/>
+                <TextBox Tag="ApellidoP"  Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
-                <TextBlock Text="Telefono"/>
-                <TextBox x:Name="txtTelefono" Width="150"/>
+                <TextBlock Text="Apellido Materno"/>
+                <TextBox Tag="ApellidoM" x:Name="txtTelefono" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
-                <TextBlock Text="Grupo"/>
-                <ComboBox x:Name="cbGrupo" Width="150">
-                    <ComboBoxItem Content="Docente Algebra"/>
-                    <ComboBoxItem Content="Docente Cha"/>
+                <TextBlock Text="Fecha de nacimiento"/>
+                <TextBox Tag="FechaNac" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="CURP"/>
+                <TextBox Tag="Curp" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Sexo"/>
+                <ComboBox Tag="Sexo" Width="150">
+                    <ComboBoxItem Content="Hombre"/>
+                    <ComboBoxItem Content="Mujer"/>
                 </ComboBox>
             </StackPanel>
             <StackPanel Margin="5">
-                <TextBlock Text="Genero"/>
-                <ComboBox x:Name="cbGenero" Width="150">
-                    <ComboBoxItem Content="Hombre"/>
-                    <ComboBoxItem Content="Mujer"/>
+                <TextBlock Text="Correo"/>
+                <TextBox Tag="Correo" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Correo Institucional"/>
+                <TextBox Tag="CorreoInst" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Telefono"/>
+                <TextBox Tag="Tel"  Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Direccion"/>
+                <TextBox Tag="Direccion" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Nombre(s) del Padre"/>
+                <TextBox Tag="NombrePadre" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Apellido(s) del Padre"/>
+                <TextBox Tag="ApellidoPadre" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Nombre(s) de la Madre"/>
+                <TextBox Tag="NombreMadre" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Apellido(s) de la Madre"/>
+                <TextBox Tag="ApellidoMadre" Width="150"/>
+            </StackPanel>
+            <StackPanel Margin="5">
+                <TextBlock Text="Carrera"/>
+                <ComboBox Tag="Carrera" Width="150">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                    <ComboBoxItem Content="6"/>
                 </ComboBox>
             </StackPanel>
         </WrapPanel>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Anadir" Width="100" Margin="5" />
+            <Button Content="Anadir" Click="Button_Add" Width="100" Margin="5" />
             <Button Content="Actualizar" Width="100" Margin="5"/>
             <Button Content="Eliminar" Width="100" Margin="5"/>
             <Button Content="Limpiar" Width="100" Margin="5" Click="BtnLimpiar_Click"/>
