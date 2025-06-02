@@ -5,6 +5,7 @@ public static class BolsaGlobal
 {
     //Propiedades específicas para usuarios logueados
     private static Alumno? _alumnoLogueado;
+    private static Administrativo? _adminLogueado;
     private static Empleado? _docenteLogueado;
 
     private static readonly List<KeyValuePair<string, object?>> _datos = new();
@@ -18,6 +19,23 @@ public static class BolsaGlobal
             _alumnoLogueado = value;
             // Si se asigna un alumno, automáticamente se limpia el docente
             if (value != null) _docenteLogueado = null;
+        }
+    }
+        public static Administrativo? AdminLogueado
+    {
+        get => _adminLogueado;
+        set
+        {
+            if (value != null)
+            {
+                _adminLogueado = value;
+                _alumnoLogueado = null;
+                _docenteLogueado = null;
+            }
+            else
+            {
+                _adminLogueado = null;
+            }
         }
     }
 
@@ -65,8 +83,9 @@ public static class BolsaGlobal
     {
         _alumnoLogueado = null;
         _docenteLogueado = null;
+        _adminLogueado = null;
     }
-    public static bool HayUsuarioLogueado => _alumnoLogueado != null || _docenteLogueado != null;
+    public static bool HayUsuarioLogueado => _alumnoLogueado != null || _docenteLogueado != null || _adminLogueado != null;
     public static void Clear()
     {
         _datos.Clear();
