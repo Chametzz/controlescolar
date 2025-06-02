@@ -24,7 +24,7 @@
 
         <WrapPanel Margin="10">
             <StackPanel Margin="5">
-                <TextBlock Text="Empleado ID"/>
+                <TextBlock Text="Alumno"/>
                 <TextBox x:Name="txtEmpleadoId" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
@@ -59,7 +59,7 @@
             <Button Content="Anadir" Width="100" Margin="5" />
             <Button Content="Actualizar" Width="100" Margin="5"/>
             <Button Content="Eliminar" Width="100" Margin="5"/>
-            <Button Content="Limpiar" Width="100" Margin="5"/>
+            <Button Content="Limpiar" Width="100" Margin="5" Click="BtnLimpiar_Click"/>
         </StackPanel>
     </StackPanel>
 </Page>

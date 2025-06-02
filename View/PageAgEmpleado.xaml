@@ -59,7 +59,7 @@
             <Button Content="Añadir" Width="100" Margin="5" />
             <Button Content="Actualizar" Width="100" Margin="5"/>
             <Button Content="Eliminar" Width="100" Margin="5"/>
-            <Button Content="Limpiar" Width="100" Margin="5"/>
+            <Button Content="Limpiar" Width="100" Margin="5" Click="BtnLimpiar_Click" />
         </StackPanel>
     </StackPanel>
 </Page>

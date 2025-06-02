@@ -26,7 +26,7 @@ namespace controlescolar
         }
         private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
 {
-    txtEmpleadoId.Text = string.Empty;
+    txtEmpleadoCedula.Text = string.Empty;
     txtNombre.Text = string.Empty;
     txtTelefono.Text = string.Empty;
     txtSalario.Text = string.Empty;
