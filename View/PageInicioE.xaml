@@ -16,8 +16,8 @@
             <RowDefinition Height="203*"/>
         </Grid.RowDefinitions> 
         <ScrollViewer Padding="20" Grid.RowSpan="2">
-            <StackPanel>
-                <GroupBox Header="Identificación" Margin="0,10" Height="129" Width="740">
+            <StackPanel Name="AlumnoPanel">
+                <GroupBox Header="Identificación" Margin="0,10" Height="257" Width="740">
                     <Grid Margin="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
@@ -26,12 +26,8 @@
 
                         <Image Source="/Recursos/logo-controlescolar.jpeg" Width="80" Height="80"/>
 
-                        <StackPanel x:Name="AlumnoPanel" Grid.Column="1" Margin="10,0">
-                            <TextBlock x:Name="Nombre" Tag="Nombre: {Nombre}" FontWeight="Bold" FontSize="14"/>
-                            <TextBlock x:Name="ApellidoP" Tag="ApellidoP: {ApellidoP}" FontWeight="Bold" FontSize="14"/>
-                            <TextBlock x:Name="ApellidoM" Tag="ApellidoM: {ApellidoM}"  FontWeight="Bold" FontSize="14"/>
-                            <TextBlock x:Name="FechaNac" Tag="FechaNac: {FechaNac}"  FontWeight="Bold" FontSize="14"/>
-                            <TextBlock x:Name="Curp" Tag="Curp: {Curp}" FontWeight="Bold" FontSize="14"/>
+                        <StackPanel Grid.Column="1" Margin="10,0">
+                            <TextBlock x:Name="Nombre" Tag="Nombre: {Nombre } {ApellidoP }  {ApellidoM}" FontWeight="Bold" FontSize="14"/>
                             <TextBlock x:Name="CorreoInst" Tag="CorreoInst: {CorreoInst}" FontWeight="Bold" FontSize="14"/>
                             <TextBlock x:Name="Semestre" Tag="Semestre: {Semestre}"  FontWeight="Bold" FontSize="14"/>
                             <TextBlock x:Name="FechaIng" Tag="FechaIng: {FechaIng}"  FontWeight="Bold" FontSize="14"/>
@@ -42,12 +38,13 @@
                 </GroupBox>
 
                 <Expander Header="Datos personales" IsExpanded="False" Margin="0,10">
+                            <TextBlock x:Name="Curp" Tag="FechaNac: {FechaNac}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Sexo" Tag="Curp: {Curp}" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Correo" Tag="CorreoInst: {CorreoInst}" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Tel" Tag="Semestre: {Semestre}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Direccion" Tag="FechaIng: {FechaIng}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="FechaNac" Tag="Estado: {Estado}"  FontWeight="Bold" FontSize="14"/>
 
-                    <TextBlock x:Name="datosPersonales" Tag="TxtDatosAlPe" Text="Aqui aparezcan los datos generales del alumno? mas personales" Margin="10"/>
-                </Expander>
-
-                <Expander Header="Información de carga académica" IsExpanded="False" Margin="0,10">
-                    <TextBlock Text="Ps aqui lo de cuando elegir materias(?" Margin="10"/>
                 </Expander>
             </StackPanel>
         </ScrollViewer>
