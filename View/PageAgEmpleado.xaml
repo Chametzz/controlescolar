@@ -74,8 +74,12 @@
                         <StackPanel Margin="5">
                 <TextBlock Text="Puesto"/>
                 <ComboBox x:Name="cbPuesto" Width="150" Tag="{Puesto}">
-                    <ComboBoxItem Content="Docente Algebra"/>
-                    <ComboBoxItem Content="Docente Cha"/>
+                    <ComboBoxItem Content="Jefe de departamento"/>
+                    <ComboBoxItem Content="Docente "/>
+                    <ComboBoxItem Content="Personal Administracion "/>
+                    <ComboBoxItem Content="Docente "/>
+                    <ComboBoxItem Content="Docente "/>
+
                 </ComboBox>
             </StackPanel>
 
