@@ -1,4 +1,4 @@
-﻿<Page x:Class="controlescolar.PageEmpleados"
+<Page x:Class="controlescolar.Alumlist"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:controlescolar"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageEmpleados">
+      Title="Alumno Lista">
 
     <Grid Grid.Column="1" Margin="10" Background="#F9FAFB">
         <Grid.ColumnDefinitions>
@@ -15,11 +15,21 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Margin="10" Grid.Column="0">
-            <TextBlock Text="Empleado Cedula:"/>
-            <TextBox x:Name="txtEmpleadoId" Margin="0,5" Tag = "Id"/>
+            <TextBlock Text="EmpleadoID:"/>
+            <TextBox x:Name="txtEmpleadoId" Margin="0,5"/>
+
+            <TextBlock Text="Nombre:"/>
+            <TextBox x:Name="txtNombre" Margin="0,5"/>
+
+            <TextBlock Text="Posicion:"/>
+            <TextBox x:Name="txtPosicion" Margin="0,5"/>
+
+            <TextBlock Text="Salario:"/>
+            <TextBox x:Name="txtSalario" Margin="0,5"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,10,0,0">
-                <Button Content="Buscar" Width="100" Margin="5"/>
+                <Button Content="Actualizar" Width="100" Margin="5"/>
+                <Button Content="Limpiar" Width="100" Margin="5"/>
             </StackPanel>
         </StackPanel>
 
