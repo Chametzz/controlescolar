@@ -24,29 +24,61 @@ namespace controlescolar
         {
             InitializeComponent();
         }
+        //       private void Button_Add(object sender, RoutedEventArgs e)
+        //   {
+        //  var data = HandOfGod.ExecuteSubmit(sender, FormAdd);
+        //
+        //     DB.Create(new Empleado
+        //              (data["Nombre"].ToString(),
+        //            data["Apellido"].ToString(),
+        //          DateTime.Parse(data["FechaNac"].ToString()!),
+        //        data["Curp"].ToString(),
+        //      data["Sexo"].ToString(),
+        //    data["Correo"].ToString(),
+        //  data["CorreoCorp"].ToString(),
+        //data["Tel"].ToString(),
+        //        data["Direccion"].ToString(),
+        //   DateTime.Now,
+        //    "ALTA",
+        //    data["Puesto"].ToString(),
+        //    data["Contrato"].ToString(),
+        //    data["Contrasena"].ToString(),
+        //    Convert.ToInt32(data["Departamento"])));
+        //}
+    
         private void Button_Add(object sender, RoutedEventArgs e)
+{
+    try
     {
-    var data = HandOfGod.ExecuteSubmit(sender, FormAdd);
+        var data = HandOfGod.ExecuteSubmit(sender, FormAdd);
 
-            DB.Create(new Empleado
-                (data["Nombre"].ToString(),
-                data["Apellido"].ToString(),
-                DateTime.Parse(data["FechaNac"].ToString()!),
-                data["Curp"].ToString(),
-                data["Sexo"].ToString(),
-                data["Correo"].ToString(),
-                data["CorreoCorp"].ToString(),
-                data["Tel"].ToString(),
-                data["Direccion"].ToString(),
-                DateTime.Now,
-                "ALTA",
-                data["Puesto"].ToString(),
-                data["Contrato"].ToString(),
-                data["Contrasena"].ToString(),
-                Convert.ToInt32(data["Departamento"])));
+        var empleado = new Empleado(
+            data["Nombre"].ToString(),
+            data["Apellido"].ToString(),
+            DateTime.Parse(data["FechaNac"].ToString()!),
+            data["Curp"].ToString(),
+            data["Sexo"].ToString(),
+            data["Correo"].ToString(),
+            data["CorreoCorp"].ToString(),
+            data["Tel"].ToString(),
+            data["Direccion"].ToString(),
+            DateTime.Now,
+            "ALTA",
+            data["Puesto"].ToString(),
+            data["Contrato"].ToString(),
+            data["Contrasena"].ToString(),
+            Convert.ToInt32(data["Departamento"])
+        );
 
+        DB.Create(empleado);
+
+        MessageBox.Show("Empleado añadido correctamente.", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
     }
-        
+    catch (Exception ex)
+    {
+        MessageBox.Show($"Error al añadir empleado:\n{ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+    }
+}
         private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
         {
 
