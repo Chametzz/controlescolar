@@ -30,7 +30,7 @@ public static class DB{
             {
                 "PRAGMA foreign_keys = ON;",
 
-                // Tabla Departamento (base para JefeDep y Administrativo)
+                // Tabla Departamento
                 @"CREATE TABLE IF NOT EXISTS Departamento (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Nombre TEXT NOT NULL,
@@ -38,7 +38,7 @@ public static class DB{
                     Activo BOOLEAN NOT NULL
                 );",
 
-                // Tabla Empleado (base para Docente, JefeDep y Administrativo)
+                // Tabla Empleado (base para Docente)
                 @"CREATE TABLE IF NOT EXISTS Empleado (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Nombre TEXT NOT NULL,
@@ -55,7 +55,13 @@ public static class DB{
                     Estado TEXT,
                     Contrato TEXT,
                     Id_Departamento INTEGER,
-                    FOREIGN KEY (Id_Departamento) REFERENCES Departamento(Id)
+                    FOREIGN KEY (Id_Departamento) REFERENCES Departamento(Id) ON DELETE SET NULL
+                );",
+
+                // Tabla Docente (hereda de Empleado)
+                @"CREATE TABLE IF NOT EXISTS Docente (
+                    Id INTEGER PRIMARY KEY,
+                    FOREIGN KEY (Id) REFERENCES Empleado(Id) ON DELETE CASCADE
                 );",
 
                 // Tabla Carrera
@@ -95,7 +101,7 @@ public static class DB{
                     Semestre INTEGER NOT NULL,
                     FechaIng DATETIME NOT NULL,
                     Estado TEXT NOT NULL,
-                    FOREIGN KEY (Id_Carrera) REFERENCES Carrera(Id)
+                    FOREIGN KEY (Id_Carrera) REFERENCES Carrera(Id) ON DELETE SET NULL
                 );",
 
                 // Tabla Curso
@@ -107,15 +113,16 @@ public static class DB{
                     Capacidad INTEGER NOT NULL,
                     Creditos INTEGER NOT NULL,
                     Periodo TEXT NOT NULL,
-                    FOREIGN KEY (Id_Carrera) REFERENCES Carrera(Id),
-                    FOREIGN KEY (Id_Materia) REFERENCES Materia(Id),
-                    FOREIGN KEY (Id_Docente) REFERENCES Docente(Id)
+                    FOREIGN KEY (Id_Carrera) REFERENCES Carrera(Id) ON DELETE CASCADE,
+                    FOREIGN KEY (Id_Materia) REFERENCES Materia(Id) ON DELETE CASCADE,
+                    FOREIGN KEY (Id_Docente) REFERENCES Docente(Id) ON DELETE SET NULL
                 );",
 
                 // Tabla Horario
                 @"CREATE TABLE IF NOT EXISTS Horario (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Id_Curso INTEGER NOT NULL,
+                    Dia INTEGER NOT NULL,
                     HoraInicio DATETIME NOT NULL,
                     HoraFin DATETIME NOT NULL,
                     FOREIGN KEY (Id_Curso) REFERENCES Curso(Id) ON DELETE CASCADE
@@ -132,8 +139,8 @@ public static class DB{
                     U4 INTEGER,
                     U5 INTEGER,
                     U6 INTEGER,
-                    FOREIGN KEY (Id_Alumno) REFERENCES Alumno(Id),
-                    FOREIGN KEY (Id_Curso) REFERENCES Curso(Id)
+                    FOREIGN KEY (Id_Alumno) REFERENCES Alumno(Id) ON DELETE CASCADE,
+                    FOREIGN KEY (Id_Curso) REFERENCES Curso(Id) ON DELETE CASCADE
                 );"
             };
 
