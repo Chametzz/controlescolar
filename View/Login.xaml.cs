@@ -30,6 +30,7 @@ namespace controlescolar
             var alumno = DB.ReadFirst<Alumno>("Id = @user AND Contrasena = @password", ("@user", data["user"]), ("@password", data["pass"]));
             if (alumno != null)
             {
+                BolsaGlobal.AlumnoLogueado = alumno;
                 new EstudiantePantalla().Show();
                 this.Close();
             }

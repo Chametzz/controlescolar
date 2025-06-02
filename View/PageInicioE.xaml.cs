@@ -22,6 +22,7 @@ namespace controlescolar
     {
         public InicioE()
         {
+            HandOfGod.SetTags(AlumnoPanel, BolsaGlobal.AlumnoLogueado!, "-");
             InitializeComponent();
         }
     }
