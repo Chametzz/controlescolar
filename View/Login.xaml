@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         ResizeMode="CanMinimize"
-        Title="LoginAlumno">
+        Title="LoginAlumno" Height="566" Width="672">
 
     <Grid>
         <!-- Capa 1: Barra verde -->
