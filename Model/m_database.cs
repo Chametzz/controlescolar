@@ -54,6 +54,7 @@ public static class DB{
                     Puesto TEXT,
                     Estado TEXT,
                     Contrato TEXT,
+                    Contrasena TEXT,
                     Id_Departamento INTEGER,
                     FOREIGN KEY (Id_Departamento) REFERENCES Departamento(Id) ON DELETE SET NULL
                 );",
@@ -76,7 +77,6 @@ public static class DB{
                 // Tabla Alumno
                 @"CREATE TABLE IF NOT EXISTS Alumno (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    NumCtrl INTEGER NOT NULL,
                     Nombre TEXT NOT NULL,
                     ApellidoP TEXT NOT NULL,
                     ApellidoM TEXT NOT NULL,
@@ -92,6 +92,7 @@ public static class DB{
                     NombreMadre TEXT,
                     ApellidoMadre TEXT,
                     Id_Carrera INTEGER NOT NULL,
+                    Contrasena TEXT,
                     Semestre INTEGER NOT NULL,
                     FechaIng DATETIME NOT NULL,
                     Estado TEXT NOT NULL,
@@ -161,6 +162,7 @@ public static class DB{
             using (var connection = new SQLiteConnection(dsn))
             {
                 connection.Open();
+                ForeignKeysOn(connection);
                 for (int i = 0; i < types.Length; i++)
                 {
                     Type t = types[i];
