@@ -17,12 +17,12 @@
                     <WrapPanel Margin="0 10" ItemHeight="60">
                         <StackPanel Margin="5">
                             <Label Content="Nombre"/>
-                            <TextBox x:Name="Nombre" Tag="TxtNombreAl" Width="250" Text="......."/>
+                            <TextBlock x:Name="Nombre" Tag="{Nombre } {ApellidoP}  {ApellidoM}" FontWeight="Bold" FontSize="14"/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Estado"/>
-                            <TextBox x:Name="Estado" Tag="TxtEstadoAl" Width="250" Text="......."/>
+                            <TextBlock x:Name="Nombre" Tag="Nombre: {Nombre } {ApellidoP}  {ApellidoM}" FontWeight="Bold" FontSize="14"/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
