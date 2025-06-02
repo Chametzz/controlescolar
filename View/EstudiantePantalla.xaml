@@ -8,7 +8,9 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         ResizeMode="CanMinimize"
-        Title="EstudiantePantalla" Height="560" Width="966">
+        Title="EstudiantePantalla" 
+        Tag="EstudiantePantalla"
+        Height="560" Width="966">
 
     <Grid>
         <Grid.ColumnDefinitions>
