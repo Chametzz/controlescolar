@@ -9,8 +9,10 @@ public class Empleado
     public string? Contrasena { get; set; }
     public string? Usuario { get; set; }
     public string? Curp { get; set; }
-    public string? Estatus { get; set; }
-
+    public string? Status { get; set; }
+    public string? Direccion { get; set; }
+    public int? Edad { get; set; }
+    
     public Empleado() { }
 
     public Empleado(string nombre)
