@@ -24,7 +24,8 @@ namespace controlescolar
         {
             InitializeComponent();
             Console.WriteLine(Nombre);
-            HandOfGod.SetTags(AlumnoPanel, BolsaGlobal.AlumnoLogueado, "-");
+            HandOfGod.SetTags(PanelOne, BolsaGlobal.AlumnoLogueado, "-");
+            HandOfGod.SetTags(PanelTwo, BolsaGlobal.AlumnoLogueado, "-");
         }
     }
 }
