@@ -58,12 +58,6 @@ public static class DB{
                     FOREIGN KEY (Id_Departamento) REFERENCES Departamento(Id) ON DELETE SET NULL
                 );",
 
-                // Tabla Docente (hereda de Empleado)
-                @"CREATE TABLE IF NOT EXISTS Docente (
-                    Id INTEGER PRIMARY KEY,
-                    FOREIGN KEY (Id) REFERENCES Empleado(Id) ON DELETE CASCADE
-                );",
-
                 // Tabla Carrera
                 @"CREATE TABLE IF NOT EXISTS Carrera (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
