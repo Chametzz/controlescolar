@@ -31,13 +31,14 @@ public class Empleado
     public string Puesto { get; set; } = string.Empty;
     public string Estado { get; set; } = string.Empty;
     public string Contrato { get; set; } = string.Empty;
+    public string Contrasena { get; set; } = string.Empty;
     public int? Id_Departamento { get; set; }
 
     public Empleado() { }
 
     public Empleado(string nombre, string apellido, DateTime fechaNac, string curp, string sexo, 
                    string correo, string correoCorp, string tel, string direccion, 
-                   DateTime fechaIng, string estado, string puesto, string contrato, int? idDepartamento)
+                   DateTime fechaIng, string estado, string puesto, string contrato, string contrasena, int? idDepartamento)
     {
         Nombre = nombre;
         Apellido = apellido;
@@ -52,6 +53,7 @@ public class Empleado
         Estado = estado;
         Puesto = puesto;
         Contrato = contrato;
+        Contrasena = contrasena;
         Id_Departamento = idDepartamento;
     }
 }
@@ -91,7 +93,6 @@ public class Materia
 public class Alumno
 {
     public int Id { get; set; }
-    public int NumCtrl { get; set; }
     public string Nombre { get; set; } = string.Empty;
     public string ApellidoP { get; set; } = string.Empty;
     public string ApellidoM { get; set; } = string.Empty;
@@ -107,19 +108,19 @@ public class Alumno
     public string NombreMadre { get; set; } = string.Empty;
     public string ApellidoMadre { get; set; } = string.Empty;
     public int Id_Carrera { get; set; }
+    public string Contrasena { get; set; } = string.Empty;
     public int Semestre { get; set; }
     public DateTime FechaIng { get; set; }
     public string Estado { get; set; } = string.Empty;
 
     public Alumno() { }
 
-    public Alumno(int numCtrl, string nombre, string apellidoP, string apellidoM, 
-                 DateTime fechaNac, string curp, string sexo, string correo, 
-                 string correoInst, string tel, string direccion, string nombrePadre, 
-                 string apellidoPadre, string nombreMadre, string apellidoMadre, 
-                 int idCarrera, int semestre, DateTime fechaIng, string estado)
+    public Alumno(string nombre, string apellidoP, string apellidoM,
+                 DateTime fechaNac, string curp, string sexo, string correo,
+                 string correoInst, string tel, string direccion, string nombrePadre,
+                 string apellidoPadre, string nombreMadre, string apellidoMadre,
+                 int idCarrera, string contrasena, int semestre, DateTime fechaIng, string estado)
     {
-        NumCtrl = numCtrl;
         Nombre = nombre;
         ApellidoP = apellidoP;
         ApellidoM = apellidoM;
@@ -135,6 +136,7 @@ public class Alumno
         NombreMadre = nombreMadre;
         ApellidoMadre = apellidoMadre;
         Id_Carrera = idCarrera;
+        Contrasena = contrasena;
         Semestre = semestre;
         FechaIng = fechaIng;
         Estado = estado;

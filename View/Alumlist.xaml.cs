@@ -18,20 +18,12 @@ namespace controlescolar
     /// <summary>
     /// Lógica de interacción para PageEmpleados.xaml
     /// </summary>
-    public partial class PageAgAlumnos : Page
+    public partial class Alumlist : Page
     {
-        public PageAgAlumnos()
+        public Alumlist()
         {
             InitializeComponent();
         }
-        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
-        {
-            txtControl.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            txtTelefono.Text = string.Empty;
 
-            cbGenero.SelectedIndex = -1;
-            cbGrupo.SelectedIndex = -1;
-        }
     }
 }
