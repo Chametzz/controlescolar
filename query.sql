@@ -1,55 +1,36 @@
--- Registros para alumnos (hombres)
-INSERT INTO Alumno (Nombre, ApellidoP, ApellidoM, FechaNac, Curp, Sexo, Correo, CorreoInst, Tel, Direccion, NombrePadre, ApellidoPadre, NombreMadre, ApellidoMadre, Id_Carrera, Contrasena, Semestre, FechaIng, Estado) VALUES 
-('Juan', 'García', 'López', '2000-05-15', 'GALJ000515HDFRPN01', 'Hombre', 'juan@gmail.com', 'juan.garcia@escuela.com', '5551234567', 'Calle Primavera 123', 'Carlos', 'García', 'María', 'López', 1, 'GALJ000515HDFRPN01', 3, '2021-08-20', 'ALTA'),
-('Pedro', 'Martínez', 'Sánchez', '1999-07-22', 'MASP990722HDFRRN02', 'Hombre', 'pedro@hotmail.com', 'pedro.martinez@escuela.com', '5552345678', 'Av. Libertad 456', 'José', 'Martínez', 'Ana', 'Sánchez', 2, 'MASP990722HDFRRN02', 5, '2020-08-15', 'ALTA'),
-('Luis', 'Rodríguez', 'Gómez', '2001-03-10', 'ROGL010310HDFDMS03', 'Hombre', 'luis@yahoo.com', 'luis.rodriguez@escuela.com', '5553456789', 'Paseo Reforma 789', 'Miguel', 'Rodríguez', 'Laura', 'Gómez', 3, 'ROGL010310HDFDMS03', 2, '2022-08-25', 'ALTA'),
-('Carlos', 'Hernández', 'Pérez', '2000-11-30', 'HEPC001130HDFRRL04', 'Hombre', 'carlos@gmail.com', 'carlos.hernandez@escuela.com', '5554567890', 'Calle Luna 321', 'Fernando', 'Hernández', 'Patricia', 'Pérez', 4, 'HEPC001130HDFRRL04', 4, '2021-08-20', 'ALTA'),
-('Jorge', 'González', 'Ramírez', '1999-09-18', 'GORJ990918HDFNMR05', 'Hombre', 'jorge@hotmail.com', 'jorge.gonzalez@escuela.com', '5555678901', 'Av. Sol 654', 'Roberto', 'González', 'Sofía', 'Ramírez', 5, 'GORJ990918HDFNMR05', 6, '2020-08-15', 'ALTA'),
-('Miguel', 'López', 'Fernández', '2001-01-25', 'LOFM010125HDFPRG06', 'Hombre', 'miguel@yahoo.com', 'miguel.lopez@escuela.com', '5556789012', 'Calle Estrella 987', 'Alberto', 'López', 'Carmen', 'Fernández', 6, 'LOFM010125HDFPRG06', 1, '2022-08-25', 'ALTA'),
-('Alejandro', 'Díaz', 'Vázquez', '2000-08-12', 'DIVA000812HDFRZL07', 'Hombre', 'alejandro@gmail.com', 'alejandro.diaz@escuela.com', '5557890123', 'Av. Juárez 147', 'Ricardo', 'Díaz', 'Adriana', 'Vázquez', 1, 'DIVA000812HDFRZL07', 3, '2021-08-20', 'ALTA'),
-('Fernando', 'Morales', 'Jiménez', '1999-12-05', 'MOJF991205HDFRMR08', 'Hombre', 'fernando@hotmail.com', 'fernando.morales@escuela.com', '5558901234', 'Paseo de la Rosa 258', 'Javier', 'Morales', 'Isabel', 'Jiménez', 2, 'MOJF991205HDFRMR08', 5, '2020-08-15', 'ALTA'),
-('Ricardo', 'Castro', 'Ruiz', '2001-04-20', 'CARR010420HDFSRC09', 'Hombre', 'ricardo@yahoo.com', 'ricardo.castro@escuela.com', '5559012345', 'Calle Roble 369', 'Sergio', 'Castro', 'Lucía', 'Ruiz', 3, 'CARR010420HDFSRC09', 2, '2022-08-25', 'ALTA'),
-('Roberto', 'Ortiz', 'Navarro', '2000-10-15', 'OINR001015HDFRVB10', 'Hombre', 'roberto@gmail.com', 'roberto.ortiz@escuela.com', '5550123456', 'Av. Independencia 753', 'Francisco', 'Ortiz', 'Elena', 'Navarro', 4, 'OINR001015HDFRVB10', 4, '2021-08-20', 'ALTA'),
-('Eduardo', 'Silva', 'Mendoza', '1999-06-28', 'SIME990628HDFLND11', 'Hombre', 'eduardo@hotmail.com', 'eduardo.silva@escuela.com', '5551234567', 'Calle Pino 852', 'Manuel', 'Silva', 'Rosa', 'Mendoza', 5, 'SIME990628HDFLND11', 6, '2020-08-15', 'ALTA'),
-('Javier', 'Rojas', 'Guerrero', '2001-02-14', 'ROGJ010214HDFSRV12', 'Hombre', 'javier@yahoo.com', 'javier.rojas@escuela.com', '5552345678', 'Av. Hidalgo 963', 'Raúl', 'Rojas', 'Silvia', 'Guerrero', 6, 'ROGJ010214HDFSRV12', 1, '2022-08-25', 'ALTA'),
-('Daniel', 'Vargas', 'Cortés', '2000-07-09', 'VACD000709HDFRRN13', 'Hombre', 'daniel@gmail.com', 'daniel.vargas@escuela.com', '5553456789', 'Paseo del Parque 741', 'Arturo', 'Vargas', 'Gabriela', 'Cortés', 1, 'VACD000709HDFRRN13', 3, '2021-08-20', 'ALTA'),
-('Sergio', 'Romero', 'Herrera', '1999-11-22', 'ROHS991122HDFMRR14', 'Hombre', 'sergio@hotmail.com', 'sergio.romero@escuela.com', '5554567890', 'Calle Nogal 159', 'Enrique', 'Romero', 'Claudia', 'Herrera', 2, 'ROHS991122HDFMRR14', 5, '2020-08-15', 'ALTA'),
-('Arturo', 'Méndez', 'Ríos', '2001-05-17', 'MERA010517HDFNSR15', 'Hombre', 'arturo@yahoo.com', 'arturo.mendez@escuela.com', '5555678901', 'Av. Revolución 357', 'Oscar', 'Méndez', 'Verónica', 'Ríos', 3, 'MERA010517HDFNSR15', 2, '2022-08-25', 'ALTA'),
-('Oscar', 'Flores', 'Medina', '2000-09-03', 'FOMO000903HDFLDS16', 'Hombre', 'oscar@gmail.com', 'oscar.flores@escuela.com', '5556789012', 'Calle Cedro 486', 'Héctor', 'Flores', 'Diana', 'Medina', 4, 'FOMO000903HDFLDS16', 4, '2021-08-20', 'ALTA'),
-('Héctor', 'Sosa', 'Aguilar', '1999-04-26', 'SOAH990426HDFSRC17', 'Hombre', 'hector@hotmail.com', 'hector.sosa@escuela.com', '5557890123', 'Av. Universidad 753', 'Guillermo', 'Sosa', 'Alejandra', 'Aguilar', 5, 'SOAH990426HDFSRC17', 6, '2020-08-15', 'ALTA'),
-('Francisco', 'Torres', 'Vega', '2001-08-19', 'TOVF010819HDFRGR18', 'Hombre', 'francisco@yahoo.com', 'francisco.torres@escuela.com', '5558901234', 'Paseo de los Álamos 264', 'Alfonso', 'Torres', 'Beatriz', 'Vega', 6, 'TOVF010819HDFRGR18', 1, '2022-08-25', 'ALTA'),
-('Raúl', 'Ortega', 'Cruz', '2000-12-07', 'OECR001207HDFRZL19', 'Hombre', 'raul@gmail.com', 'raul.ortega@escuela.com', '5559012345', 'Calle Olmo 975', 'Felipe', 'Ortega', 'Mariana', 'Cruz', 1, 'OECR001207HDFRZL19', 3, '2021-08-20', 'ALTA'),
-('Manuel', 'Delgado', 'Santos', '1999-10-30', 'DESM991030HDFLNN20', 'Hombre', 'manuel@hotmail.com', 'manuel.delgado@escuela.com', '5550123456', 'Av. Constitución 681', 'Gerardo', 'Delgado', 'Lourdes', 'Santos', 2, 'DESM991030HDFLNN20', 5, '2020-08-15', 'ALTA'),
-('Gabriel', 'Reyes', 'Campos', '2001-06-13', 'RECG010613HDFYMR21', 'Hombre', 'gabriel@yahoo.com', 'gabriel.reyes@escuela.com', '5551234567', 'Calle Fresno 392', 'Salvador', 'Reyes', 'Teresa', 'Campos', 3, 'RECG010613HDFYMR21', 2, '2022-08-25', 'ALTA'),
-('Salvador', 'Núñez', 'Guzmán', '2000-02-28', 'NUGS000228HDFRZL22', 'Hombre', 'salvador@gmail.com', 'salvador.nunez@escuela.com', '5552345678', 'Av. Morelos 864', 'Rubén', 'Núñez', 'Alicia', 'Guzmán', 4, 'NUGS000228HDFRZL22', 4, '2021-08-20', 'ALTA'),
-('Rubén', 'Castillo', 'Orozco', '1999-08-11', 'CAOR990811HDFSRB23', 'Hombre', 'ruben@hotmail.com', 'ruben.castillo@escuela.com', '5553456789', 'Paseo del Bosque 579', 'Ignacio', 'Castillo', 'Margarita', 'Orozco', 5, 'CAOR990811HDFSRB23', 6, '2020-08-15', 'ALTA'),
-('Ignacio', 'Chávez', 'Miranda', '2001-01-24', 'CAMJ010124HDFHRN24', 'Hombre', 'ignacio@yahoo.com', 'ignacio.chavez@escuela.com', '5554567890', 'Calle Encino 246', 'Eduardo', 'Chávez', 'Carmen', 'Miranda', 6, 'CAMJ010124HDFHRN24', 1, '2022-08-25', 'ALTA'),
-('Felipe', 'Juárez', 'León', '2000-07-17', 'JULF000717HDFRLP25', 'Hombre', 'felipe@gmail.com', 'felipe.juarez@escuela.com', '5555678901', 'Av. Benito Juárez 135', 'Alfredo', 'Juárez', 'Guadalupe', 'León', 1, 'JULF000717HDFRLP25', 3, '2021-08-20', 'ALTA');
+-- Departamento de Ciencias Económico-Contables
+INSERT INTO Departamento (Nombre, Clave, Activo) VALUES 
+('Departamento de Contabilidad y Auditoría', 'DCA', 1),
+('Departamento de Finanzas Corporativas', 'DFC', 1),
+('Departamento de Fiscalidad y Derecho Tributario', 'DFT', 1);
 
--- Registros para alumnas (mujeres)
-INSERT INTO Alumno (Nombre, ApellidoP, ApellidoM, FechaNac, Curp, Sexo, Correo, CorreoInst, Tel, Direccion, NombrePadre, ApellidoPadre, NombreMadre, ApellidoMadre, Id_Carrera, Contrasena, Semestre, FechaIng, Estado) VALUES 
-('Ana', 'García', 'López', '2000-05-15', 'GALA000515MDFRPN01', 'Mujer', 'ana@gmail.com', 'ana.garcia@escuela.com', '5551234567', 'Calle Primavera 123', 'Carlos', 'García', 'María', 'López', 1, 'GALA000515MDFRPN01', 3, '2021-08-20', 'ALTA'),
-('María', 'Martínez', 'Sánchez', '1999-07-22', 'MASA990722MDFRRN02', 'Mujer', 'maria@hotmail.com', 'maria.martinez@escuela.com', '5552345678', 'Av. Libertad 456', 'José', 'Martínez', 'Ana', 'Sánchez', 2, 'MASA990722MDFRRN02', 5, '2020-08-15', 'ALTA'),
-('Laura', 'Rodríguez', 'Gómez', '2001-03-10', 'ROGL010310MDFDMS03', 'Mujer', 'laura@yahoo.com', 'laura.rodriguez@escuela.com', '5553456789', 'Paseo Reforma 789', 'Miguel', 'Rodríguez', 'Laura', 'Gómez', 3, 'ROGL010310MDFDMS03', 2, '2022-08-25', 'ALTA'),
-('Patricia', 'Hernández', 'Pérez', '2000-11-30', 'HEPP001130MDFRRL04', 'Mujer', 'patricia@gmail.com', 'patricia.hernandez@escuela.com', '5554567890', 'Calle Luna 321', 'Fernando', 'Hernández', 'Patricia', 'Pérez', 4, 'HEPP001130MDFRRL04', 4, '2021-08-20', 'ALTA'),
-('Sofía', 'González', 'Ramírez', '1999-09-18', 'GORS990918MDFNMR05', 'Mujer', 'sofia@hotmail.com', 'sofia.gonzalez@escuela.com', '5555678901', 'Av. Sol 654', 'Roberto', 'González', 'Sofía', 'Ramírez', 5, 'GORS990918MDFNMR05', 6, '2020-08-15', 'ALTA'),
-('Carmen', 'López', 'Fernández', '2001-01-25', 'LOFC010125MDFPRG06', 'Mujer', 'carmen@yahoo.com', 'carmen.lopez@escuela.com', '5556789012', 'Calle Estrella 987', 'Alberto', 'López', 'Carmen', 'Fernández', 6, 'LOFC010125MDFPRG06', 1, '2022-08-25', 'ALTA'),
-('Adriana', 'Díaz', 'Vázquez', '2000-08-12', 'DIVA000812MDFRZL07', 'Mujer', 'adriana@gmail.com', 'adriana.diaz@escuela.com', '5557890123', 'Av. Juárez 147', 'Ricardo', 'Díaz', 'Adriana', 'Vázquez', 1, 'DIVA000812MDFRZL07', 3, '2021-08-20', 'ALTA'),
-('Isabel', 'Morales', 'Jiménez', '1999-12-05', 'MOJI991205MDFRMR08', 'Mujer', 'isabel@hotmail.com', 'isabel.morales@escuela.com', '5558901234', 'Paseo de la Rosa 258', 'Javier', 'Morales', 'Isabel', 'Jiménez', 2, 'MOJI991205MDFRMR08', 5, '2020-08-15', 'ALTA'),
-('Lucía', 'Castro', 'Ruiz', '2001-04-20', 'CARL010420MDFSRC09', 'Mujer', 'lucia@yahoo.com', 'lucia.castro@escuela.com', '5559012345', 'Calle Roble 369', 'Sergio', 'Castro', 'Lucía', 'Ruiz', 3, 'CARL010420MDFSRC09', 2, '2022-08-25', 'ALTA'),
-('Elena', 'Ortiz', 'Navarro', '2000-10-15', 'OINE001015MDFRVB10', 'Mujer', 'elena@gmail.com', 'elena.ortiz@escuela.com', '5550123456', 'Av. Independencia 753', 'Francisco', 'Ortiz', 'Elena', 'Navarro', 4, 'OINE001015MDFRVB10', 4, '2021-08-20', 'ALTA'),
-('Rosa', 'Silva', 'Mendoza', '1999-06-28', 'SIMR990628MDFLND11', 'Mujer', 'rosa@hotmail.com', 'rosa.silva@escuela.com', '5551234567', 'Calle Pino 852', 'Manuel', 'Silva', 'Rosa', 'Mendoza', 5, 'SIMR990628MDFLND11', 6, '2020-08-15', 'ALTA'),
-('Silvia', 'Rojas', 'Guerrero', '2001-02-14', 'ROGS010214MDFSRV12', 'Mujer', 'silvia@yahoo.com', 'silvia.rojas@escuela.com', '5552345678', 'Av. Hidalgo 963', 'Raúl', 'Rojas', 'Silvia', 'Guerrero', 6, 'ROGS010214MDFSRV12', 1, '2022-08-25', 'ALTA'),
-('Gabriela', 'Vargas', 'Cortés', '2000-07-09', 'VACG000709MDFRRN13', 'Mujer', 'gabriela@gmail.com', 'gabriela.vargas@escuela.com', '5553456789', 'Paseo del Parque 741', 'Arturo', 'Vargas', 'Gabriela', 'Cortés', 1, 'VACG000709MDFRRN13', 3, '2021-08-20', 'ALTA'),
-('Claudia', 'Romero', 'Herrera', '1999-11-22', 'ROHC991122MDFMRR14', 'Mujer', 'claudia@hotmail.com', 'claudia.romero@escuela.com', '5554567890', 'Calle Nogal 159', 'Enrique', 'Romero', 'Claudia', 'Herrera', 2, 'ROHC991122MDFMRR14', 5, '2020-08-15', 'ALTA'),
-('Verónica', 'Méndez', 'Ríos', '2001-05-17', 'MEVR010517MDFNSR15', 'Mujer', 'veronica@yahoo.com', 'veronica.mendez@escuela.com', '5555678901', 'Av. Revolución 357', 'Oscar', 'Méndez', 'Verónica', 'Ríos', 3, 'MEVR010517MDFNSR15', 2, '2022-08-25', 'ALTA'),
-('Diana', 'Flores', 'Medina', '2000-09-03', 'FLMD000903MDFLDS16', 'Mujer', 'diana@gmail.com', 'diana.flores@escuela.com', '5556789012', 'Calle Cedro 486', 'Héctor', 'Flores', 'Diana', 'Medina', 4, 'FLMD000903MDFLDS16', 4, '2021-08-20', 'ALTA'),
-('Alejandra', 'Sosa', 'Aguilar', '1999-04-26', 'SOAA990426MDFSRC17', 'Mujer', 'alejandra@hotmail.com', 'alejandra.sosa@escuela.com', '5557890123', 'Av. Universidad 753', 'Guillermo', 'Sosa', 'Alejandra', 'Aguilar', 5, 'SOAA990426MDFSRC17', 6, '2020-08-15', 'ALTA'),
-('Beatriz', 'Torres', 'Vega', '2001-08-19', 'TOVB010819MDFRGR18', 'Mujer', 'beatriz@yahoo.com', 'beatriz.torres@escuela.com', '5558901234', 'Paseo de los Álamos 264', 'Alfonso', 'Torres', 'Beatriz', 'Vega', 6, 'TOVB010819MDFRGR18', 1, '2022-08-25', 'ALTA'),
-('Mariana', 'Ortega', 'Cruz', '2000-12-07', 'OECM001207MDFRZL19', 'Mujer', 'mariana@gmail.com', 'mariana.ortega@escuela.com', '5559012345', 'Calle Olmo 975', 'Felipe', 'Ortega', 'Mariana', 'Cruz', 1, 'OECM001207MDFRZL19', 3, '2021-08-20', 'ALTA'),
-('Lourdes', 'Delgado', 'Santos', '1999-10-30', 'DESL991030MDFLNN20', 'Mujer', 'lourdes@hotmail.com', 'lourdes.delgado@escuela.com', '5550123456', 'Av. Constitución 681', 'Gerardo', 'Delgado', 'Lourdes', 'Santos', 2, 'DESL991030MDFLNN20', 5, '2020-08-15', 'ALTA'),
-('Teresa', 'Reyes', 'Campos', '2001-06-13', 'RECT010613MDFYMR21', 'Mujer', 'teresa@yahoo.com', 'teresa.reyes@escuela.com', '5551234567', 'Calle Fresno 392', 'Salvador', 'Reyes', 'Teresa', 'Campos', 3, 'RECT010613MDFYMR21', 2, '2022-08-25', 'ALTA'),
-('Alicia', 'Núñez', 'Guzmán', '2000-02-28', 'NUGA000228MDFRZL22', 'Mujer', 'alicia@gmail.com', 'alicia.nunez@escuela.com', '5552345678', 'Av. Morelos 864', 'Rubén', 'Núñez', 'Alicia', 'Guzmán', 4, 'NUGA000228MDFRZL22', 4, '2021-08-20', 'ALTA'),
-('Margarita', 'Castillo', 'Orozco', '1999-08-11', 'CAOM990811MDFSRB23', 'Mujer', 'margarita@hotmail.com', 'margarita.castillo@escuela.com', '5553456789', 'Paseo del Bosque 579', 'Ignacio', 'Castillo', 'Margarita', 'Orozco', 5, 'CAOM990811MDFSRB23', 6, '2020-08-15', 'ALTA'),
-('Carmen', 'Chávez', 'Miranda', '2001-01-24', 'CAMC010124MDFHRN24', 'Mujer', 'carmen2@yahoo.com', 'carmen.chavez@escuela.com', '5554567890', 'Calle Encino 246', 'Eduardo', 'Chávez', 'Carmen', 'Miranda', 6, 'CAMC010124MDFHRN24', 1, '2022-08-25', 'ALTA'),
-('Guadalupe', 'Juárez', 'León', '2000-07-17', 'JULG000717MDFRLP25', 'Mujer', 'guadalupe@gmail.com', 'guadalupe.juarez@escuela.com', '5555678901', 'Av. Benito Juárez 135', 'Alfredo', 'Juárez', 'Guadalupe', 'León', 1, 'JULG000717MDFRLP25', 3, '2021-08-20', 'ALTA');
+-- Departamento de Tecnologías de la Información
+INSERT INTO Departamento (Nombre, Clave, Activo) VALUES 
+('Departamento de Ingeniería de Software', 'DIS', 1),
+('Departamento de Sistemas Inteligentes', 'DSI', 1),
+('Departamento de Ciberseguridad y Redes', 'DCR', 1),
+('Departamento de Ciencia de Datos e Inteligencia Artificial', 'DIA', 1);
+
+-- Departamento de Ingenierías Industriales
+INSERT INTO Departamento (Nombre, Clave, Activo) VALUES 
+('Departamento de Ingeniería Electromecánica', 'DIE', 1),
+('Departamento de Automatización y Control', 'DAC', 1),
+('Departamento de Energías Sustentables', 'DES', 1);
+
+-- Departamento de Gestión Empresarial
+INSERT INTO Departamento (Nombre, Clave, Activo) VALUES 
+('Departamento de Administración Estratégica', 'DAE', 1),
+('Departamento de Emprendimiento e Innovación', 'DEI', 1),
+('Departamento de Mercadotecnia Global', 'DMG', 1);
+
+-- Departamento de Ciencias Químico-Biológicas
+INSERT INTO Departamento (Nombre, Clave, Activo) VALUES 
+('Departamento de Bioquímica Aplicada', 'DBA', 1),
+('Departamento de Biotecnología Industrial', 'DBI', 1),
+('Departamento de Control de Calidad', 'DCC', 1);
+
+-- Departamento de Ciencias Computacionales Avanzadas
+INSERT INTO Departamento (Nombre, Clave, Activo) VALUES 
+('Departamento de Analítica de Negocios', 'DAN', 1),
+('Departamento de Machine Learning', 'DML', 1),
+('Departamento de Visualización de Datos', 'DVD', 1);
