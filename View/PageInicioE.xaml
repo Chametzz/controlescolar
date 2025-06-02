@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:controlescolar"
       mc:Ignorable="d"
       Title="InicioE"
+      Tag="PageInicioEstudiante"
       Background="White" Height="692" Width="791">
 
 
@@ -15,8 +16,8 @@
             <RowDefinition Height="203*"/>
         </Grid.RowDefinitions> 
         <ScrollViewer Padding="20" Grid.RowSpan="2">
-            <StackPanel>
-                <GroupBox Header="Identificación" Margin="0,10" Height="129" Width="740">
+            <StackPanel Tag="AlumnoPanel: {AlumnoPanel}" >
+                <GroupBox Header="Identificación" Margin="0,10" Height="348" Width="740">
                     <Grid Margin="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
@@ -26,15 +27,15 @@
                         <Image Source="/Recursos/logo-controlescolar.jpeg" Width="80" Height="80"/>
 
                         <StackPanel Grid.Column="1" Margin="10,0">
-                            <TextBox x:Name="Nombre" Tag="Nombre: {Nombre}" Text="" FontWeight="Bold" FontSize="14"/>
-                            <TextBox x:Name="ApellidoP" Tag="ApellidoP: {ApellidoP}" Text="" FontWeight="Bold" FontSize="14"/>
-                            <TextBox x:Name="ApellidoM" Tag="ApellidoM: {ApellidoM}" Text="" FontWeight="Bold" FontSize="14"/>
-                            <TextBox x:Name="FechaNac" Tag="FechaNac: {FechaNac}" Text="" FontWeight="Bold" FontSize="14"/>
-                            <TextBox x:Name="Curp" Tag="Curp: {Curp}" Text="" FontWeight="Bold" FontSize="14"/>
-                            <TextBox x:Name="CorreoInst" Tag="CorreoInst: {CorreoInst}" Text="" FontWeight="Bold" FontSize="14"/>
-                            <TextBox x:Name="Semestre" Tag="Semestre: {Semestre}" Text="" FontWeight="Bold" FontSize="14"/>
-                            <TextBox x:Name="FechaIng" Tag="FechaIng: {FechaIng}" Text="" FontWeight="Bold" FontSize="14"/>
-                            <TextBox x:Name="Estado" Tag="Estado: {Estado}" Text="" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="Nombre" Tag="Nombre: {Nombre}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="ApellidoP" Tag="ApellidoP: {ApellidoP}" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="ApellidoM" Tag="ApellidoM: {ApellidoM}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="FechaNac" Tag="FechaNac: {FechaNac}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="Curp" Tag="Curp: {Curp}" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="CorreoInst" Tag="CorreoInst: {CorreoInst}" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="Semestre" Tag="Semestre: {Semestre}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="FechaIng" Tag="FechaIng: {FechaIng}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="Estado" Tag="Estado: {Estado}"  FontWeight="Bold" FontSize="14"/>
 
                         </StackPanel>
                     </Grid>
