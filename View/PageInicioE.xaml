@@ -26,7 +26,16 @@
                         <Image Source="/Recursos/logo-controlescolar.jpeg" Width="80" Height="80"/>
 
                         <StackPanel Grid.Column="1" Margin="10,0">
-                            <TextBox x:Name="datosAlumno" Tag="TxtDatoAlCarrera" Text="Datos del alumno de la carrera" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="Nombre" Tag="Nombre: {Nombre}" Text="" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="ApellidoP" Tag="ApellidoP: {ApellidoP}" Text="" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="ApellidoM" Tag="ApellidoM: {ApellidoM}" Text="" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="FechaNac" Tag="FechaNac: {FechaNac}" Text="" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="Curp" Tag="Curp: {Curp}" Text="" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="CorreoInst" Tag="CorreoInst: {CorreoInst}" Text="" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="Semestre" Tag="Semestre: {Semestre}" Text="" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="FechaIng" Tag="FechaIng: {FechaIng}" Text="" FontWeight="Bold" FontSize="14"/>
+                            <TextBox x:Name="Estado" Tag="Estado: {Estado}" Text="" FontWeight="Bold" FontSize="14"/>
+
                         </StackPanel>
                     </Grid>
                 </GroupBox>
