@@ -24,5 +24,14 @@ namespace controlescolar
         {
             InitializeComponent();
         }
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            txtControl.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+
+            cbGenero.SelectedIndex = -1;
+            cbGrupo.SelectedIndex = -1;
+        }
     }
 }
