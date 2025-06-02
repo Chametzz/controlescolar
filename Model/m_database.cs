@@ -29,98 +29,111 @@ public static class DB{
             string[] createTableCommands = new string[]
             {
                 "PRAGMA foreign_keys = ON;",
-                
-                // Tabla Empleado (base)
+
+                // Tabla Departamento (base para JefeDep y Administrativo)
+                @"CREATE TABLE IF NOT EXISTS Departamento (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Nombre TEXT NOT NULL,
+                    Clave TEXT NOT NULL,
+                    Activo BOOLEAN NOT NULL
+                );",
+
+                // Tabla Empleado (base para Docente, JefeDep y Administrativo)
                 @"CREATE TABLE IF NOT EXISTS Empleado (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Nombre TEXT NOT NULL,
-                    Horario TEXT,
-                    Telefono INTEGER,
-                    Puesto TEXT,
+                    Apellido TEXT NOT NULL,
+                    FechaNac DATETIME NOT NULL,
+                    Curp TEXT NOT NULL,
+                    Sexo TEXT NOT NULL,
                     Correo TEXT,
-                    Contrasena TEXT,
-                    Usuario TEXT,
-                    Curp TEXT,
-                    Estatus TEXT
-                );",
-                
-                // Tabla Docente (hereda de Empleado)
-                @"CREATE TABLE IF NOT EXISTS Docente (
-                    Id INTEGER PRIMARY KEY,
-                    Id_Carrera INTEGER,
+                    CorreoCorp TEXT,
+                    Tel TEXT,
+                    Direccion TEXT,
+                    FechaIng DATETIME,
+                    Puesto TEXT,
+                    Estado TEXT,
                     Contrato TEXT,
-                    FOREIGN KEY (Id) REFERENCES Empleado(Id) ON DELETE CASCADE,
-                    FOREIGN KEY (Id_Carrera) REFERENCES Carrera(Id)
+                    Id_Departamento INTEGER,
+                    FOREIGN KEY (Id_Departamento) REFERENCES Departamento(Id)
                 );",
-                
-                // Tabla Administrativo (hereda de Empleado)
-                @"CREATE TABLE IF NOT EXISTS Administrativo (
-                    Id INTEGER PRIMARY KEY,
-                    Id_Carrera INTEGER,
-                    FOREIGN KEY (Id) REFERENCES Empleado(Id) ON DELETE CASCADE,
-                    FOREIGN KEY (Id_Carrera) REFERENCES Carrera(Id)
-                );",
-                
+
                 // Tabla Carrera
                 @"CREATE TABLE IF NOT EXISTS Carrera (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Nombre TEXT NOT NULL,
-                    Semestre INTEGER
+                    Semestres INTEGER NOT NULL,
+                    TotalCreditos INTEGER NOT NULL
                 );",
-                
-                // Tabla Alumno
-                @"CREATE TABLE IF NOT EXISTS Alumno (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    NumCtrl INTEGER,
-                    Nombre TEXT NOT NULL,
-                    Direccion TEXT,
-                    Edad INTEGER,
-                    Telefono INTEGER,
-                    Curp TEXT,
-                    Status TEXT,
-                    Id_Carrera INTEGER,
-                    Contrasena TEXT,
-                    Correo_Inst TEXT,
-                    Creditos INTEGER,
-                    FOREIGN KEY (Id_Carrera) REFERENCES Carrera(Id)
-                );",
-                
+
                 // Tabla Materia
                 @"CREATE TABLE IF NOT EXISTS Materia (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Nombre TEXT NOT NULL,
-                    Unidades INTEGER
+                    Unidades INTEGER NOT NULL
                 );",
-                
+
+                // Tabla Alumno
+                @"CREATE TABLE IF NOT EXISTS Alumno (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    NumCtrl INTEGER NOT NULL,
+                    Nombre TEXT NOT NULL,
+                    ApellidoP TEXT NOT NULL,
+                    ApellidoM TEXT NOT NULL,
+                    FechaNac DATETIME NOT NULL,
+                    Curp TEXT NOT NULL,
+                    Sexo TEXT NOT NULL,
+                    Correo TEXT,
+                    CorreoInst TEXT,
+                    Tel TEXT,
+                    Direccion TEXT,
+                    NombrePadre TEXT,
+                    ApellidoPadre TEXT,
+                    NombreMadre TEXT,
+                    ApellidoMadre TEXT,
+                    Id_Carrera INTEGER NOT NULL,
+                    Semestre INTEGER NOT NULL,
+                    FechaIng DATETIME NOT NULL,
+                    Estado TEXT NOT NULL,
+                    FOREIGN KEY (Id_Carrera) REFERENCES Carrera(Id)
+                );",
+
                 // Tabla Curso
                 @"CREATE TABLE IF NOT EXISTS Curso (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    Id_Carrera INTEGER,
+                    Id_Carrera INTEGER NOT NULL,
+                    Id_Materia INTEGER NOT NULL,
                     Id_Docente INTEGER,
-                    Inicio_Clase REAL,
-                    Id_Materia INTEGER,
-                    Capacidad INTEGER,
-                    Creditos INTEGER,
-                    Final_Clase REAL,
+                    Capacidad INTEGER NOT NULL,
+                    Creditos INTEGER NOT NULL,
+                    Periodo TEXT NOT NULL,
                     FOREIGN KEY (Id_Carrera) REFERENCES Carrera(Id),
-                    FOREIGN KEY (Id_Docente) REFERENCES Docente(Id),
-                    FOREIGN KEY (Id_Materia) REFERENCES Materia(Id)
+                    FOREIGN KEY (Id_Materia) REFERENCES Materia(Id),
+                    FOREIGN KEY (Id_Docente) REFERENCES Docente(Id)
                 );",
-                
+
+                // Tabla Horario
+                @"CREATE TABLE IF NOT EXISTS Horario (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Id_Curso INTEGER NOT NULL,
+                    HoraInicio DATETIME NOT NULL,
+                    HoraFin DATETIME NOT NULL,
+                    FOREIGN KEY (Id_Curso) REFERENCES Curso(Id) ON DELETE CASCADE
+                );",
+
                 // Tabla Calificacion
                 @"CREATE TABLE IF NOT EXISTS Calificacion (
-                    Periodo TEXT,
-                    Id_Curso INTEGER,
-                    Id_Alumno INTEGER,
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Id_Alumno INTEGER NOT NULL,
+                    Id_Curso INTEGER NOT NULL,
                     U1 INTEGER,
                     U2 INTEGER,
                     U3 INTEGER,
                     U4 INTEGER,
                     U5 INTEGER,
                     U6 INTEGER,
-                    PRIMARY KEY (Periodo, Id_Curso, Id_Alumno),
-                    FOREIGN KEY (Id_Curso) REFERENCES Curso(Id),
-                    FOREIGN KEY (Id_Alumno) REFERENCES Alumno(Id)
+                    FOREIGN KEY (Id_Alumno) REFERENCES Alumno(Id),
+                    FOREIGN KEY (Id_Curso) REFERENCES Curso(Id)
                 );"
             };
 
