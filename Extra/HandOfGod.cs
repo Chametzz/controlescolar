@@ -66,11 +66,13 @@ public static class HandOfGod
     public static void SetTags(DependencyObject ob, Dictionary<string, object?> dict, string nuller = "")
     {
         var data = GetTagsWidgets(ob);
+        Console.WriteLine($"{ob} | data: {data.Count}");
         foreach (var element in data)
         {
             string? tag = element.Tag?.ToString();
             if (element is TextBlock tb && tag != null)
             {
+                Console.WriteLine($"SET {tb}");
                 string newText = tag;
                 foreach (var k in HandOfGod.GetStringKeys(tag))
                 {

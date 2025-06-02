@@ -16,7 +16,7 @@
             <RowDefinition Height="203*"/>
         </Grid.RowDefinitions> 
         <ScrollViewer Padding="20" Grid.RowSpan="2">
-            <StackPanel Name="AlumnoPanel">
+            <StackPanel>
                 <GroupBox Header="Identificación" Margin="0,10" Height="129" Width="740">
                     <Grid Margin="10">
                         <Grid.ColumnDefinitions>
@@ -26,7 +26,7 @@
 
                         <Image Source="/Recursos/logo-controlescolar.jpeg" Width="80" Height="80"/>
 
-                        <StackPanel Grid.Column="1" Margin="10,0">
+                        <StackPanel x:Name="AlumnoPanel" Grid.Column="1" Margin="10,0">
                             <TextBlock x:Name="Nombre" Tag="Nombre: {Nombre}" FontWeight="Bold" FontSize="14"/>
                             <TextBlock x:Name="ApellidoP" Tag="ApellidoP: {ApellidoP}" FontWeight="Bold" FontSize="14"/>
                             <TextBlock x:Name="ApellidoM" Tag="ApellidoM: {ApellidoM}"  FontWeight="Bold" FontSize="14"/>
