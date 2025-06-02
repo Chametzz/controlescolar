@@ -22,30 +22,26 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <WrapPanel Margin="10">
-            <StackPanel Margin="5">
-                <TextBlock Text="ID"/>
-                <TextBox x:Name="txtID" Width="150" Tag="Id"/>
-            </StackPanel>
+      <WrapPanel Tag="Form" Name="FormAdd" Margin="10">
             <StackPanel Margin="5">
                 <TextBlock Text="Nombre"/>
-                <TextBox x:Name="txtNombre" Tag="{Nombre}" Width="150"/>
+                <TextBox x:Name="txtNombre" Tag="Nombre" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Apellido"/>
-                <TextBox x:Name="txtApellido" Tag="{Apellido}" Width="150"/>
+                <TextBox x:Name="txtApellido" Tag="apellido" Width="150"/>
             </StackPanel>
                         <StackPanel Margin="5">
                 <TextBlock Text="Fecha de Naciemento"/>
-                <TextBox x:Name="txtFechaNac" Tag="{FechaNac}" Width="150"/>
+                <TextBox x:Name="txtFechaNac" Tag="fechaNac" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Curp"/>
-                <TextBox x:Name="txtCurp" Tag="{Curp}" Width="150"/>
+                <TextBox x:Name="txtCurp" Tag="curp" Width="150"/>
             </StackPanel>
                         <StackPanel Margin="5">
                 <TextBlock Text="Sexo"/>
-                <ComboBox x:Name="cbSexo" Tag="{Sexo}" Width="150">
+                <ComboBox x:Name="cbSexo" Tag="sexo" Width="150">
                     <ComboBoxItem Content="Hombre"/>
                     <ComboBoxItem Content="Mujer"/>
                 </ComboBox>
@@ -53,39 +49,43 @@
 
             <StackPanel Margin="5">
                 <TextBlock Text="Correo"/>
-                <TextBox x:Name="txtCorreo" Tag="{Correo}" Width="150"/>
+                <TextBox x:Name="txtCorreo" Tag="correo" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Correo Corporativo"/>
-                <TextBox x:Name="txtCorreoCo" Tag="{CorreoCo}" Width="150"/>
+                <TextBox x:Name="txtCorreoCo" Tag="correoCorp" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Telefono"/>
-                <TextBox x:Name="txtTelef" Tag="{Telefono}" Width="150"/>
+                <TextBox x:Name="txtTelef" Tag="tel" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Direccion"/>
-                <TextBox x:Name="txtDireccion" Tag="{Direcion}" Width="150"/>
+                <TextBox x:Name="txtDireccion" Tag="direccion" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Fecha de Ingreso"/>
-                <TextBox x:Name="txtFechaIng" Tag="{FechaIng}" Width="150"/>
+                <TextBox x:Name="txtFechaIng" Tag="fechaIng" Width="150"/>
             </StackPanel>
-                        <StackPanel Margin="5">
+            <StackPanel Margin="5">
                 <TextBlock Text="Puesto"/>
-                <ComboBox x:Name="cbPuesto" Width="150" Tag="{Puesto}">
-                    <ComboBoxItem Content="Docente Algebra"/>
-                    <ComboBoxItem Content="Docente Cha"/>
+                <ComboBox x:Name="cbPuesto" Width="150" Tag="puesto">
+                    <ComboBoxItem Content="Jefe de departamento"/>
+                    <ComboBoxItem Content="Docente "/>
+                    <ComboBoxItem Content="Personal de Administracion "/>
+                    <ComboBoxItem Content="Personal de Mantenimiento "/>
+                    <ComboBoxItem Content="Personal de Limpieza "/>
+
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Margin="5">
                 <TextBlock Text="Estado"/>
-                <TextBox x:Name="txtEstado" Tag="{Estado}" Width="150"/>
+                <TextBox x:Name="txtEstado" Tag="estado" Width="150"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Contrato"/>
-                <TextBox x:Name="txtContrato" Tag="{Contrato}" Width="150"/>
+                <TextBox x:Name="txtContrato" Tag="contrato" Width="150"/>
             </StackPanel>
 
         </WrapPanel>
@@ -98,3 +98,4 @@
         </StackPanel>
     </StackPanel>
 </Page>
+

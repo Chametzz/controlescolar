@@ -24,32 +24,32 @@ namespace controlescolar
         {
             InitializeComponent();
         }
-        DB.Create(new Empleado(
-    data["Nombre"].ToString(),
-    data["Apellido"].ToString(),
-    DateTime.Parse(data["FechaNac"].ToString()!),
-    data["Curp"].ToString(),
-    data["Sexo"].ToString(),
-    data["Correo"].ToString(),
-    data["CorreoCorp"].ToString(),
-    data["Tel"].ToString(),
-    data["Direccion"].ToString(),
-    DateTime.Now,                  
-    "ALTA",                      
-    data["Puesto"].ToString(),          data["Contrato"].ToString(),    
-    data["Contrasena"].ToString(),  
-    Convert.ToInt32(data["Departamento"]) 
-));
+        private void Button_Add(object sender, RoutedEventArgs e)
+    {
+    var data = HandOfGod.ExecuteSubmit(sender, FormAdd);
 
+            DB.Create(new Empleado
+                (data["Nombre"].ToString(),
+                data["Apellido"].ToString(),
+                DateTime.Parse(data["FechaNac"].ToString()!),
+                data["Curp"].ToString(),
+                data["Sexo"].ToString(),
+                data["Correo"].ToString(),
+                data["CorreoCorp"].ToString(),
+                data["Tel"].ToString(),
+                data["Direccion"].ToString(),
+                DateTime.Now,
+                "ALTA",
+                data["Puesto"].ToString(),
+                data["Contrato"].ToString(),
+                data["Contrasena"].ToString(),
+                Convert.ToInt32(data["Departamento"])));
 
+    }
+        
         private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-            txtID.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            txtTelefono.Text = string.Empty;
 
-            cbGenero.SelectedIndex = -1;
-            cbPosiscion.SelectedIndex = -1;
         }
     }
 }
