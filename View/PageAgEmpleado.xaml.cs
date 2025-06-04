@@ -81,7 +81,7 @@ namespace controlescolar
 }
         private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
