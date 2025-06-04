@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:controlescolar"
       mc:Ignorable="d"
       Title="InicioE"
+      Tag="PageInicioEstudiante"
       Background="White" Height="692" Width="791">
 
 
@@ -15,29 +16,37 @@
             <RowDefinition Height="203*"/>
         </Grid.RowDefinitions> 
         <ScrollViewer Padding="20" Grid.RowSpan="2">
-            <StackPanel>
-                <GroupBox Header="Identificación" Margin="0,10" Height="129" Width="740">
+            <StackPanel Name="AlumnoPanel">
+                <GroupBox Header="Identificación" Margin="0,10" Height="257" Width="740">
                     <Grid Margin="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Image Source="/Recursos/logo-controlescolar.jpg" Width="80" Height="80"/>
+                        <Image Source="/Recursos/logo-controlescolar.jpeg" Width="80" Height="80"/>
 
-                        <StackPanel Grid.Column="1" Margin="10,0">
-                            <TextBox x:Name="datosAlumno" Tag="TxtDatoAlCarrera" Text="Datos del alumno de la carrera" FontWeight="Bold" FontSize="14"/>
+                        <StackPanel Name="PanelOne" Grid.Column="1" Margin="10,0">
+                            <TextBlock x:Name="Nombre" Tag="Nombre: {Nombre } {ApellidoP}  {ApellidoM}" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="CorreoInst" Tag="Correo Institucioanl: {CorreoInst}" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Semestre" Tag="Semestre: {Semestre}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="FechaIng" Tag="Fecha de Ingreso: {FechaIng}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Estado" Tag="Estado: {Estado}"  FontWeight="Bold" FontSize="14"/>
+
                         </StackPanel>
                     </Grid>
                 </GroupBox>
 
                 <Expander Header="Datos personales" IsExpanded="False" Margin="0,10">
+                    <StackPanel Name="PanelTwo">
+                            <TextBlock x:Name="Curp" Tag="Curp: {Curp}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Sexo" Tag="Sexo: {Sexo}" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Correo" Tag="Correo: {Correo}" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Tel" Tag="Telefono: {tel}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Direccion" Tag="Direccion: {Direccion}"  FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="FechaNac" Tag="FechaNac: {FechaNac}"  FontWeight="Bold" FontSize="14"/>
+                    </StackPanel>
 
-                    <TextBlock x:Name="datosPersonales" Tag="TxtDatosAlPe" Text="Aqui aparezcan los datos generales del alumno? mas personales" Margin="10"/>
-                </Expander>
-
-                <Expander Header="Información de carga académica" IsExpanded="False" Margin="0,10">
-                    <TextBlock Text="Ps aqui lo de cuando elegir materias(?" Margin="10"/>
                 </Expander>
             </StackPanel>
         </ScrollViewer>

@@ -13,26 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace controlescolar
+namespace Docentes_pantalla
 {
     /// <summary>
-    /// Lógica de interacción para PageEditarDatos.xaml
+    /// Lógica de interacción para PageInicioDo.xaml
     /// </summary>
-    public partial class PageEditarDatos : Page
+    public partial class PageInicioDo : Page
     {
-        public PageEditarDatos()
+        public PageInicioDo()
         {
             InitializeComponent();
-        }
-
-        private void BtnEnvDatosAl_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void BtnAgContactos_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

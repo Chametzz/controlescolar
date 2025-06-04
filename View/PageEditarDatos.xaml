@@ -17,28 +17,22 @@
                     <WrapPanel Margin="0 10" ItemHeight="60">
                         <StackPanel Margin="5">
                             <Label Content="Nombre"/>
-                            <TextBox x:Name="nombre" Tag="TxtNomAlumno" Width="250" Text="......."/>
+                            <TextBox x:Name="Nombre" Tag="TxtNombreAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Estado"/>
-                            <ComboBox x:Name="editEstado" Tag="CbEstadoAl" Width="250" SelectedIndex="0">
-                                <ComboBoxItem Content="........."/>
-                            </ComboBox>
+                            <TextBox x:Name="Estado" Tag="TxtEstadoAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Municipio"/>
-                            <ComboBox x:Name="editMunicipio" Tag="CbMunicipioAl" Width="250" SelectedIndex="0">
-                                <ComboBoxItem Content="........."/>
-                            </ComboBox>
+                            <TextBox x:Name="Municipio" Tag="TxtMunicipioAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Ciudad"/>
-                            <ComboBox x:Name="editCiudad" Tag="CbCiudadAl" Width="250" SelectedIndex="0">
-                                <ComboBoxItem Content="......."/>
-                            </ComboBox>
+                            <TextBox x:Name="nombre" Tag="TxtCiudadAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
@@ -48,9 +42,7 @@
 
                         <StackPanel Margin="5">
                             <Label Content="Colonia"/>
-                            <ComboBox x:Name="editColonia" Tag="CbColoniaAl" Width="250" SelectedIndex="0">
-                                <ComboBoxItem Content="......."/>
-                            </ComboBox>
+                            <TextBox x:Name="Colina" Tag="TxtColoniaAl" Width="250" Text="......."/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
@@ -78,7 +70,7 @@
                             <TextBox x:Name="editTelCelular" Tag="TxtTeleAl" Width="250" Text="......."/>
                         </StackPanel>
                     </WrapPanel>
-                    <Button x:Name="btnEnvEdit" Tag="BtnEnviarAl" Content="ENVIAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
+                    <Button x:Name="btnEnvEdit" Tag="BtnEnviarAl" Click="BtnEnvDatosAl_Click" Content="ENVIAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
                 </StackPanel>
             </Border>
 
@@ -86,10 +78,10 @@
                 <StackPanel>
                     <DockPanel Margin="0 0 0 10">
                         <TextBlock Text="Editar Contactos" FontSize="18" FontWeight="Bold" DockPanel.Dock="Left"/>
-                        <Button x:Name="btnContactosEdit" Tag="BtnAggContacto" Content="AGREGAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
+                        <Button x:Name="btnContactosEdit" Tag="BtnAggContacto" Click="BtnAgContactos_Click"  Content="AGREGAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
                     </DockPanel>
 
-                    <DataGrid x:Name="contactos" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Height="200" Margin="0 10">
+                    <DataGrid x:Name="DtContactos" Tag="DtContactos" AutoGenerateColumns="False" HeadersVisibility="Column" CanUserAddRows="False" Height="200" Margin="0 10">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Apellido paterno" Binding="{Binding ApellidoPaterno}" Width="*"/>
                             <DataGridTextColumn Header="Apellido materno" Binding="{Binding ApellidoMaterno}" Width="*"/>
@@ -109,15 +101,6 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <TextBlock Text="Elementos por página:" VerticalAlignment="Center" Margin="0 0 5 0"/>
-                        <ComboBox Width="50" SelectedIndex="0">
-                            <ComboBoxItem Content="10"/>
-                            <ComboBoxItem Content="20"/>
-                        </ComboBox>
-                        <TextBlock Text=" 1-2 de 2" VerticalAlignment="Center" Margin="10 0"/>
-                    </StackPanel>
 
                 </StackPanel>
             </Border>

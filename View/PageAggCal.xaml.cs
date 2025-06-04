@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace controlescolar
+namespace Docentes_pantalla
 {
     /// <summary>
-    /// Lógica de interacción para PageRecibos.xaml
+    /// Lógica de interacción para PageAggCal.xaml
     /// </summary>
-    public partial class PageRecibos : Page
+    public partial class PageAggCal : Page
     {
-        public PageRecibos()
+        public PageAggCal()
         {
             InitializeComponent();
         }

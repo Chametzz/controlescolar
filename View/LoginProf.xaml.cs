@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +9,6 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -18,20 +17,20 @@ namespace controlescolar
     /// <summary>
     /// Lógica de interacción para Login.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class LoginProf : Window
     {
-        public Login()
+        public LoginProf()
         {
             InitializeComponent();
         }
-        private void ButtonLog_Click(object sender, RoutedEventArgs e)
+        private void ButtonLogprof_Click(object sender, RoutedEventArgs e)
         {
             var data = HandOfGod.ExecuteSubmit(sender);
-            var alumno = DB.ReadFirst<Alumno>("Id = @user AND Contrasena = @password", ("@user", data["user"]), ("@password", data["pass"]));
-            if (alumno != null)
+            var admon = DB.ReadFirst<Empleado>("Id = @user AND Contrasena = @password AND Puesto = 'Docente'", ("@user", data["user"]), ("@password", data["pass"]));
+            if (admon != null)
             {
-                BolsaGlobal.AlumnoLogueado = alumno;
-                new EstudiantePantalla().Show();
+                PantallaDocentes pdoc = new PantallaDocentes();
+                pdoc.Show();
                 this.Close();
             }
         }

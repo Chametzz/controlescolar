@@ -8,7 +8,9 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         ResizeMode="CanMinimize"
-        Title="EstudiantePantalla" Height="560" Width="966">
+        Title="EstudiantePantalla" 
+        Tag="EstudiantePantalla"
+        Height="560" Width="966">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -34,13 +36,9 @@
                 <Button x:Name="BtnHorario" Tag="BtnHoario" Content="Horario" Margin="10" Padding="5" Click="BtnHorario_Click"/>
                 <Button x:Name="BtnCalificaciones" Tag="BtnCalificaiones" Content="Calificaciones" Margin="10" Padding="5" Click="BtnCalificaciones_Click"/>
                 <Button x:Name="BtnKardex" Tag="BtnKardex" Content="Kardex" Margin="10" Padding="5" Click="BtnKardex_Click"/>
-                <Button x:Name="BtnHistoricos" Tag="BtnHistoricos" Content="Histórico de actividades" Margin="10" Padding="5" Click="BtnHistoricos_Click"/>
                 <Button x:Name="BtnRecibos" Tag="BtnRecibos" Content="Recibos" Margin="10" Padding="5" Click="BtnRecibos_Click"/>
-                <Button x:Name="BtnCargaMateria" Tag="BtnCargarMateria" Content="Carga de Materias" Margin="10" Padding="5" Click="BtnCargaMateria_Click"/>
-                <Button x:Name="BtnTickets" Tag="BtnTickets" Content="Tickets" Margin="10" Padding="5" Click="BtnTickets_Click" />
                 <Button x:Name="BtnSalir" Tag="BtnSalir" Content="Salir" Margin="10" Padding="5" Click="BtnSalir_Click" />
             </StackPanel>
-
         </Grid>
         <Frame x:Name="AlumnoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Margin="126,60,0,-40"/>
     </Grid>

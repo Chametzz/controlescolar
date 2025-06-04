@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,23 +16,14 @@ using System.Windows.Shapes;
 namespace controlescolar
 {
     /// <summary>
-    /// Lógica de interacción para PageEditarDatos.xaml
+    /// Lógica de interacción para PageEmpleados.xaml
     /// </summary>
-    public partial class PageEditarDatos : Page
+    public partial class Alumlist : Page
     {
-        public PageEditarDatos()
+        public Alumlist()
         {
             InitializeComponent();
         }
 
-        private void BtnEnvDatosAl_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void BtnAgContactos_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }
