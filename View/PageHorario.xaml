@@ -23,7 +23,7 @@
                 <TextBlock FontSize="20" FontWeight="Bold" Text="🗓️ Horario Semestral"/>
             </StackPanel>
 
-            <Grid ShowGridLines="False">
+            <Grid ShowGridLines="False" Tag="GridHorario">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="*"/>
