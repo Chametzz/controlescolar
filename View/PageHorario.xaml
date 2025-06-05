@@ -61,55 +61,6 @@
                 <TextBlock Grid.Row="5" Grid.Column="0" Text="11:00" VerticalAlignment="Center"/>
                 <TextBlock Grid.Row="6" Grid.Column="0" Text="12:00" VerticalAlignment="Center"/>
 
-                <Border x:Name="materia1" Tag="Materia1" Grid.Row="1" Grid.Column="1" Background="#fef9c3" Margin="5" CornerRadius="5">
-                    <StackPanel Margin="5">
-                        <TextBlock Tag="NomMateria1" Text="Contabilidad" FontWeight="Bold"/>
-                        <TextBlock Tag="AulaMateria1" Text="Aula: ..."/>
-                        <TextBlock Tag="PaqtMateria1"  Text="Paquete: IS1"/>
-                        <TextBlock Tag="HrMateria1" Text="07:00-08:00"/>
-                    </StackPanel>
-                </Border>
-                <Border x:Name="materia2" Tag="Materia2" Grid.Row="2" Grid.Column="1" Background="#fbcfe8" Margin="5" CornerRadius="5">
-                    <StackPanel Margin="5">
-                        <TextBlock Tag="NomMateria2" Text="Calculo" FontWeight="Bold"/>
-                        <TextBlock Tag="AulaMateria2" Text="Aula: ..."/>
-                        <TextBlock Tag="PaqtMateria2" Text="Paquete: ...."/>
-                        <TextBlock Tag="HrMateria2" Text="08:00-09:00"/>
-                    </StackPanel>
-                </Border>
-                <Border x:Name="materia3" Tag="Materia3" Grid.Row="3" Grid.Column="1" Background="#ccffff" Margin="5" CornerRadius="5">
-                    <StackPanel Margin="5">
-                        <TextBlock Tag="NomMateria3" Text="Calculo" FontWeight="Bold"/>
-                        <TextBlock Tag="AulaMateria3" Text="Aula: ..."/>
-                        <TextBlock Tag="PaqtMateria3" Text="Paquete: ...."/>
-                        <TextBlock Tag="HrMateria3" Text="09:00-10:00"/>
-                    </StackPanel>
-                </Border>
-                <Border x:Name="materia4" Tag="Materia4" Grid.Row="4" Grid.Column="1" Background="#ffcc99" Margin="5" CornerRadius="5">
-                    <StackPanel Margin="5">
-                        <TextBlock Tag="NomMateria4" Text="Calculo" FontWeight="Bold"/>
-                        <TextBlock Tag="AulaMateria4" Text="Aula: ..."/>
-                        <TextBlock Tag="PaqtMateria4" Text="Paquete: ...."/>
-                        <TextBlock Tag="HrMateria4" Text="10:00-11:00"/>
-                    </StackPanel>
-                </Border>
-                <Border x:Name="materia5" Tag="Materia5" Grid.Row="5" Grid.Column="1" Background="#cc99ff" Margin="5" CornerRadius="5">
-                    <StackPanel Margin="5">
-                        <TextBlock Tag="NomMateria5" Text="Calculo" FontWeight="Bold"/>
-                        <TextBlock Tag="AulaMateria5" Text="Aula: ..."/>
-                        <TextBlock Tag="PaqtMateria5" Text="Paquete: ...."/>
-                        <TextBlock Tag="HrMateria5" Text="11:00-12:00"/>
-                    </StackPanel>
-                </Border>
-                <Border x:Name="materia6" Tag="Materia6" Grid.Row="6" Grid.Column="1" Background="#ccffcc" Margin="5" CornerRadius="5">
-                    <StackPanel Margin="5">
-                        <TextBlock Tag="NomMateria6" Text="Calculo" FontWeight="Bold"/>
-                        <TextBlock Tag="AulaMateria6" Text="Aula: ..."/>
-                        <TextBlock Tag="PaqtMateria6" Text="Paquete: ...."/>
-                        <TextBlock Tag="HrMateria6" Text="12:00-13:00"/>
-                    </StackPanel>
-                </Border>
-
 
                 <Border x:Name="ActComp" Tag="Actomp" Grid.Row="5" Grid.Column="6" Background="#ddd6fe" Margin="5" CornerRadius="5">
                     <StackPanel Margin="5">
