@@ -24,5 +24,20 @@ namespace controlescolar
         {
             InitializeComponent();
         }
+        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            /*txtControl.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+
+            cbGenero.SelectedIndex = -1;
+            cbGrupo.SelectedIndex = -1;*/
+        }
+
+        private void Button_Add(object sender, RoutedEventArgs e)
+        {
+            var data = HandOfGod.ExecuteSubmit(sender, FormAdd);
+            DB.Create(new Alumno(data["Nombre"].ToString(), data["ApellidoP"].ToString(), data["ApellidoM"].ToString(), DateTime.Parse(data["FechaNac"].ToString()!), data["Curp"].ToString(), data["Sexo"].ToString(), data["Correo"].ToString(), data["CorreoInst"].ToString(), data["Tel"].ToString(), data["Direccion"].ToString(), data["NombrePadre"].ToString(), data["ApellidoPadre"].ToString(), data["NombreMadre"].ToString(), data["ApellidoMadre"].ToString(), Convert.ToInt32(data["Carrera"]), data["Curp"].ToString()!, 1, DateTime.Now, "ALTA"));
+        }
     }
 }

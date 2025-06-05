@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,22 +16,14 @@ using System.Windows.Shapes;
 namespace controlescolar
 {
     /// <summary>
-    /// Lógica de interacción para PageAgEmpleado.xaml
+    /// Lógica de interacción para PageEmpleados.xaml
     /// </summary>
-    public partial class PageAgEmpleado : Page
+    public partial class Alumlist : Page
     {
-        public PageAgEmpleado()
+        public Alumlist()
         {
             InitializeComponent();
         }
-        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
-    {
-        txtID.Text = string.Empty;
-        txtNombre.Text = string.Empty;
-        txtTelefono.Text = string.Empty;
 
-        cbGenero.SelectedIndex = -1;
-        cbPosiscion.SelectedIndex = -1;
-    }
     }
 }

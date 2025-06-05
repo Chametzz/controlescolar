@@ -30,6 +30,17 @@ public static class HandOfGod
             return new Dictionary<string, object>();
         }
     }
+    public static Dictionary<string, object> ExecuteSubmit(object sender, object form)
+    {
+        if (form is DependencyObject f)
+        {
+            return GetEntries(f);
+        }
+        else
+        {
+            return new Dictionary<string, object>();
+        }
+    }
     public static DependencyObject GetParent(DependencyObject ob)
     {
         return LogicalTreeHelper.GetParent(ob);
@@ -66,11 +77,13 @@ public static class HandOfGod
     public static void SetTags(DependencyObject ob, Dictionary<string, object?> dict, string nuller = "")
     {
         var data = GetTagsWidgets(ob);
+        Console.WriteLine($"{ob} | data: {data.Count}");
         foreach (var element in data)
         {
             string? tag = element.Tag?.ToString();
             if (element is TextBlock tb && tag != null)
             {
+                Console.WriteLine($"SET {tb}");
                 string newText = tag;
                 foreach (var k in HandOfGod.GetStringKeys(tag))
                 {
@@ -157,6 +170,10 @@ public static class HandOfGod
                 data.Add($"{chk.Tag}", chk.IsChecked);
             else if (entry is RadioButton rb)
                 data.Add($"{rb.Tag}", rb.IsChecked);*/
+        }
+        foreach (var item in data)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value}");
         }
         return data;
     }

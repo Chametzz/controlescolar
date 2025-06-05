@@ -5,7 +5,7 @@ public static class BolsaGlobal
 {
     //Propiedades específicas para usuarios logueados
     private static Alumno? _alumnoLogueado;
-    private static Administrativo? _adminLogueado;
+    private static Empleado? _adminLogueado;
     private static Empleado? _docenteLogueado;
 
     private static readonly List<KeyValuePair<string, object?>> _datos = new();
@@ -28,7 +28,7 @@ public static class BolsaGlobal
             }
         }
     }
-        public static Administrativo? AdminLogueado
+        public static Empleado? AdminLogueado
     {
         get => _adminLogueado;
         set

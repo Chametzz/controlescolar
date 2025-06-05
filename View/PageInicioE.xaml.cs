@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +23,9 @@ namespace controlescolar
         public InicioE()
         {
             InitializeComponent();
+            Console.WriteLine(Nombre);
+            HandOfGod.SetTags(PanelOne, BolsaGlobal.AlumnoLogueado, "-");
+            HandOfGod.SetTags(PanelTwo, BolsaGlobal.AlumnoLogueado, "-");
         }
     }
 }

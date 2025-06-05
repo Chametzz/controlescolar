@@ -25,11 +25,16 @@ namespace controlescolar
         }
         private void ButtonLogAdmon_Click(object sender, RoutedEventArgs e)
         {
-            Administracion ventanaAdministracion = new Administracion();
-            ventanaAdministracion.Show();
-            this.Close();
+            var data = HandOfGod.ExecuteSubmit(sender);
+            var admon = DB.ReadFirst<Empleado>("Id = @user AND Contrasena = @password AND Puesto = 'Personal de Administración'", ("@user", data["TxtNombreLog"]), ("@password", data["TxtContraseñaadmon"]));
+            if (admon != null)
+            {
+                Administracion ventanaAdministracion = new Administracion();
+                ventanaAdministracion.Show();
+                this.Close();
+            }
         }
-                private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Show();
             this.Close();

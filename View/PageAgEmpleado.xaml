@@ -24,34 +24,30 @@
 
         <WrapPanel Margin="10">
             <StackPanel Margin="5">
-                <TextBlock Text="Empleado Cedula"/>
-                <TextBox x:Name="txtEmpleadoCedula" Width="150"/>
+                <TextBlock Text="ID"/>
+                <TextBox x:Name="txtID" Width="150" Tag="Id"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Nombre Completo"/>
-                <TextBox x:Name="txtNombre" Width="150"/>
+                <TextBox x:Name="txtNombre" Width="150" Tag="Nombre"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Telefono"/>
-                <TextBox x:Name="txtTelefono" Width="150"/>
+                <TextBox x:Name="txtTelefono" Width="150" Tag="Tel"/>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Posicion"/>
-                <ComboBox x:Name="cbPosiscion" Width="150">
+                <ComboBox x:Name="cbPosiscion" Width="150" Tag="Puesto">
                     <ComboBoxItem Content="Docente Algebra"/>
                     <ComboBoxItem Content="Docente Cha"/>
                 </ComboBox>
             </StackPanel>
             <StackPanel Margin="5">
                 <TextBlock Text="Genero"/>
-                <ComboBox x:Name="cbGenero" Width="150">
+                <ComboBox x:Name="cbGenero" Width="150" Tag="Sexo">
                     <ComboBoxItem Content="Hombre"/>
                     <ComboBoxItem Content="Mujer"/>
                 </ComboBox>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Salario"/>
-                <TextBox x:Name="txtSalario" Width="150"/>
             </StackPanel>
         </WrapPanel>
 
@@ -59,7 +55,7 @@
             <Button Content="Añadir" Width="100" Margin="5" />
             <Button Content="Actualizar" Width="100" Margin="5"/>
             <Button Content="Eliminar" Width="100" Margin="5"/>
-            <Button Content="Limpiar" Width="100" Margin="5"/>
+            <Button Content="Limpiar" Width="100" Margin="5" Click="BtnLimpiar_Click" />
         </StackPanel>
     </StackPanel>
 </Page>

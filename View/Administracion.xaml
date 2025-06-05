@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:controlescolar"
         mc:Ignorable="d"
         Title="Administracion" Height="600" Width="950"
+              Tag="FormAdmon"
         ResizeMode="NoResize"
         WindowStyle="SingleBorderWindow"
         WindowStartupLocation="CenterScreen"
