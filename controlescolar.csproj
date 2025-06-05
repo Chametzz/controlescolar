@@ -9,9 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="database.db" />
     <None Remove="Recursos\admin-icon.png" />
     <None Remove="Recursos\student-icon.png" />
     <None Remove="Recursos\teacher-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="database.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="itext" Version="9.2.0" />
