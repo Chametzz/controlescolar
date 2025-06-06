@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +21,35 @@ namespace controlescolar
     /// </summary>
     public partial class PageHorario : Page
     {
-        List<HorarioFila> hs;
+        public ObservableCollection<HorarioFila> hs { get; set; }
         public PageHorario()
         {
             hs = [];
             InitializeComponent();
+            hs = new ObservableCollection<HorarioFila>
+            {
+                new HorarioFila
+                {
+                    Hora = "08:00 - 09:00",
+                    Materia = "Álgebra",
+                    Docente = "Mtro. Pérez",
+                    Creditos = 6,
+                    Lun = true,
+                    Mar = true,
+                    Mie = false
+                },
+                new HorarioFila
+                {
+                    Hora = "09:00 - 10:00",
+                    Materia = "Programación",
+                    Docente = "Dra. López",
+                    Creditos = 5,
+                    Jue = true,
+                    Vie = true
+                }
+            };
+            MatrizHorarios.ItemsSource = hs;
+
         }
 
         private void MatrizHorarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
