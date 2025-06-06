@@ -22,7 +22,7 @@ namespace Docentes_pantalla
     {
         public PageInicioDo()
         {
-            InitializeComponent();z
+            InitializeComponent();
         }
     }
 }
