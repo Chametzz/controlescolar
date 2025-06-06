@@ -16,7 +16,6 @@ using System.Windows.Shapes;
 namespace controlescolar
 {
     /// <summary>
-    /// Lógica de interacción para InicioE.xaml
     /// </summary>
     public partial class PageRecibos : Page
     {
