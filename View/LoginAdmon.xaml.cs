@@ -33,6 +33,10 @@ namespace controlescolar
                 ventanaAdministracion.Show();
                 this.Close();
             }
+            else
+            {
+            MessageBox.Show($"Usuario y contraseña no encontrado.\n", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
