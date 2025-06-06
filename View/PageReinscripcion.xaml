@@ -19,17 +19,7 @@
                     <Label Content="Matrícula" Tag="Matricula {MAT}"/>
                     <TextBox x:Name="txtMatricula"/>
 
-                    <Label Content="Nombre Completo" Tag="Alumno {Name}"/>
-                    <TextBox x:Name="txtNombre"/>
-
-                    <Label Content="Carrera" Tag="Carrera {Carrera}"/>
-                    <ComboBox x:Name="cmbCarrera">
-                        <ComboBoxItem Content="Ingeniería en Sistemas"/>
-                        <ComboBoxItem Content="Contaduría"/>
-                        <ComboBoxItem Content="Administración"/>
-                    </ComboBox>
-
-                    <Label Content="Semestre"/>
+                    <Label Content="Semestre" Tag="Semestre {Seme}"/>
                     <ComboBox x:Name="cmbSemestre">
                         <ComboBoxItem Content="1" Tag="Sem1: {Semestre 1}"/>
                         <ComboBoxItem Content="2" Tag="Sem2: {Semestre 2}"/>
