@@ -71,11 +71,7 @@ namespace controlescolar
 
         private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            
-=======
             LimpiarFormulario();
->>>>>>> cabdc23f1dc2a4837795291eb8e60b2f2aae5c24
         }
 
         private void LimpiarFormulario()

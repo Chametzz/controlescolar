@@ -28,39 +28,17 @@ namespace controlescolar
             InitializeComponent();
             CargarAlumnos();
         }
-<<<<<<< HEAD
-        private void BtnLimpiar_Click(object sender, RoutedEventArgs e)
-        {
-            
-=======
 
         private void CargarAlumnos()
         {
             ListaAlumnos = new ObservableCollection<Alumno>(DB.Read<Alumno>());
             DatosAlumnos.ItemsSource = ListaAlumnos;
->>>>>>> cabdc23f1dc2a4837795291eb8e60b2f2aae5c24
         }
 
         private void Button_Add(object sender, RoutedEventArgs e)
         {
             try
             {
-<<<<<<< HEAD
-                var data = HandOfGod.ExecuteSubmit(sender, FormAdd);
-                data.Add("Id_Carrera", data["Carrera"]);
-                data.Add("Semestre", 1);
-                data.Add("FechaIng", DateTime.Now);
-                data.Add("Estado", "ALTA");
-                var item = HandOfGod.GetObject<Alumno>(data!);
-                DB.Create(item);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Problema al registrar: {ex}");
-            }
-            
-            /*DB.Create(new Alumno(data["Nombre"].ToString(), data["ApellidoP"].ToString(), data["ApellidoM"].ToString(), DateTime.Parse(data["FechaNac"].ToString()!), data["Curp"].ToString(), data["Sexo"].ToString(), data["Correo"].ToString(), data["CorreoInst"].ToString(), data["Tel"].ToString(), data["Direccion"].ToString(), data["NombrePadre"].ToString(), data["ApellidoPadre"].ToString(), data["NombreMadre"].ToString(), data["ApellidoMadre"].ToString(), Convert.ToInt32(data["Carrera"]), data["Curp"].ToString()!, 1, DateTime.Now, "ALTA"));*/
-=======
                 var data = HandOfGod.ExecuteSubmit(sender);
                 Alumno alumno = new Alumno
                 {
@@ -213,7 +191,6 @@ namespace controlescolar
             ).ToList();
 
             DatosAlumnos.ItemsSource = filtrados;
->>>>>>> cabdc23f1dc2a4837795291eb8e60b2f2aae5c24
         }
     }
 }

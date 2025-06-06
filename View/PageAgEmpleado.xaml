@@ -8,30 +8,14 @@
       d:DesignHeight="800" d:DesignWidth="1000"
       Title="PageAgEmpleado">
 
-<<<<<<< HEAD
-    <StackPanel x:Name="FormAdd" Grid.Column="1" Margin="10" Background="#F9FAFB">
-        <TextBlock Text="Datos Empleado" FontWeight="Bold" FontSize="16" Margin="10"/>
-        <!--
-        <DataGrid x:Name="DatosEmpleado" AutoGenerateColumns="False" Height="200" Margin="10">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="40"/>
-                <DataGridTextColumn Header="Empleado Cedula" Binding="{Binding Empleado}" Width="100"/>
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="150"/>
-                <DataGridTextColumn Header="Genero" Binding="{Binding Genero}" Width="80"/>
-                <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" Width="100"/>
-                <DataGridTextColumn Header="Posicion" Binding="{Binding Posicion}" Width="150"/>
-                <DataGridTextColumn Header="Salario" Binding="{Binding Salario}" Width="80"/>
-            </DataGrid.Columns>
-        </DataGrid> -->
-=======
+<ScrollViewer>
     <Grid Background="#F9FAFB">
         <StackPanel x:Name="FormAdd" Margin="10">
->>>>>>> cabdc23f1dc2a4837795291eb8e60b2f2aae5c24
 
-            <!-- Título -->
+        
             <TextBlock Text="Datos Empleado" FontWeight="Bold" FontSize="16" Margin="10"/>
 
-            <!-- Tabla de empleados -->
+         
             <DataGrid x:Name="DatosEmpleado"
                       AutoGenerateColumns="False"
                       Height="200"
@@ -52,7 +36,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <!-- Formulario para agregar/editar empleados -->
+          
             <WrapPanel Tag="Form" Margin="10">
                 <StackPanel Margin="5">
                     <TextBlock Text="Nombre"/>
@@ -125,7 +109,7 @@
                 </StackPanel>
             </WrapPanel>
 
-            <!-- Botones -->
+        
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                 <Button Content="Añadir" Click="Button_Add" Width="100" Margin="5"/>
                 <Button Content="Actualizar" Width="100" Margin="5" Click="Actualizar_Click"/>
@@ -135,4 +119,5 @@
 
         </StackPanel>
     </Grid>
+    </ScrollViewer>
 </Page>
