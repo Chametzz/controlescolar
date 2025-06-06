@@ -1,1 +1,1 @@
-SELECT COLUMN FROM Horario
+DROP TABLE Materia

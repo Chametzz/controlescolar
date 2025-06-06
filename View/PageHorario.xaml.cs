@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,104 @@ namespace controlescolar
     /// </summary>
     public partial class PageHorario : Page
     {
+        public ObservableCollection<HorarioFila> hs { get; set; }
         public PageHorario()
         {
+            hs = [];
             InitializeComponent();
+            List<Calificacion> cals = DB.Read<Calificacion>(x => x.Id_Alumno == BolsaGlobal.AlumnoLogueado!.Id);
+            List<Curso> cursos = [];
+            foreach (var item in cals)
+            {
+                cursos.AddRange(DB.Read<Curso>($"Id = {item.Id_Curso}"));
+            }
+            List<Horario> hors = [];
+            foreach (var item in cursos)
+            {
+                hors.AddRange(DB.Read<Horario>($"Id_Curso = {item.Id}"));
+            }
+            foreach (var item in hors)
+            {
+                Curso c = DB.ReadFirst<Curso>($"Id = {item.Id_Curso}")!;
+                Materia m = DB.ReadFirst<Materia>($"Id = {c.Id_Materia}")!;
+                Empleado e = DB.ReadFirst<Empleado>($"Id = {c.Id_Docente}")!;
+                if (c != null)
+                {
+                    /*hs.Add(new HorarioFila
+                    {
+                        Hora = $"{item.HoraInicio:HH:mm} - {item.HoraFin:HH:mm}",
+                        Materia = m.Nombre,
+                        Docente = $"{e.Nombre} {e.Apellido}",
+                        Creditos = c.Creditos
+
+                    });*/
+
+                    AgregarHorario(
+                        $"{item.HoraInicio:HH:mm} - {item.HoraFin:HH:mm}",
+                        m.Nombre,
+                        $"{e.Nombre} {e.Apellido}",
+                        c.Creditos,
+                        DiasAEnumeracion([item.Dia])
+                    );
+                }
+                
+            }
+            MatrizHorarios.ItemsSource = hs;
+
+        }
+        public static DayOfWeek[] DiasAEnumeracion(IEnumerable<string> diasEnEspañol)
+        {
+            var mapa = new Dictionary<string, DayOfWeek>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "domingo", DayOfWeek.Sunday },
+                { "lunes", DayOfWeek.Monday },
+                { "martes", DayOfWeek.Tuesday },
+                { "miércoles", DayOfWeek.Wednesday },
+                { "miercoles", DayOfWeek.Wednesday }, // por si no llevan tilde
+                { "jueves", DayOfWeek.Thursday },
+                { "viernes", DayOfWeek.Friday },
+                { "sábado", DayOfWeek.Saturday },
+                { "sabado", DayOfWeek.Saturday } // sin tilde también
+            };
+
+            return diasEnEspañol
+                .Select(dia => 
+                    mapa.TryGetValue(dia.Trim().ToLower(), out var day) 
+                    ? day 
+                    : throw new ArgumentException($"Día inválido: {dia}")
+                )
+                .ToArray();
+        }
+        public void AgregarHorario(string hora, string materia, string docente, int creditos, params DayOfWeek[] dias)
+        {
+            var nuevaFila = new HorarioFila
+            {
+                Hora = hora,
+                Materia = materia,
+                Docente = docente,
+                Creditos = creditos
+            };
+
+            foreach (var dia in dias)
+            {
+                switch (dia)
+                {
+                    case DayOfWeek.Monday: nuevaFila.Lun = true; break;
+                    case DayOfWeek.Tuesday: nuevaFila.Mar = true; break;
+                    case DayOfWeek.Wednesday: nuevaFila.Mie = true; break;
+                    case DayOfWeek.Thursday: nuevaFila.Jue = true; break;
+                    case DayOfWeek.Friday: nuevaFila.Vie = true; break;
+                    case DayOfWeek.Saturday: nuevaFila.Sab = true; break;
+                    case DayOfWeek.Sunday: nuevaFila.Dom = true; break;
+                }
+            }
+
+            hs.Add(nuevaFila);
+        }
+
+        private void MatrizHorarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
     /*public partial class PageHorario : Page
