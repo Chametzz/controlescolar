@@ -17,11 +17,21 @@ namespace controlescolar
 {
     /// <summary>
     /// </summary>
-    public partial class PageRecibos : Page
+    public partial class PageReinscripcion : Page
     {
-        public PageRecibos()
+        public PageReinscripcion()
         {
             InitializeComponent();
         }
+        private void BtnReinscribir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Btnlimpiar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    
     }
+    
 }

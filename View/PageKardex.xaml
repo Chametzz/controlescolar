@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
 
-      Title="PageTickets"
+      Title="PageKardex"
       Background="White" Height="658" Width="964">
     <Page.Resources>
         <Style x:Key="MateriaCardStyle" TargetType="Border">
@@ -20,9 +20,10 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
     </Page.Resources>
-
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" Tag="PageKardex" VerticalScrollBarVisibility="Auto" RenderTransformOrigin="0.392,0.405" Margin="-132,-190,0,0">
+
+        
+         <ScrollViewer HorizontalScrollBarVisibility="Auto" Tag="PageKardex" VerticalScrollBarVisibility="Auto" RenderTransformOrigin="0.392,0.405" Margin="-132,-190,0,0">
             <ScrollViewer.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -62,7 +63,7 @@
                         <RowDefinition Height="*"/>
 
                     </Grid.RowDefinitions>
-
+                    
                     <Border x:Name="A1Materia1" Grid.Row="0" Grid.Column="0" Background="#fef9c3" Margin="5,5,5,5" CornerRadius="5">
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5">
                             <TextBlock Text="Español" FontWeight="Bold"
@@ -227,7 +228,6 @@
                             <TextBlock Text="Historia" FontWeight="Bold"/>
                         </StackPanel>
                     </Border>
-
                 </Grid>
             </StackPanel>
         </ScrollViewer>
