@@ -200,10 +200,12 @@ public static class DB{
                         }
                     }
                     string query = $"INSERT INTO {t.Name} ({q_cols}) VALUES ({q_params})";
+                    Console.WriteLine(query);
                     using (var command = new SQLiteCommand(query, connection))
                     {
                         foreach (var (k, v) in values)
                         {
+                            Console.WriteLine($"{k}: {v}");
                             command.Parameters.AddWithValue(k, v ?? DBNull.Value);
                         }
 

@@ -27,7 +27,7 @@
                         <Image Source="pack://application:,,,/Recursos/logo-controlescolar.jpeg" Width="80" Height="80"/>
 
                         <StackPanel Name="PanelOne" Grid.Column="1" Margin="10,0">
-                            <TextBlock x:Name="Nombre" Tag="Nombre: {Nombre } {ApellidoP}  {ApellidoM}" FontWeight="Bold" FontSize="14"/>
+                            <TextBlock x:Name="Nombre" Tag="Nombre: {Nombre} {ApellidoP} {ApellidoM}" FontWeight="Bold" FontSize="14"/>
                             <TextBlock x:Name="CorreoInst" Tag="Correo Institucioanl: {CorreoInst}" FontWeight="Bold" FontSize="14"/>
                             <TextBlock x:Name="Semestre" Tag="Semestre: {Semestre}"  FontWeight="Bold" FontSize="14"/>
                             <TextBlock x:Name="FechaIng" Tag="Fecha de Ingreso: {FechaIng}"  FontWeight="Bold" FontSize="14"/>

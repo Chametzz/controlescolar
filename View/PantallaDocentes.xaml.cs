@@ -35,12 +35,11 @@ namespace controlescolar
         private void BtnAggCal_Click(object sender, RoutedEventArgs e)
         {
             DocenteFrame.Navigate(new PageAggCal());
-
         }
-                private void BtnSalirDo_Click(object sender, RoutedEventArgs e)
+        private void BtnSalirDo_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Show();
-            this.Close(); 
+            this.Close();
         }
     }
 }
