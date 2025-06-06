@@ -40,6 +40,6 @@
                 <Button x:Name="BtnSalir" Tag="BtnSalir" Content="Salir" Margin="10" Padding="5" Click="BtnSalir_Click" />
             </StackPanel>
         </Grid>
-        <Frame x:Name="AlumnoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Margin="126,60,0,-40"/>
+        <Frame x:Name="AlumnoFrame" Grid.Column="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="3" Margin="116,60,10,-40"/>
     </Grid>
 </Window>

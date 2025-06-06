@@ -4,70 +4,29 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:controlescolar"
-      mc:Ignorable="d" d:DesignWidth="800"
+      mc:Ignorable="d" 
       Title="PageEditarDatos"
-      Background="White" Height="898">
+      Background="White" Height="942" Width="1250">
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="-46,-31,0,0">
         <StackPanel Margin="20">
             <Border BorderBrush="#DDD" BorderThickness="1" Padding="20" CornerRadius="10" Margin="0 0 0 20">
-                <StackPanel>
+                <StackPanel Height="188">
                     <TextBlock Text="Editar Domicilio" FontSize="18" FontWeight="Bold" Margin="0 0 0 10"/>
 
-                    <WrapPanel Margin="0 10" ItemHeight="60">
+                    <WrapPanel Margin="0 10" ItemHeight="40" Height="81">
                         <StackPanel Margin="5">
-                            <Label Content="Nombre"/>
-                            <TextBox x:Name="Nombre" Tag="TxtNombreAl" Width="250" Text="......."/>
-                        </StackPanel>
-
-                        <StackPanel Margin="5">
-                            <Label Content="Estado"/>
-                            <TextBox x:Name="Estado" Tag="TxtEstadoAl" Width="250" Text="......."/>
-                        </StackPanel>
-
-                        <StackPanel Margin="5">
-                            <Label Content="Municipio"/>
-                            <TextBox x:Name="Municipio" Tag="TxtMunicipioAl" Width="250" Text="......."/>
-                        </StackPanel>
-
-                        <StackPanel Margin="5">
-                            <Label Content="Ciudad"/>
-                            <TextBox x:Name="nombre" Tag="TxtCiudadAl" Width="250" Text="......."/>
-                        </StackPanel>
-
-                        <StackPanel Margin="5">
-                            <Label Content="Código postal"/>
-                            <TextBox x:Name="editCP" Tag="TxtCPAl"  Width="250" Text="........"/>
-                        </StackPanel>
-
-                        <StackPanel Margin="5">
-                            <Label Content="Colonia"/>
-                            <TextBox x:Name="Colina" Tag="TxtColoniaAl" Width="250" Text="......."/>
-                        </StackPanel>
-
-                        <StackPanel Margin="5">
-                            <Label Content="Calle"/>
-                            <TextBox x:Name="editCalle" Tag="TxtCalleAl" Width="250" Text="......."/>
-                        </StackPanel>
-
-                        <StackPanel Margin="5">
-                            <Label Content="Número exterior"/>
-                            <TextBox x:Name="editNumE" Tag="TxtNumExAl" Width="250" Text="......."/>
-                        </StackPanel>
-
-                        <StackPanel Margin="5">
-                            <Label Content="Número interior"/>
-                            <TextBox x:Name="editNumI" Tag="TxtNumIntAl" Width="250"/>
-                        </StackPanel>
-
-                        <StackPanel Margin="5">
-                            <Label Content="Teléfono casa"/>
-                            <TextBox x:Name="editTelCasa" Tag="TxtTelCasaAl" Width="250"/>
+                            <Label Content="Nombre" Height="50" Width="308"/>
+                            <TextBlock x:Name="Nombre" Tag="Nombre  ApellidoP  ApellidoM" FontWeight="Bold" FontSize="14"/>
                         </StackPanel>
 
                         <StackPanel Margin="5">
                             <Label Content="Teléfono celular"/>
-                            <TextBox x:Name="editTelCelular" Tag="TxtTeleAl" Width="250" Text="......."/>
+                            <TextBlock x:Name="editTelCelular" Tag="TxtTeleAl" Width="250"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Label Content="Dirección" Width="237"/>
+                            <TextBlock x:Name="editTelCasa" Tag="TxtTelCasaAl" Width="250"/>
                         </StackPanel>
                     </WrapPanel>
                     <Button x:Name="btnEnvEdit" Tag="BtnEnviarAl" Click="BtnEnvDatosAl_Click" Content="ENVIAR" HorizontalAlignment="Right" Background="#216b4a" Foreground="White" Width="100" Margin="0 10"/>
