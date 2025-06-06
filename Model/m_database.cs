@@ -117,7 +117,7 @@ public static class DB{
                 @"CREATE TABLE IF NOT EXISTS Horario (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     Id_Curso INTEGER NOT NULL,
-                    Dia INTEGER NOT NULL,
+                    Dia TEXT NOT NULL,
                     HoraInicio DATETIME NOT NULL,
                     HoraFin DATETIME NOT NULL,
                     FOREIGN KEY (Id_Curso) REFERENCES Curso(Id) ON DELETE CASCADE
@@ -136,6 +136,14 @@ public static class DB{
                     U6 INTEGER,
                     FOREIGN KEY (Id_Alumno) REFERENCES Alumno(Id) ON DELETE CASCADE,
                     FOREIGN KEY (Id_Curso) REFERENCES Curso(Id) ON DELETE CASCADE
+                );",
+                @"CREATE TABLE IF NOT EXISTS Kardex (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Id_Carrera INTEGER NOT NULL,
+                    Id_Materia INTEGER NOT NULL,
+                    Semestre INTEGER NOT NULL,
+                    FOREIGN KEY (Id_Carrera) REFERENCES Carrera(Id) ON DELETE CASCADE,
+                    FOREIGN KEY (Id_Materia) REFERENCES Materia(Id) ON DELETE CASCADE
                 );"
             };
 

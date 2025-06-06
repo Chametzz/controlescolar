@@ -171,14 +171,16 @@ public class Horario
 {
     public int Id { get; set; }
     public int Id_Curso { get; set; }
+    public string Dia { get; set; } = String.Empty;
     public DateTime HoraInicio { get; set; }
     public DateTime HoraFin { get; set; }
 
     public Horario() { }
 
-    public Horario(int idCurso, DateTime horaInicio, DateTime horaFin)
+    public Horario(int idCurso, string dia, DateTime horaInicio, DateTime horaFin)
     {
         Id_Curso = idCurso;
+        Dia = dia;
         HoraInicio = horaInicio;
         HoraFin = horaFin;
     }
@@ -198,7 +200,7 @@ public class Calificacion
 
     public Calificacion() { }
 
-    public Calificacion(int idAlumno, int idCurso, int? u1, int? u2, int? u3, 
+    public Calificacion(int idAlumno, int idCurso, int? u1, int? u2, int? u3,
                        int? u4, int? u5, int? u6)
     {
         Id_Alumno = idAlumno;
@@ -209,5 +211,20 @@ public class Calificacion
         U4 = u4;
         U5 = u5;
         U6 = u6;
+    }
+}
+
+public class Kardex
+{
+    public int Id { get; set; }
+    public int Id_Carrera { get; set; }
+    public int Id_Materia { get; set; }
+    public int Semestre { get; set; }
+    public Kardex() { }
+    public Kardex(int idCarrera, int idMateria, int semestre)
+    {
+        Id_Carrera = idCarrera;
+        Id_Materia = idMateria;
+        Semestre = semestre;
     }
 }

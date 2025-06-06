@@ -25,7 +25,11 @@
 
             <DataGrid x:Name="MatrizHorarios" Tag="MatrizHorarios" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Hora" Binding="{Binding Hora}" Width="80"/>
+                    <DataGridTextColumn Header="Hora" Binding="{Binding Hora}" Width="100"/>
+                    <DataGridTextColumn Header="Materia" Binding="{Binding Materia}" Width="200"/>
+                    <DataGridTextColumn Header="Docente" Binding="{Binding Docente}" Width="200"/>
+                    <DataGridTextColumn Header="Créditos" Binding="{Binding Creditos}" Width="80"/>
+
                     <DataGridCheckBoxColumn Header="Lun" Binding="{Binding Lun}" />
                     <DataGridCheckBoxColumn Header="Mar" Binding="{Binding Mar}" />
                     <DataGridCheckBoxColumn Header="Mie" Binding="{Binding Mie}" />
@@ -55,7 +59,7 @@
                         <Setter Property="BorderThickness" Value="0,0,1,1"/>
                     </Style>
                 </DataGrid.Resources>
-
+           
             </DataGrid>
         </StackPanel>
     </ScrollViewer>

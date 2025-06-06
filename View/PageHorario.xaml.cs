@@ -20,9 +20,16 @@ namespace controlescolar
     /// </summary>
     public partial class PageHorario : Page
     {
+        List<HorarioFila> hs;
         public PageHorario()
         {
+            hs = [];
             InitializeComponent();
+        }
+
+        private void MatrizHorarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
     /*public partial class PageHorario : Page
