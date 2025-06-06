@@ -5,100 +5,136 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:controlescolar"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="1000"
       Title="PageAgAlumnos">
 
-          <StackPanel Grid.Column="1" Margin="10" Background="#F9FAFB">
-        <TextBlock Text="Datos Empleado" FontWeight="Bold" FontSize="16" Margin="10"/>
-        <DataGrid x:Name="DatosEmpleado" AutoGenerateColumns="False" Height="200" Margin="10">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="40"/>
-                <DataGridTextColumn Header="NumeroControl" Binding="{Binding NoControl}" Width="100"/>
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="150"/>
-                <DataGridTextColumn Header="Genero" Binding="{Binding Genero}" Width="80"/>
-                <DataGridTextColumn Header="Telefono" Binding="{Binding Telefono}" Width="100"/>
-                <DataGridTextColumn Header="Grupo" Binding="{Binding Grupo}" Width="150"/>
-            </DataGrid.Columns>
-        </DataGrid>
+    <Grid Background="#F9FAFB">
+        <StackPanel x:Name="FormAdd" Margin="10">
 
-        <WrapPanel Tag="Form" Name="FormAdd" Margin="10">
-            <StackPanel Margin="5">
-                <TextBlock Text="Nombre"/>
-                <TextBox Tag="Nombre" x:Name="txtControl" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Apellido Paterno"/>
-                <TextBox Tag="ApellidoP"  Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Apellido Materno"/>
-                <TextBox Tag="ApellidoM" x:Name="txtTelefono" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Fecha de nacimiento"/>
-                <TextBox Tag="FechaNac" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="CURP"/>
-                <TextBox Tag="Curp" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Sexo"/>
-                <ComboBox Tag="Sexo" Width="150">
-                    <ComboBoxItem Content="Hombre"/>
-                    <ComboBoxItem Content="Mujer"/>
-                </ComboBox>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Correo"/>
-                <TextBox Tag="Correo" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Correo Institucional"/>
-                <TextBox Tag="CorreoInst" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Telefono"/>
-                <TextBox Tag="Tel"  Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Direccion"/>
-                <TextBox Tag="Direccion" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Nombre(s) del Padre"/>
-                <TextBox Tag="NombrePadre" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Apellido(s) del Padre"/>
-                <TextBox Tag="ApellidoPadre" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Nombre(s) de la Madre"/>
-                <TextBox Tag="NombreMadre" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Apellido(s) de la Madre"/>
-                <TextBox Tag="ApellidoMadre" Width="150"/>
-            </StackPanel>
-            <StackPanel Margin="5">
-                <TextBlock Text="Carrera"/>
-                <ComboBox Tag="Carrera" Width="150">
-                    <ComboBoxItem Content="1"/>
-                    <ComboBoxItem Content="2"/>
-                    <ComboBoxItem Content="3"/>
-                    <ComboBoxItem Content="4"/>
-                    <ComboBoxItem Content="5"/>
-                    <ComboBoxItem Content="6"/>
-                </ComboBox>
-            </StackPanel>
-        </WrapPanel>
+            <!-- Título -->
+            <TextBlock Text="Datos Alumno" FontWeight="Bold" FontSize="16" Margin="10"/>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Anadir" Click="Button_Add" Width="100" Margin="5" />
-            <Button Content="Actualizar" Width="100" Margin="5"/>
-            <Button Content="Eliminar" Width="100" Margin="5"/>
-            <Button Content="Limpiar" Width="100" Margin="5" Click="BtnLimpiar_Click"/>
+            <!-- DataGrid -->
+            <DataGrid x:Name="DatosAlumnos"
+                      AutoGenerateColumns="False"
+                      Height="200"
+                      Margin="10"
+                      IsReadOnly="True"
+                      SelectionMode="Single"
+                      SelectionChanged="DatosAlumnos_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="100"/>
+                    <DataGridTextColumn Header="Apellido P" Binding="{Binding ApellidoP}" Width="100"/>
+                    <DataGridTextColumn Header="Apellido M" Binding="{Binding ApellidoM}" Width="100"/>
+                    <DataGridTextColumn Header="CURP" Binding="{Binding Curp}" Width="150"/>
+                    <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" Width="150"/>
+                    <DataGridTextColumn Header="Correo Inst." Binding="{Binding CorreoInst}" Width="150"/>
+                    <DataGridTextColumn Header="Teléfono" Binding="{Binding Tel}" Width="100"/>
+                    <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" Width="150"/>
+                    <DataGridTextColumn Header="Carrera ID" Binding="{Binding Id_Carrera}" Width="100"/>
+                    <DataGridTextColumn Header="Semestre" Binding="{Binding Semestre}" Width="80"/>
+                    <DataGridTextColumn Header="Estado" Binding="{Binding Estado}" Width="80"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Formulario -->
+            <WrapPanel Tag="Form" Margin="10">
+                <StackPanel Margin="5">
+                    <TextBlock Text="Nombre"/>
+                    <TextBox x:Name="txtNombre" Tag="Nombre" Width="150" TextChanged="FiltroCampos_Changed"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Apellido Paterno"/>
+                    <TextBox x:Name="txtApellidoP" Tag="ApellidoP" Width="150" TextChanged="FiltroCampos_Changed"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Apellido Materno"/>
+                    <TextBox x:Name="txtApellidoM" Tag="ApellidoM" Width="150" TextChanged="FiltroCampos_Changed"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Fecha de nacimiento"/>
+                    <TextBox x:Name="txtFechaNac" Tag="FechaNac" Width="150"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="CURP"/>
+                    <TextBox x:Name="txtCurp" Tag="Curp" Width="150" TextChanged="FiltroCampos_Changed"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Sexo"/>
+                    <ComboBox x:Name="cbSexo" Tag="Sexo" Width="150" SelectionChanged="FiltroCampos_Changed">
+                        <ComboBoxItem Content="Hombre"/>
+                        <ComboBoxItem Content="Mujer"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Correo"/>
+                    <TextBox x:Name="txtCorreo" Tag="Correo" Width="150" TextChanged="FiltroCampos_Changed"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Correo Institucional"/>
+                    <TextBox x:Name="txtCorreoInst" Tag="CorreoInst" Width="150" TextChanged="FiltroCampos_Changed"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Teléfono"/>
+                    <TextBox x:Name="txtTel" Tag="Tel" Width="150" TextChanged="FiltroCampos_Changed"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Dirección"/>
+                    <TextBox x:Name="txtDireccion" Tag="Direccion" Width="150" TextChanged="FiltroCampos_Changed"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Nombre del Padre"/>
+                    <TextBox x:Name="txtNombrePadre" Tag="NombrePadre" Width="150"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Apellido del Padre"/>
+                    <TextBox x:Name="txtApellidoPadre" Tag="ApellidoPadre" Width="150"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Nombre de la Madre"/>
+                    <TextBox x:Name="txtNombreMadre" Tag="NombreMadre" Width="150"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Apellido de la Madre"/>
+                    <TextBox x:Name="txtApellidoMadre" Tag="ApellidoMadre" Width="150"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Carrera ID"/>
+                    <ComboBox x:Name="cbCarrera" Tag="Id_Carrera" Width="150" SelectionChanged="FiltroCampos_Changed">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
+                        <ComboBoxItem Content="6"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Semestre"/>
+                    <TextBox x:Name="txtSemestre" Tag="Semestre" Width="150" TextChanged="FiltroCampos_Changed"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Fecha de Ingreso"/>
+                    <TextBox x:Name="txtFechaIng" Tag="FechaIng" Width="150"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Estado"/>
+                    <TextBox x:Name="txtEstado" Tag="Estado" Width="150" TextChanged="FiltroCampos_Changed"/>
+                </StackPanel>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Contraseña"/>
+                    <PasswordBox x:Name="txtContrasena" Tag="Contrasena" Width="150"/>
+                </StackPanel>
+            </WrapPanel>
+
+            <!-- Botones -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Button Content="Añadir" Width="100" Margin="5" Click="Button_Add"/>
+                <Button Content="Actualizar" Width="100" Margin="5" Click="Actualizar_Click"/>
+                <Button Content="Eliminar" Width="100" Margin="5" Click="Eliminar_Click"/>
+                <Button Content="Limpiar" Width="100" Margin="5" Click="BtnLimpiar_Click"/>
+            </StackPanel>
+
         </StackPanel>
-    </StackPanel>
+    </Grid>
 </Page>

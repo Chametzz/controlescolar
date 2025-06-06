@@ -107,9 +107,9 @@ public class Alumno
     public string ApellidoPadre { get; set; } = string.Empty;
     public string NombreMadre { get; set; } = string.Empty;
     public string ApellidoMadre { get; set; } = string.Empty;
-    public int Id_Carrera { get; set; }
+    public int? Id_Carrera { get; set; }
     public string Contrasena { get; set; } = string.Empty;
-    public int Semestre { get; set; }
+    public int? Semestre { get; set; }
     public DateTime FechaIng { get; set; }
     public string Estado { get; set; } = string.Empty;
 
