@@ -40,11 +40,15 @@ namespace controlescolar
         {
             AdmonFrame.Navigate(new PageEmpleados());
         }
+        private void BtnRein_Click(object sender, RoutedEventArgs e)
+        {
+            AdmonFrame.Navigate(new PageReinscripcion());
+        }
 
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Show();
-            this.Close(); 
+            this.Close();
         }
     }
 }
