@@ -31,8 +31,22 @@ namespace controlescolar
 
         private void Button_Add(object sender, RoutedEventArgs e)
         {
-            var data = HandOfGod.ExecuteSubmit(sender, FormAdd);
-            DB.Create(new Alumno(data["Nombre"].ToString(), data["ApellidoP"].ToString(), data["ApellidoM"].ToString(), DateTime.Parse(data["FechaNac"].ToString()!), data["Curp"].ToString(), data["Sexo"].ToString(), data["Correo"].ToString(), data["CorreoInst"].ToString(), data["Tel"].ToString(), data["Direccion"].ToString(), data["NombrePadre"].ToString(), data["ApellidoPadre"].ToString(), data["NombreMadre"].ToString(), data["ApellidoMadre"].ToString(), Convert.ToInt32(data["Carrera"]), data["Curp"].ToString()!, 1, DateTime.Now, "ALTA"));
+            try
+            {
+                var data = HandOfGod.ExecuteSubmit(sender, FormAdd);
+                data.Add("Id_Carrera", data["Carrera"]);
+                data.Add("Semestre", 1);
+                data.Add("FechaIng", DateTime.Now);
+                data.Add("Estado", "ALTA");
+                var item = HandOfGod.GetObject<Alumno>(data!);
+                DB.Create(item);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Problema al registrar: {ex}");
+            }
+            
+            /*DB.Create(new Alumno(data["Nombre"].ToString(), data["ApellidoP"].ToString(), data["ApellidoM"].ToString(), DateTime.Parse(data["FechaNac"].ToString()!), data["Curp"].ToString(), data["Sexo"].ToString(), data["Correo"].ToString(), data["CorreoInst"].ToString(), data["Tel"].ToString(), data["Direccion"].ToString(), data["NombrePadre"].ToString(), data["ApellidoPadre"].ToString(), data["NombreMadre"].ToString(), data["ApellidoMadre"].ToString(), Convert.ToInt32(data["Carrera"]), data["Curp"].ToString()!, 1, DateTime.Now, "ALTA"));*/
         }
     }
 }

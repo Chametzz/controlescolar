@@ -188,4 +188,28 @@ public static class HandOfGod
         }
         return keys;
     }
+
+    public static T GetObject<T>(Dictionary<string, object?> dict) where T : new()
+    {
+        Type type = typeof(T);
+        T instance = new T();
+        PropertyInfo[] props = type.GetProperties();
+
+        foreach (var p in props)
+        {
+            if (dict.TryGetValue(p.Name, out var value) && value != null)
+            {
+                try
+                {
+                    var c = Convert.ChangeType(value, p.PropertyType);
+                    p.SetValue(instance, c);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"No se pudo crear la instancia: {e}");
+                }
+            }
+        }
+        return instance;
+    }
 }
